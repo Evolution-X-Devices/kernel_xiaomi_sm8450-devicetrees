@@ -1,4 +1,5 @@
 #include <dt-bindings/iio/qti_power_supply_iio.h>
+#include <dt-bindings/iio/qcom,spmi-adc7-pmk8350.h>
 #include "ln8000.dtsi"
 #include "tcpc_config.dtsi"
 
@@ -59,10 +60,10 @@
 	status = "ok";
 	#address-cells = <1>;
 	#size-cells = <0>;
-	bq25890_main: bq25890@6A {
+	bq25890_main: bq25890@6a {
 		#io-channel-cells = <1>;
 		compatible = "ti,bq2589x-charger";
-		reg = <0x6A>;
+		reg = <0x6a>;
 
 		interrupt-parent = <&tlmm>;
 		interrupts = <19 0>;
@@ -301,6 +302,7 @@
 			<&bq27z561_fg PSY_IIO_BQFG_TIME_OT>,
 			<&bq27z561_fg PSY_IIO_BQFG_REG_RSOC>,
 			<&bq27z561_fg PSY_IIO_BQFG_RM>,
+			<&bq27z561_fg PSY_IIO_BQFG_MAX_LIFE_VOL>,
 
 			<&rt17xx_pd PSY_IIO_RT_PD_ACTIVE>,
 			<&rt17xx_pd PSY_IIO_RT_PD_CURRENT_MAX>,
@@ -400,6 +402,7 @@
 			"bqfg_time_ot",
 			"bqfg_reg_rsoc",
 			"bqfg_rm",
+			"bqfg_max_life_vol",
 
 			"rt_pd_active",
 			"rt_pd_current_max",
@@ -419,4 +422,3 @@
 			"typec_conn_therm";
 	};
 };
-
