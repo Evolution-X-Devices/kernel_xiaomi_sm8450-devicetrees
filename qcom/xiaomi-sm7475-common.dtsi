@@ -24,6 +24,7 @@
 
 &pm8350b_haptics {
 	qcom,vmax-mv = <1450>;
+	qcom,fifo-vmax-mv = <4200>;
 	qcom,lra-f0-cal-count = <592>;
 	qcom,lra-f0-default = <170>;
 	qcom,lra-f0-max = <180>;
