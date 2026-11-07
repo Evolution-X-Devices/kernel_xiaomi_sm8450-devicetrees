@@ -2970,7 +2970,11 @@
 #include "waipio-walt.dtsi"
 
 #include "audio/waipio-audio.dtsi"
+#ifdef CAPE_SOC_UKEE
+#include "camera/ukee-camera.dtsi"
+#else
 #include "camera/cape-camera.dtsi"
+#endif
 #include "display/display/cape-sde.dtsi"
 #include "dsp/cape/cape-dsp.dtsi"
 #include "eva/waipio-eva.dtsi"
