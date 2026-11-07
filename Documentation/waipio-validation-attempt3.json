@@ -1,0 +1,200 @@
+{
+  "recovery": {
+    "modules": 261,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "vendor_dlkm_ramdisk": {
+    "modules": 348,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "dtbs": [
+    {
+      "model": "Qualcomm Technologies, Inc. Cape SoC",
+      "soc_ids": [
+        530,
+        65536
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "soc_ids": [
+        457,
+        131072
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio SoC",
+      "soc_ids": [
+        457,
+        65536
+      ]
+    }
+  ],
+  "dtbos": [
+    {
+      "model": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Diting based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "thor based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0,
+        50397192,
+        3
+      ]
+    },
+    {
+      "model": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    }
+  ],
+  "images": {
+    "boot.img": {
+      "size": 201326592,
+      "sha256": "5d4e74a8d2f7c92b3b9d3517e0b9c356f6432e1859e3a2cdb7478808c7f16c20"
+    },
+    "vendor_boot.img": {
+      "size": 100663296,
+      "sha256": "b1ce8ff497fec1187968605c962275c66dfafaaf7a09076195f57f82bad9b837"
+    },
+    "recovery.img": {
+      "size": 104857600,
+      "sha256": "4699c74c2179b928657290adfdc81b6a384827dc8d804f6c8bfa942217b64b5e"
+    },
+    "dtbo.img": {
+      "size": 25165824,
+      "sha256": "21b67b40a2f2f0e3b3a5958557aa6ab8ee611e0ab3eb5963f3fb2c81d315363f"
+    },
+    "vendor_dlkm.img": {
+      "size": 71454720,
+      "sha256": "2d8bca925662bde9943dd219f2b9d9eb73f1167c7fee5e71f230bbab79d844d2"
+    },
+    "system_dlkm.img": {
+      "size": 11653120,
+      "sha256": "7d9af895a8173c13a3dd5c4f94843a135deba1a84421b091c3b36193d99e1da8"
+    }
+  },
+  "binding_checks": {
+    "display_rpmh_parent": true,
+    "usb_bam_register_cells": true,
+    "matching_overlay_applications": 10,
+    "adsp_firmware_span": 51380224,
+    "adsp_carveout_fits_firmware": true,
+    "adsp_xbl_no_static_overlap": true,
+    "usb_bam_type_matches_driver": true
+  },
+  "system_dlkm": {
+    "module_count": 79,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  },
+  "vendor_dlkm": {
+    "module_count": 361,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  }
+}

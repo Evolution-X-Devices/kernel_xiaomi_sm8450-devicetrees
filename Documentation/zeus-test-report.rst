@@ -147,3 +147,18 @@ DSP/audio, sensors, WLAN, Bluetooth, modem, GPU, camera, video, suspend,
 reboot and sustained stability remain unverified. Raw logs, DT and firmware
 metadata are in out/waipio-zeus/evidence/attempt-2 with a checksum manifest.
 The phone remains in attempt-2 recovery; no third deployment has occurred.
+
+Prepared ADSP recovery retry
+----------------------------
+
+All six images rebuild successfully with f989a61e0 and 6c5a107ba. The actual
+packaged base DTs pass the firmware-size, nonoverlapping ADSP/XBL reservation
+and USB BAM controller-type checks. All ten matching overlays apply.
+Ramdisk and filesystem-image module dependency checks pass. Exact hashes
+and checks are in waipio-validation-attempt3.json and the immutable
+out/waipio-zeus/attempt3-images directory, alongside TEST-PLAN.txt.
+
+This retry targets ADSP startup and battery/charging reporting; it does not
+claim a touchscreen fix. It has not been deployed and requires approval
+for the four named slot-a writes and recovery reboot. The current phone
+state is still the successful attempt-2 recovery.
