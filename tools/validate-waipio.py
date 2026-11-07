@@ -112,6 +112,26 @@ def check_bindings(path, adsp_span=None):
     for name, properties in nodes.items():
         compatible = properties.get('compatible', b'').split(b'\0')
         parent = nodes.get(name.rpartition('/')[0], {})
+        if b'qcom,kgsl-3d0' in compatible:
+            revision_ids = {
+                b'qcom,adreno-gpu-gen7-0-0': 0x07030000,
+                b'qcom,adreno-gpu-gen7-0-1': 0x07030001,
+            }
+            for revision, chipid in revision_ids.items():
+                if revision in compatible and properties.get('qcom,chipid') != struct.pack('>I', chipid):
+                    raise ValueError(f'{path}: {name} lacks its Waipio GPU revision ID')
+            clocks = properties.get('clocks', b'')
+            position = count = 0
+            while position < len(clocks):
+                handle = int.from_bytes(clocks[position:position + 4], 'big')
+                provider = phandles.get(handle)
+                if provider is None or '#clock-cells' not in provider:
+                    raise ValueError(f'{path}: {name} has an invalid GPU clock reference')
+                position += 4 * (1 + int.from_bytes(provider['#clock-cells'], 'big'))
+                count += 1
+            names = properties.get('clock-names', b'').rstrip(b'\0').split(b'\0')
+            if position != len(clocks) or count != len(names):
+                raise ValueError(f'{path}: {name} GPU clocks disagree with clock-names')
         if b'qcom,sde-rsc-rpmh' in compatible:
             # rpmh.c interprets the immediate parent's data as rsc_drv.
             if 'qcom,drv-id' not in parent or 'qcom,tcs-offset' not in parent:
