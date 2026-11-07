@@ -678,3 +678,38 @@ behavior and the watchdog cause remain unverified at this checkpoint.
 The tested slot-A recovery fallback remains protected. If early ADB permits
 startup, later USB/suspend comparison is still needed because USB activity
 can affect wake-lock timing. No driver or watchdog has been disabled.
+
+System attempt 4: Android ADB, rendering and audio dependency diagnosis
+---------------------------------------------------------------------
+
+Root Android ADB appeared on slot B at 21:00:44 UTC and allowed continuous
+kernel/logcat capture plus a full initial system snapshot. Data/UFS mounted,
+all four remoteprocs reported running, and camera CPAS bound successfully.
+Full camera operation remains unverified. The system remained connected
+past the earlier watchdog reset point, with drivers/watchdog enabled. USB
+wake-lock conditions differ, so the prior watchdog cause is not yet proven.
+
+SurfaceFlinger repeatedly aborted during buffer texture import, with Adreno
+mapper metadata errors and missing qcom,system-uncached heap allocations.
+Display initialization 692023c723 had selected SnapAlloc only for Cape.
+A reversible runtime trial set vendor.gralloc.hw_supports_ubwcp=0 and
+vendor.gralloc.enable_snapalloc=1, then restarted allocator/composer and
+SurfaceFlinger. The crash loop stopped, SurfaceFlinger reported Qualcomm
+Adreno 730 / OpenGL ES 3.2, and the user confirmed the Lineage boot animation.
+Display-HAL d323b067bb adapts the existing Cape initialization to Waipio,
+retaining the original author and using a fresh Change-Id. Its initial
+revision/status is recorded under the attempt-4 evidence directory.
+
+Android startup still waits in AudioService: the main-thread ANR shows an
+AudioPolicyService wait, audioserver waits for AIDL IConfig/default, and the
+audio HAL backtrace waits in libagm device_init with no registered card.
+SPF cannot query APM because GPR remains DOWN. The four PD-mapper auxiliary
+devices exist but have no bound driver; the loaded module has no clients.
+The mapper matches qcom,cape and upstream qcom,sm8450 but not the actual
+qcom,waipio root. Zeus's seven installed firmware service descriptors match
+the unchanged Cape domain/instance/service table exactly. Kernel
+254ca128bb95 adapts Cape 1c0e4d1473ab by adding this downstream compatible.
+Runtime after the mapper fix and full startup remain pending; candidate 5
+is building. Detailed evidence and the supported firmware domains are in
+zeus-system-attempt-4.json. This extends the migration audit beyond DTs to
+kernel service matching and display-HAL initialization.

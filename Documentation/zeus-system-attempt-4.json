@@ -1,0 +1,97 @@
+{
+  "candidate": 4,
+  "ota_sha256": "cf2d83c9f5959cdfbaa7dd34032530fea9357cbe05a6822b26434a6b5e1e323d",
+  "evidence": "out/waipio-zeus/evidence/system-attempt-4",
+  "installation": {
+    "started_utc": "2026-11-07T20:56:51.671472+00:00",
+    "finished_utc": "2026-11-07T21:00:11.014060+00:00",
+    "exit_code": 0,
+    "ota_sha256": "cf2d83c9f5959cdfbaa7dd34032530fea9357cbe05a6822b26434a6b5e1e323d"
+  },
+  "initial_runtime": [
+    "Root Android ADB on slot B, matching build/kernel/SoC identity",
+    "Data/UFS mounted; all four remoteprocs report running",
+    "CPAS now binds; full camera operation unverified",
+    "Repeated SurfaceFlinger texture-import aborts on legacy allocator; sys.boot_completed absent"
+  ],
+  "runtime_trial": {
+    "properties": {
+      "vendor.gralloc.hw_supports_ubwcp": "0",
+      "vendor.gralloc.enable_snapalloc": "1"
+    },
+    "restart_services": [
+      "vendor.qti.hardware.display.allocator",
+      "vendor.qti.hardware.display.composer",
+      "surfaceflinger"
+    ],
+    "result": "SurfaceFlinger remains running and reports Qualcomm Adreno730/OpenGL ES3.2; user confirms Lineage boot animation",
+    "source_fix": "hardware/qcom-caf/sm8450-6.6/display/hal d323b067bb",
+    "origin": "692023c723e25844dc69362e534c1ba6f47139dc",
+    "permanent_image_test": "pending"
+  },
+  "startup_blocker": {
+    "system_server": "Waits for AudioPolicyService while constructing AudioService",
+    "audioserver": "Waits for AIDL IConfig/default",
+    "audio_hal": "libagm device_init waits for sound card; /proc/asound/cards empty",
+    "kernel": "SPF APM check fails because GPR q6 state remains DOWN; no sound-card children populated",
+    "mapper": "All four auxiliary devices exist, but have no driver link; loaded mapper refcount zero; root compatible qcom,waipio has no original match",
+    "firmware_domains": [
+      {
+        "source": "adspr.json",
+        "domain": "msm/adsp/root_pd",
+        "instance": 74,
+        "services": []
+      },
+      {
+        "source": "adspua.json",
+        "domain": "msm/adsp/audio_pd",
+        "instance": 74,
+        "services": [
+          "avs/audio"
+        ]
+      },
+      {
+        "source": "battmgr.json",
+        "domain": "msm/adsp/charger_pd",
+        "instance": 74,
+        "services": []
+      },
+      {
+        "source": "cdspr.json",
+        "domain": "msm/cdsp/root_pd",
+        "instance": 76,
+        "services": []
+      },
+      {
+        "source": "modemr.json",
+        "domain": "msm/modem/root_pd",
+        "instance": 180,
+        "services": [
+          "gps/gps_service"
+        ]
+      },
+      {
+        "source": "slpir.json",
+        "domain": "msm/slpi/root_pd",
+        "instance": 90,
+        "services": []
+      },
+      {
+        "source": "slpius.json",
+        "domain": "msm/slpi/sensor_pd",
+        "instance": 90,
+        "services": []
+      }
+    ],
+    "firmware_domains_match_unchanged_cape_table": true,
+    "source_fix": "sm8450-kernel 254ca128bb95",
+    "origin": "1c0e4d1473ab1730745a18b20b2a960bd0f2c4cf",
+    "runtime_after_fix": "pending"
+  },
+  "limitations": [
+    "Full boot and audio still unverified",
+    "No watchdog reset in this connected diagnostic run yet; earlier watchdog cause unresolved, USB wake-lock conditions differ",
+    "Cupid and Cape runtime unverified",
+    "No driver/watchdog disabling or data wipe"
+  ]
+}
