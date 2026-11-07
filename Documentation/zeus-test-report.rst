@@ -488,3 +488,52 @@ boot, and the camera fix is not runtime-verified. The approved fallback
 requires Fastboot access to select physical slot a and boot its tested
 recovery, then collect new minidump/pstore logs. No rescue slot change or
 additional partition write has been performed at this point.
+
+System attempt 2: watchdog resets recovered from valid dump sections
+-------------------------------------------------------------------
+
+The user reported Fastboot. Read-only getvar checks found product zeus,
+current slot a, and slot b unsuccessful/unbootable with retry count zero.
+The bootloader had already selected a; the approved recovery return used
+only reboot recovery. Root ADB returned, with charging/Good, ADSP running
+and empty pstore. No rescue partition flash or set_active was required.
+
+Readbacks of boot_b, vendor_boot_b, dtbo_b and recovery_b exactly match
+candidate 2. The new minidump contains five changed valid records with
+Android log timestamps from 18:54:30 through 18:58:01 UTC on 2026-11-07.
+Their hypervisor diagnostics report watchdog bites from VM 3 around
+24.7--25.7 seconds. Current saved kernel logs have no panic and reach
+F2FS data mounting and Android userspace. A full boot and credential
+decryption remain unverified. The cause of the watchdog expiry is still
+unresolved; a watchdog report alone does not identify the stalled code.
+
+The sixth valid record is unchanged from attempt 1 and contains its old
+camera panic/build ID. Raw string scanning also reads stale bytes in
+unused portions of the 6 MiB dump slots. The initial unbounded derivatives
+are retained under unbounded-strings-scan but superseded. Use the actual
+header section offsets/sizes, dump-N/kernel.txt, decoded md_pmsg logs and
+valid-dump-analysis.json. Raw captures, dump-age proof, image readback proof
+and watchdog-excerpt.txt remain under the attempt-2 evidence directory.
+
+Current logs separately show the v2 GPU probe rejected for missing chip ID
+and a camera CPAS component bind failure with -EINVAL. 4c0b57cbd supplies
+Waipio v1/v2 IDs 0x07030000/0x07030001 from the pinned 5.10 adreno-gpulist.h
+and removes the obsolete GPU AOSS clock argument. Power tables and revision
+compatibles remain intact. bdb05b328 rejects the candidate-2 GPU DT and
+accepts all ten corrected combinations, with the six Cape trees unchanged.
+These fixes are not yet GPU runtime verification or proof of watchdog cause.
+
+Common-device bc8b7438 adds a temporary debug-build service gated to Zeus.
+It saves a bounded post-fs-data kernel snapshot, watchdog bindings/module
+state and relocation symbols, and retains informational console output.
+This addresses console filtering of camera errors logged at KERN_INFO;
+drivers and watchdog remain enabled. Existing user debug edits are intact.
+A third complete build is being prepared. The user explicitly authorized
+installing that described candidate after validation, without another
+confirmation, with the tested slot-a recovery as the fallback.
+
+A separate WLAN failure is recorded: CNSS requests qca6490/amss20.bin,
+while the installed firmware has amss20.bin and m3.bin at the image root.
+The current candidate does not change this path. Camera CPAS, WLAN and
+the watchdog need further diagnosis; Android/Cupid/Cape runtime remain
+unverified.

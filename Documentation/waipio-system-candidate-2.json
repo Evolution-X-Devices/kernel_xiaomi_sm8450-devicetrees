@@ -418,6 +418,8 @@
       }
     ]
   },
-  "deployment_status": "User explicitly approved and eat installed the exact OTA successfully (exit 0, Total xfer 1.00x, finished 2026-11-07T18:52:22Z). Android ADB has not appeared; screen observation and boot outcome pending. Approved fallback is slot-a recovery. No boot success claim.",
-  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-2"
+  "deployment_status": "FAILED: installed successfully, followed by repeated hypervisor watchdog resets around 25 seconds. Bootloader exhausted B retries, marked B unbootable and selected A. Returned to working A recovery with root ADB via reboot recovery; no rescue flash or slot change was needed. Root cause remains unresolved.",
+  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-2",
+  "diagnostic_evidence": "out/waipio-zeus/evidence/system-attempt-2/valid-dump-analysis.json",
+  "installed_image_proof": "out/waipio-zeus/evidence/system-attempt-2/slot-b-image-proof.json"
 }

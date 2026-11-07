@@ -1747,10 +1747,10 @@
     {
       "path": "qcom/waipio-gpu.dtsi",
       "reference_path": "qcom/waipio-gpu.dtsi",
-      "same_bytes": true,
-      "sha256": "4cb0d0fa38e8f221245f640cc455698f0f9979e8d9bcb8bcbf2e1848897a6b3f",
+      "same_bytes": false,
+      "sha256": "d27c00d10d042dd124a0928a37272acaa5f27a46c10135255061be844f67ebda",
       "reference_sha256": "4cb0d0fa38e8f221245f640cc455698f0f9979e8d9bcb8bcbf2e1848897a6b3f",
-      "review": "Byte-identical to pinned Xiaomi reference."
+      "review": "Original Waipio revision-specific tables retained. Follow-up 4c0b57cbd supplies the v1/v2 chip IDs required by the actual 6.6 KGSL driver; base GPU AOSS clock reference also follows its migrated zero-cell provider."
     },
     {
       "path": "qcom/waipio-pcie.dtsi",
@@ -1843,10 +1843,10 @@
     {
       "path": "qcom/waipio-v2-gpu.dtsi",
       "reference_path": "qcom/waipio-v2-gpu.dtsi",
-      "same_bytes": true,
-      "sha256": "d44bb879e51ffe6ac4457ae4d2572c0851018ff9e0ab1e62296713880f593e68",
+      "same_bytes": false,
+      "sha256": "87eb88b8e93fc6d32e4ed343f117f156d0c49910e852a99d833cf272be7d9c32",
       "reference_sha256": "d44bb879e51ffe6ac4457ae4d2572c0851018ff9e0ab1e62296713880f593e68",
-      "review": "Byte-identical to pinned Xiaomi reference."
+      "review": "Original Waipio revision-specific tables retained. Follow-up 4c0b57cbd supplies the v1/v2 chip IDs required by the actual 6.6 KGSL driver; base GPU AOSS clock reference also follows its migrated zero-cell provider."
     },
     {
       "path": "qcom/waipio-v2.dts",
@@ -1925,6 +1925,10 @@
     {
       "commit": "f1ee6531e36f75225896d8dd04c8e95a22dba670",
       "reason": "System-boot camera SMMU discard mismatch and incomplete IOVA reservation migration; not a missing post-snapshot Xiaomi commit."
+    },
+    {
+      "commit": "4c0b57cbd",
+      "reason": "System logs show v2 GPU probe rejected without qcom,chipid. Values come from the 5.10 adreno-gpulist.h; included GPU clock reference also needed zero-cell AOSS adaptation. Current hypervisor watchdog cause remains unproven."
     }
   ]
 }
