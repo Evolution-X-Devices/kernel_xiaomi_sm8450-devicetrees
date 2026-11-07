@@ -1,0 +1,105 @@
+{
+  "candidate": 6,
+  "installation": {
+    "started_utc": "2026-11-07T22:03:10.430462+00:00",
+    "finished_utc": "2026-11-07T22:06:45.791629+00:00",
+    "exit_code": 0,
+    "ota_sha256": "469d913858d455e37320cdc3eba755b369c7bac3b6007cfa26e58eccb109e677"
+  },
+  "cold_boot": {
+    "utc": "2026-11-07T22:07:19.960676+00:00",
+    "adb_state": "device",
+    "boot_properties": "1\n_b\n1794087715\n27.49 120.95\n"
+  },
+  "expected_build_incremental": "1794087715",
+  "kernel": "6.6.144-android15-8-g254ca128bb95-dirty-4k",
+  "slot": "b",
+  "physical_images": [
+    {
+      "partition": "boot_b",
+      "sha256": "43f606b2b5ec4eb36d5c9e642d1ad8041313bf0408698590e6e713d503fd57ce",
+      "matches_frozen_candidate_6": true
+    },
+    {
+      "partition": "vendor_boot_b",
+      "sha256": "109e38be01cabff755222a78175e6835b3c9a93e73762298916f1ce7494e99ee",
+      "matches_frozen_candidate_6": true
+    },
+    {
+      "partition": "dtbo_b",
+      "sha256": "98371349b88a7a99bde9fd6507b01c9cd58490a31cf85995a42313e8cd5a63a2",
+      "matches_frozen_candidate_6": true
+    },
+    {
+      "partition": "recovery_b",
+      "sha256": "3a4f119c13c7ed8b8477b737e8a810df3bbbe9a2a5575345d531f67052ced350",
+      "matches_frozen_candidate_6": true
+    }
+  ],
+  "nfc": {
+    "automatic_module_load": true,
+    "node": "/dev/nq-nci",
+    "node_mode": "0660 nfc:nfc, nfc_device label",
+    "hal": "running",
+    "framework_state": "on",
+    "module_sha256": "31aad2a10f01895c23a949c106413540ba1362711fe5e92719bf47fcc504fcb2",
+    "identical_to_successful_live_tag_test": true,
+    "manual_insmod_or_service_restart_after_boot": false
+  },
+  "sound_card": "waipio-mtp-snd-card",
+  "refresh_settings_restored": {
+    "min": "null",
+    "peak": "Infinity"
+  },
+  "cape_regression": {
+    "result": "PASS",
+    "audio_target_product": "mondrian",
+    "elapsed_seconds": 243.243,
+    "log": "out/waipio-zeus/full-build-6/cape-build.log",
+    "built_flat_modules": 441,
+    "cape_dt_comparison": [
+      {
+        "board": "diting",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "mayfly",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "mondrian",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "thor",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "unicorn",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "zizhan",
+        "cape_dt_unchanged": true
+      }
+    ],
+    "both_ufs_phys_present": true,
+    "nfc_module_present": true
+  },
+  "previous_subsystem_tests": "zeus-system-attempt-5.json",
+  "evidence": "out/waipio-zeus/evidence/system-attempt-6",
+  "validation_conditions": {
+    "selinux": "Permissive from the protected pre-existing local boot configuration",
+    "kernel": "Includes protected pre-existing power-key edits",
+    "other_debug_work": "Preserved local module-load and kernel-init edits",
+    "these_user_changes_published": false,
+    "enforcing_mode_qualified": false
+  },
+  "remaining": [
+    "Dynamic-refresh video pacing: hardware decoding works; fixed-60Hz diagnostic was smoother, original settings restored; permanent fix pending",
+    "Longer idle-power and sustained stability qualification",
+    "Cellular calls/data not tested: both SIM slots absent",
+    "Cupid and Cape runtime unverified",
+    "SPMI SID5 version-read warning remains recorded; no claimed fix"
+  ]
+}

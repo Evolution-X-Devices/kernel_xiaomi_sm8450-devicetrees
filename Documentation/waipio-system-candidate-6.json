@@ -50,7 +50,41 @@
     ],
     "protected_fallback": "Tested recovery A remains unchanged",
     "authorization": "out/waipio-zeus/hardware-test-authorization.json",
-    "cape_build": "Candidate 5 PASS; candidate 6 module-group regression running separately"
+    "cape_build": {
+      "result": "PASS",
+      "audio_target_product": "mondrian",
+      "elapsed_seconds": 243.243,
+      "log": "out/waipio-zeus/full-build-6/cape-build.log",
+      "built_flat_modules": 441,
+      "cape_dt_comparison": [
+        {
+          "board": "diting",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "mayfly",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "mondrian",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "thor",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "unicorn",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "zizhan",
+          "cape_dt_unchanged": true
+        }
+      ],
+      "both_ufs_phys_present": true,
+      "nfc_module_present": true
+    }
   },
   "packaging_checks": {
     "source_revisions": {
@@ -462,7 +496,39 @@
       }
     ],
     "cape_kernel_modules_regression": {
-      "status": "candidate 5 PASS; existing kernel code unchanged; NFC module addition will be checked with the Cape audio flag"
+      "result": "PASS",
+      "audio_target_product": "mondrian",
+      "elapsed_seconds": 243.243,
+      "log": "out/waipio-zeus/full-build-6/cape-build.log",
+      "built_flat_modules": 441,
+      "cape_dt_comparison": [
+        {
+          "board": "diting",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "mayfly",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "mondrian",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "thor",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "unicorn",
+          "cape_dt_unchanged": true
+        },
+        {
+          "board": "zizhan",
+          "cape_dt_unchanged": true
+        }
+      ],
+      "both_ufs_phys_present": true,
+      "nfc_module_present": true
     },
     "zeus_diagnostics_in_final_vendor_image": {
       "/etc/init/init.zeus-bringup.rc": "0698ec32644c5970d55d84f5fc0663c27f770a2f7f8ea277a6f236b0c57ad18a",
@@ -478,12 +544,16 @@
       "compatible": "qcom,sn-nci"
     }
   },
-  "deployment": "Validated; returning through protected A recovery for eat installation on B under standing authorization.",
+  "deployment": "eat exit 0 at 2026-11-07T22:06:45 UTC; independent boot completed at 22:07:19 UTC, uptime 27.49 seconds; NFC initializes automatically.",
   "runtime_predecessor": "zeus-system-attempt-5.json",
   "source_manifest": "sm8450-build/zeus-manifest.xml selects the published cupid-development branches",
   "limitations": [
-    "Cold-boot NFC validation pending",
-    "Video refresh pacing remains unresolved; original settings restored",
-    "Cupid/Cape runtime unverified"
-  ]
+    "Dynamic-refresh video pacing: hardware decoding works; fixed-60Hz diagnostic was smoother, original settings restored; permanent fix pending",
+    "Longer idle-power and sustained stability qualification",
+    "Cellular calls/data not tested: both SIM slots absent",
+    "Cupid and Cape runtime unverified",
+    "SPMI SID5 version-read warning remains recorded; no claimed fix",
+    "Hardware tests used preserved local permissive/debug configuration; enforcing mode unverified."
+  ],
+  "runtime_report": "zeus-system-attempt-6.json"
 }

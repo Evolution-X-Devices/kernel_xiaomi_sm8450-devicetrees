@@ -869,3 +869,44 @@ and the reboot test will follow installation through tested recovery A;
 the video-pacing issue remains open. The source series has been published
 to cupid-development, including the display-HAL dependency and a complete
 source manifest in the build repository. Uncommitted user work stays local.
+
+System attempt 6: final NFC image and publication
+-------------------------------------------------
+
+The frozen candidate-6 OTA installed successfully at 2026-11-07 22:06:45
+UTC, eat exit 0. Independent startup reported boot_completed=1 at 22:07:19
+UTC, uptime 27.49 s, on B with build incremental 1794087715 and the expected
+g254ca128bb95 kernel. All four installed B physical image hashes match the
+frozen OTA images. The new boot ID confirms a fresh boot. The successful
+system snapshot and proof are under out/waipio-zeus/evidence/system-attempt-6.
+
+NFC loads automatically from vendor DLKM. /dev/nq-nci has the correct mode,
+ownership and label; the HAL is running and framework mState=on without
+manual insmod or service restart. Its module bytes match the earlier
+successful headphone interaction exactly. No temporary module-probe
+folders survive the reboot. Card 0 registers normally. The original
+min=null/peak=Infinity display settings remain restored.
+
+The complete Cape regression including NFC passed in 243.243 seconds with
+441 modules and the mondrian audio flag. Both UFS PHYs and NFC are present;
+all six newly applied Cape trees match the prior validated trees. This is
+a build/DT check, not Cape runtime validation.
+
+All source changes were pushed without force to cupid-development. Kernel,
+DT, modules, build, common device and Zeus use lineage-24.0-6.6; the MIUI
+camera policy fixes use lineage-24.0; display HAL uses
+lineage-24.0-caf-sm8450-6.6. The Zeus device branch was already current. The
+build repository publishes zeus-manifest.xml and build instructions; the
+local manifest was updated to resolve the published device/display forks,
+with the original local file backed up under out/waipio-zeus/push.
+
+Validation used the preserved pre-existing local debug configuration,
+including permissive SELinux, power-key changes and extra logging/module
+loads. Those user edits remain uncommitted and were not pushed. Enforcing
+mode has not been qualified. Remaining issues are dynamic-refresh video
+pacing, longer power/stability qualification, cellular calls/data without a
+SIM, and the recorded SPMI version-read warning. Cupid/Cape runtime remain
+unverified. No permanent refresh cap, driver disabling, data wipe or reset
+was used to obtain these results. The earlier watchdog cause has not been
+assigned to a specific stalled function; it did not recur in the successful
+boot and initial suspend tests.
