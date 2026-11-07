@@ -438,6 +438,9 @@
     "zip_bytes": 1844158205,
     "validation": "PASS"
   },
-  "deployment_status": "Explicitly authorized OTA installed successfully with eat (exit 0, Total xfer 1.00x) at 2026-11-07T19:44:01Z; no Android ADB during the first five minutes. Awaiting screen observation or Fastboot availability; no post-install kernel log or successful Android boot claim.",
-  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-3"
+  "deployment_status": "FAILED: seven new boot records show hypervisor watchdog resets around 26 seconds. User confirmed automatic Fastboot with no physical input; B exhausted retries and A was selected. Returned to A recovery, then performed authorized controlled recovery-B driver probes. See zeus-test-report.rst.",
+  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-3",
+  "complete_crash_evidence": "out/waipio-zeus/evidence/system-attempt-3/decoded-full",
+  "full_minidump_bytes": 262144000,
+  "full_minidump_sha256": "51cd233b9d294aae042ba7423d8197a06ce84f4ffdaf76e21e5a0728db1f0202"
 }

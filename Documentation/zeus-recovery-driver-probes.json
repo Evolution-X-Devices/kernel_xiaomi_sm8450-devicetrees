@@ -1,0 +1,41 @@
+{
+  "artifact": "candidate 3, OTA SHA256 2b85c426e3e234b430fbdd79d1c0a7c35a72793702c0c111f54e5563f3ed60c3",
+  "serial": "4feb552c",
+  "kernel": "6.6.144-android15-8-g3bfb6974dd86-dirty-4k",
+  "recovery_b_verified": true,
+  "gpu": {
+    "probe_bound": true,
+    "device": "/dev/kgsl-3d0",
+    "model": "Adreno730v2",
+    "rendering_or_acceleration": "UNTESTED",
+    "limitation": "Recovery lacks governor_msm_adreno_tz; devfreq warning observed, Android load list already includes this governor",
+    "evidence": "out/waipio-zeus/recovery-b-driver-probe/gpu-20261107T203346Z"
+  },
+  "camera": {
+    "module_inserted": true,
+    "cpas_probe": "FAILED -EINVAL",
+    "cause": "cam_icc_get_path requires named paths on kernels >=6.5; legacy Waipio DT selection was used",
+    "fix": "0e920ba88",
+    "validator": "83fa17804",
+    "runtime_after_fix": "PENDING",
+    "evidence": "out/waipio-zeus/recovery-b-driver-probe/camera-20261107T203403Z"
+  },
+  "wifi": {
+    "modules_inserted": true,
+    "startup": "Deferred for calibration; no firmware/radio functionality verified",
+    "evidence": "out/waipio-zeus/recovery-b-driver-probe/wifi-20261107T203654Z"
+  },
+  "watchdog": {
+    "remained_enabled": true,
+    "reset_during_recovery_probes": false,
+    "full_system_reset_cause": "UNRESOLVED"
+  },
+  "diagnostic_replay": {
+    "end_marker_observed": true,
+    "blocked_task_dump_observed": true,
+    "overlong_kmsg_record_fixed": "dd2e9964",
+    "bounded_runtime_test": "PASS"
+  },
+  "standing_authorization": "User: yes go ahead. You do not need to get approval for each try",
+  "test_artifacts": "out/waipio-zeus/recovery-b-driver-probe"
+}

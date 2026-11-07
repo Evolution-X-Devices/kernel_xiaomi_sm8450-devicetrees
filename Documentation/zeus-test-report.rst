@@ -574,3 +574,78 @@ has been requested. No fresh post-install kernel log is available yet;
 the GPU fix and watchdog behavior remain runtime-unverified. The approved
 slot-a recovery fallback remains prepared, awaiting Fastboot access if
 startup fails. No further boot attempt, slot change or flash was performed.
+
+System attempt 3: automatic fallback and complete log ring
+--------------------------------------------------------
+
+The user confirmed that Fastboot appeared automatically without touching
+the phone. Host Fastboot then enumerated serial 4feb552c normally. It
+reported slot b unsuccessful/unbootable with retry count zero, and slot a
+already selected/successful. Reboot recovery returned to A with root ADB.
+The earlier finite USB observation did not establish the exact transition
+time; it must not be used to contradict the user's screen observation.
+
+The full read-only minidump capture is 262144000 bytes, SHA256
+51cd233b9d294aae042ba7423d8197a06ce84f4ffdaf76e21e5a0728db1f0202.
+Its header describes ten 6 MiB log slots; the earlier 40 MiB prefix exposed
+only seven. Seven new records are in slots 5--9, 0 and 1, with decoded
+Android timestamps 19:44:28 through 19:49:49 UTC. Slots 2--4 are older.
+The bounded section extraction is under the attempt-3 decoded-full
+directory; slot 1 contains the latest failed boot. Its kernel log reaches
+Zygote/early-boot initialization and the hypervisor reports a watchdog
+reset around 26 seconds. Pstore remains empty. The reported watchdog PC
+does not normalize against the recorded Linux text addresses; no stalled
+Linux function is identified from that address alone.
+
+The new slot-b build marker is present. The old missing GPU ID error is
+absent, while camera CPAS still fails component binding with -EINVAL.
+The diagnostic begins and prints some symbols but lacks its end marker;
+it does not yet establish why full-system startup stops.
+
+Controlled recovery-B driver probes
+-----------------------------------
+
+The user explicitly authorized the prepared B-recovery driver test and
+said that approval is not needed for every subsequent try. That standing
+authorization supersedes the original per-trial confirmation requirement
+for continued Zeus port validation. User data/work and the tested recovery
+fallback remain protected. Authorization is recorded separately under
+out/waipio-zeus/hardware-test-authorization.json.
+
+All four installed physical B boot-image hashes match candidate 3.
+The controlled test selected B and booted its recovery with root ADB,
+the expected kernel and GPU chip ID 0x07030001. A host udev monitor recorded
+USB transitions. An ADB reboot client exceeded a short timeout, but the
+bootloader request completed normally; subsequent steps waited for actual
+USB mode instead of issuing a duplicate reboot.
+
+Matching frozen modules were copied only into recovery RAM. GPU probing
+bound the IOMMU context banks/GMU and created /dev/kgsl-3d0, reporting
+Adreno730v2. Recovery lacks the Adreno governor that the Android load list
+already contains, so a devfreq warning is recorded. Rendering, firmware
+execution and acceleration are not verified by this probe.
+
+Camera probing reproduced the CPAS error with full live logs:
+cam_icc_get_path reports "Must use path names to get icc path handle", then
+cam_ahb bus registration fails. 0e920ba88 adapts existing Cape migration
+4163ef29c to Waipio, preserving its original author, source attribution and
+using a fresh Change-Id. It moves the AXI endpoint declarations to CPAS and
+selects them through cam-icc-path-names for the 6.6 of_icc_get path. The
+validator rejects candidate 3 and accepts all ten corrected combinations;
+all six Cape trees remain unchanged. Runtime after this DT fix is pending.
+
+Wi-Fi platform/upper modules inserted successfully but deferred for cold
+boot calibration in recovery; their firmware startup and radio operation
+remain unverified. No watchdog reset occurred during these controlled
+probes, with the watchdog left enabled. This does not exclude a later
+driver interaction in Android startup. Probe records and live logs are
+under out/waipio-zeus/recovery-b-driver-probe and summarized in
+zeus-recovery-driver-probes.json.
+
+Follow-up common-device changes map the requested qca6490 firmware prefix
+to the unchanged modem-image directory (8f156d91) and improve the scoped
+debug capture (62f7e2b7, dd2e9964): replay camera errors and blocked-task
+stacks before module reads, bound devkmsg records, and prepare authenticated
+ADB at post-fs-data. The revised script reaches its end marker in recovery
+without rejected log writes. The next full candidate will validate the
+camera/firmware changes and capture the still-unresolved watchdog cause.

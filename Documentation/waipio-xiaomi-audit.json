@@ -1091,9 +1091,9 @@
       "path": "qcom/camera/waipio-camera.dtsi",
       "reference_path": "qcom/camera/waipio-camera.dtsi",
       "same_bytes": false,
-      "sha256": "8302cc50991b7368b707164dbc784e84647d5a0a10608e5ce22b08325826ee95",
+      "sha256": "f039f70a6a40fa316d1a8f3399c62a1e13d9119c6580e32119ced7c98652428d",
       "reference_sha256": "04f55fa09635fdc4c774dc90f348867fb77931f4007fc2db85777b9e6b4356aa",
-      "review": "The existing 13942a96b IOMMU migration removed the required ICP context-bank discard property and omitted the discard/upper reservations. System minidump exposed the mismatch; f1ee6531e36f75225896d8dd04c8e95a22dba670 restores all three contracts while retaining Waipio ranges.",
+      "review": "Pre-existing 6.6 camera migration needed follow-ups: f1ee6531e restores matching ICP discard and full IOVA bounds; 0e920ba88 adapts Cape named ICC paths from 4163ef29c after live CPAS probing confirmed the legacy path was rejected.",
       "previous_review_sha256": "6322b765034b2f039b63725f4ce4bfd1f8eac96c2ada36bfb3d03ffc86dffa89"
     },
     {
@@ -1929,6 +1929,11 @@
     {
       "commit": "4c0b57cbd",
       "reason": "System logs show v2 GPU probe rejected without qcom,chipid. Values come from the 5.10 adreno-gpulist.h; included GPU clock reference also needed zero-cell AOSS adaptation. Current hypervisor watchdog cause remains unproven."
+    },
+    {
+      "commit": "0e920ba88",
+      "origin": "4163ef29cb79801cb5c1ad61d8b56990b002c901",
+      "reason": "Live camera probe rejects legacy bus-client lookup on 6.6; migrate named AHB/AXI ICC paths with original author retained. Cape unchanged."
     }
   ]
 }
