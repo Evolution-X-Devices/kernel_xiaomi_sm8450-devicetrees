@@ -1,0 +1,199 @@
+{
+  "recovery": {
+    "modules": 261,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "vendor_dlkm_ramdisk": {
+    "modules": 348,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "dtbs": [
+    {
+      "model": "Qualcomm Technologies, Inc. Cape SoC",
+      "soc_ids": [
+        530,
+        65536
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "soc_ids": [
+        457,
+        131072
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio SoC",
+      "soc_ids": [
+        457,
+        65536
+      ]
+    }
+  ],
+  "dtbos": [
+    {
+      "model": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Diting based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "thor based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0,
+        50397192,
+        3
+      ]
+    },
+    {
+      "model": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    }
+  ],
+  "images": {
+    "boot.img": {
+      "size": 201326592,
+      "sha256": "26e294132bbf3b1f68fc2c0b23ba4a8834d445e27c39d1d5fa58f8450ce9aa23"
+    },
+    "vendor_boot.img": {
+      "size": 100663296,
+      "sha256": "2df652ad3102573dfbfb2ea3e79a19120ab58dbb586f0ef3e8dab6f9cd7658d3"
+    },
+    "recovery.img": {
+      "size": 104857600,
+      "sha256": "1d426bcd2663418f64fb77eeb473375e4de20e10a841b01cbda934401d8fa485"
+    },
+    "dtbo.img": {
+      "size": 25165824,
+      "sha256": "26a93fe45f5fe2e2f3aa26c42be491d98c63831609bd2e218d7ef9d2d92b0196"
+    },
+    "vendor_dlkm.img": {
+      "size": 71454720,
+      "sha256": "d028222f2edc6df198a326574a16402106fa37fe64df828097ff904fbc209667"
+    },
+    "system_dlkm.img": {
+      "size": 11653120,
+      "sha256": "a117f8f084b9654f48298eeeb5739bcdbcad4130260809c73c74631790e2cac9"
+    }
+  },
+  "system_dlkm": {
+    "module_count": 79,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  },
+  "vendor_dlkm": {
+    "module_count": 361,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  },
+  "dt_checks": {
+    "base_count": 3,
+    "overlay_count": 8,
+    "matching_applications": 10,
+    "cape_binaries_identical_to_baseline": true,
+    "all_supply_and_memory_phandles_resolve": true,
+    "ufs_enabled_in_all_combined_trees": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-kernel": {
+    "head": "894007db562fe95beb11e6aa01c9857768e8ea46",
+    "status": " M drivers/input/misc/pm8941-pwrkey.c\n",
+    "diff_sha256": "741eff0b1a16ba1680b040fd52507f12816ea0c81b2570840ae29f74b761f553"
+  },
+  "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-devicetrees": {
+    "head": "6da103c67be8ca28375d3d42c392bf76be1df97f",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-modules": {
+    "head": "c210dbe007823a6f3b71a4d2573fed57550ea8d7",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-build": {
+    "head": "3cead2d3ffa46e115247203b3c8037bbb4ad04d8",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "device/xiaomi/sm8450-common": {
+    "head": "5a71267e83efcd27ba085c8042f08c846ecd6c08",
+    "status": " M BoardConfigCommon.mk\n M modules.load.vendor_boot\n M rootdir/etc/init.qti.kernel.rc\n",
+    "diff_sha256": "833fe5786d72cf8c00dbae67bb84b01e249c194b10e7347f40947a718859da88"
+  },
+  "kernel/qcom/sm8450": {
+    "head": "952aa00564cbb2cc788378c97e08958c4b889758",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "kernel/qcom/sm8450-devicetrees": {
+    "head": "13fe1ba65b42d44c6f501085a516454bfbb11335",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "kernel/qcom/sm8450-modules": {
+    "head": "c1e096fa00a6a90568f8e16720f8c9749102833b",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "device/xiaomi/miuicamera-cupid": {
+    "head": "81ab177340ac54ea911b88f1e58c1e9fac048653",
+    "status": "",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
