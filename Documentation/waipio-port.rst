@@ -312,3 +312,13 @@ vendor_boot_a, dtbo_a and recovery_a, followed by recovery boot, and gives
 the exact four-image rollback to the touch-working 5.10 recovery. It does
 not authorize Android boot or DLKM writes. Specific user approval remains
 pending; all earlier artifact sets and evidence remain preserved.
+
+The subsequent approved attempt-5 recovery trial verifies working display,
+touch contacts/IRQs, root ADB, UFS read, ADSP and idle charging telemetry.
+The temporary initial USB loss cleared during reconnect investigation;
+its cause remains tracked. See the latest zeus-test-report.rst sections.
+
+A complete Zeus OTA has now passed the g.sh/build zeus flow and final
+payload/DT/module checks. waipio-system-candidate.json records its hashes
+and unchanged installed firmware. Its broader slot-b installation and
+first Android boot remain pending specific user approval.

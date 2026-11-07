@@ -264,12 +264,12 @@ runtime behavior remain explicitly unverified.
 Prepared audited recovery candidate
 -----------------------------------
 
-Attempt-5 is frozen at out/waipio-zeus/attempt 5-images and has not been
+Attempt-5 is frozen at out/waipio-zeus/attempt5-images and has not been
 deployed. The Zeus kernel/external-module/six-image build and separate
 Cape/Mondrian build pass. Actual packaged DTs match all ten validated
 source combinations; both Zeus bases match 120 baseline regulators and
 40 fixed reservations. Ramdisk and filesystem module dependency/byte
-checks pass. See waipio-validation-attempt 5.json for hashes and provenance.
+checks pass. See waipio-validation-attempt5.json for hashes and provenance.
 
 TEST-PLAN.txt requests exactly the four slot-a recovery-test writes,
 then recovery boot, with serial/product/slot verification before writes.
