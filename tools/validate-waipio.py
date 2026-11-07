@@ -7,6 +7,7 @@ import argparse
 import concurrent.futures
 import subprocess
 import json
+import struct
 import sys
 
 dt = Path(__file__).resolve().parents[1]
@@ -52,6 +53,51 @@ def build(name):
     return name, process.returncode, diagnostics[-2500:] if process.returncode else ''
 
 
+def check_bindings(path):
+    data = path.read_bytes()
+    offset, strings = struct.unpack_from('>II', data, 8)
+    stack = []
+    nodes = {}
+    while True:
+        token = struct.unpack_from('>I', data, offset)[0]
+        offset += 4
+        if token == 1:
+            end = data.index(b'\0', offset)
+            stack.append(data[offset:end].decode())
+            offset = (end + 4) & ~3
+            nodes['/'.join(stack)] = {}
+        elif token == 2:
+            stack.pop()
+        elif token == 3:
+            size, name_offset = struct.unpack_from('>II', data, offset)
+            offset += 8
+            end = data.index(b'\0', strings + name_offset)
+            name = data[strings + name_offset:end].decode()
+            nodes['/'.join(stack)][name] = data[offset:offset + size]
+            offset = (offset + size + 3) & ~3
+        elif token == 4:
+            continue
+        elif token == 9:
+            break
+        else:
+            raise ValueError(f'{path}: invalid FDT token {token}')
+
+    for name, properties in nodes.items():
+        compatible = properties.get('compatible', b'').split(b'\0')
+        parent = nodes.get(name.rpartition('/')[0], {})
+        if b'qcom,sde-rsc-rpmh' in compatible:
+            # rpmh.c interprets the immediate parent's data as rsc_drv.
+            if 'qcom,drv-id' not in parent or 'qcom,tcs-offset' not in parent:
+                raise ValueError(f'{path}: {name} must be a child of an RSC DRV')
+        if b'qcom,usb-bam-msm' in compatible:
+            address_cells = int.from_bytes(parent.get('#address-cells', b'\0\0\0\2'), 'big')
+            size_cells = int.from_bytes(parent.get('#size-cells', b'\0\0\0\1'), 'big')
+            stride = 4 * (address_cells + size_cells)
+            registers = properties.get('reg', b'')
+            if not stride or not registers or len(registers) % stride:
+                raise ValueError(f'{path}: {name} has an invalid MMIO register encoding')
+
+
 waipio_boards = ['zeus', 'cupid']
 cape_boards = ['diting', 'mayfly', 'mondrian', 'thor', 'unicorn', 'zizhan']
 names = (
@@ -75,6 +121,14 @@ for base in ['waipio', 'waipio-v2', 'cape']:
         proc = subprocess.run([args.fdtoverlay, '-i', str(out/(base+'.dtb')), '-o', str(combined), str(overlay)], capture_output=True, text=True)
         print(base, board, 'FAIL' if proc.returncode else 'PASS', proc.stderr)
         failed |= bool(proc.returncode)
-        results.append({'base': base, 'board': board, 'passed': not proc.returncode})
+        binding_error = ''
+        if not proc.returncode:
+            try:
+                check_bindings(combined)
+            except ValueError as error:
+                binding_error = str(error)
+                print(binding_error)
+                failed = True
+        results.append({'base': base, 'board': board, 'passed': not proc.returncode and not binding_error})
 (out / 'results.json').write_text(json.dumps(results, indent=2) + '\n')
 sys.exit(1 if failed else 0)

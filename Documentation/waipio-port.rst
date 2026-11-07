@@ -131,7 +131,11 @@ From the Android source root::
 
 The DT validator compiles all three bases and eight overlays and applies all
 four intended Waipio combinations plus six Cape combinations. Compiler
-warnings are retained per input. It does not claim dt-schema compliance.
+warnings are retained per input. Applied trees also check display RPMh
+client ownership and USB BAM register cell encoding against the driver
+contracts. These checks reject both saved broken artifacts from attempt 1
+and pass all ten fixed Waipio/Cape combinations. They do not claim
+dt-schema compliance.
 
 The standalone kernel distribution command is run from kernel/platform/kernel-6.6::
 
