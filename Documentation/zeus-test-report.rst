@@ -649,3 +649,32 @@ stacks before module reads, bound devkmsg records, and prepare authenticated
 ADB at post-fs-data. The revised script reaches its end marker in recovery
 without rejected log writes. The next full candidate will validate the
 camera/firmware changes and capture the still-unresolved watchdog cause.
+
+System candidate 4: camera interconnect paths and firmware lookup
+---------------------------------------------------------------
+
+The complete g.sh/build zeus build passed with ccache in 00:07:07
+(Android 07:04, 17658 Ninja steps). The frozen full OTA under
+out/waipio-zeus/full-build-4/deploy is 1844157109 bytes, SHA256
+cf2d83c9f5959cdfbaa7dd34032530fea9357cbe05a6822b26434a6b5e1e323d.
+It contains the named CPAS interconnect migration, QCA6490 firmware-prefix
+mapping and earlier bounded diagnostics/authenticated ADB preparation.
+Kernel and external-module code remain unchanged from candidate 3.
+
+All 33 payload hashes and OTA checks pass; 20 firmware images match the
+installed firmware. All ten matching DT combinations compile, apply and
+match the corrected sources. The six Cape combinations remain unchanged.
+Both UFS PHYs, recovery/early-vendor dependency lists and all 440 DLKM module
+bytes/vermagic checks pass. Final-image inspection verifies both exact
+diagnostic files and firmware/qca6490 -> /vendor/firmware_mnt/image.
+Detailed input revisions and packaging checks are recorded separately in
+waipio-system-candidate-4.json. Existing user changes remain intact.
+
+Under the user's standing trial authorization, eat completed successfully
+at 2026-11-07 21:00:11 UTC, exit 0, Total xfer 1.00x. Full retry-cycle USB
+monitoring and immediate kernel/logcat capture are active under
+out/waipio-zeus/evidence/system-attempt-4. Full-system boot, runtime CPAS/WLAN
+behavior and the watchdog cause remain unverified at this checkpoint.
+The tested slot-A recovery fallback remains protected. If early ADB permits
+startup, later USB/suspend comparison is still needed because USB activity
+can affect wake-lock timing. No driver or watchdog has been disabled.
