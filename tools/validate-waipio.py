@@ -112,6 +112,16 @@ def check_bindings(path, adsp_span=None):
     for name, properties in nodes.items():
         compatible = properties.get('compatible', b'').split(b'\0')
         parent = nodes.get(name.rpartition('/')[0], {})
+        if 'cam-ahb-num-cases' in properties and 'interconnects' in properties:
+            names = properties.get('interconnect-names', b'').rstrip(b'\0').split(b'\0')
+            ahb = properties.get('cam-icc-path-names', b'').rstrip(b'\0')
+            if not ahb or ahb not in names:
+                raise ValueError(f'{path}: {name} camera CPAS must use named ICC paths')
+            for child, values in nodes.items():
+                if child.startswith(name + '/camera-bus-nodes/') and child.endswith('/qcom,axi-port-mnoc'):
+                    port = values.get('cam-icc-path-names', b'').rstrip(b'\0')
+                    if not port or port not in names:
+                        raise ValueError(f'{path}: {child} has no matching CPAS ICC path')
         if b'qcom,kgsl-3d0' in compatible:
             revision_ids = {
                 b'qcom,adreno-gpu-gen7-0-0': 0x07030000,
