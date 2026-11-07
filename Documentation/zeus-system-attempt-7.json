@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-11-07T22:45:33.557174+00:00",
+  "build": {
+    "started_utc": "2026-11-07T22:30:04.239296+00:00",
+    "finished_utc": "2026-11-07T22:36:25.103387+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 380.864
+  },
+  "ota_sha256": "ec89a14f29be443cb2489fb629fc0d2adfc0ebe018030349dbe4983b47af49fd",
+  "ota_bytes": 1844175685,
+  "incremental": "1794090620",
+  "global_selinux": "Enforcing from cold boot, no permissive boot override",
+  "secure_element_hal_domain": "hal_secure_element_default",
+  "ese_power_manager_domain": "vendor_hal_esepowermanager_qti",
+  "ese_connected": true,
+  "nfc_on": true,
+  "remoteprocs_running": 4,
+  "physical_images_match": 4,
+  "policy_validation": "PASS with neverallow/context checks enabled",
+  "kernel_and_nfc_identical_to_candidate_6": true,
+  "manual_tests_on_this_boot": {
+    "miui_camera": "pending user unlock/test",
+    "fingerprint": "provider registered; authentication pending"
+  },
+  "evidence": "out/waipio-zeus/evidence/system-attempt-7",
+  "private_secure_element_dumps_published": false,
+  "cape_and_cupid_runtime": "unverified",
+  "protected_user_work": "Only the permissive bootconfig override was removed under explicit user instruction; all other original debug edits preserved"
+}

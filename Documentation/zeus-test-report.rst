@@ -4,10 +4,12 @@
 Zeus hardware validation
 ========================
 
-Latest verified milestone: attempt 5 has working 6.6 recovery, display/touch,
-root ADB, UFS read, ADSP startup and idle charging telemetry. Full Android
-boot is pending approval of the complete OTA described at the end of this
-report. Cupid and Cape runtime remain unverified.
+Latest verified milestone: system attempt 7 cold-boots Android with SELinux
+enforcing. The secure-element HAL and its power manager run in their proper
+domains, eSE1 connects, NFC initializes and all four remote processors run.
+Earlier system tests cover display/touch, media, Bluetooth and initial
+suspend/resume. MIUI Camera and fingerprint functional checks on this new
+enforcing boot are pending. Cupid and Cape runtime remain unverified.
 
 Attempt 1: recovery, 2026-11-07
 -------------------------------
@@ -910,3 +912,83 @@ unverified. No permanent refresh cap, driver disabling, data wipe or reset
 was used to obtain these results. The earlier watchdog cause has not been
 assigned to a specific stalled function; it did not recur in the successful
 boot and initial suspend tests.
+
+
+System attempt 7: enforcing cold boot and secure-element labels
+--------------------------------------------------------------
+
+The user requested SELinux fixes and an enforcing boot before further MIUI
+Camera analysis. A live setenforce trial on candidate 6 remained usable,
+but retained its original permissive boot flag. That trial cannot qualify
+cold startup or the MIUI Camera application's response to boot state.
+
+The secure-element HAL executable already had hal_secure_element_default_exec
+and its process already used hal_secure_element_default. Its legacy
+vendor.qti.esepowermanager@1.1 companion was vendor_file and ran in init
+under permissive boot. Commit 11f72ce9 restores the Qualcomm domain from
+sm8450 policy revision a6bcda4da1e7fc3677c61b24495e00671294dfc5, preserving
+Jaihind Yadav's authorship and original license. The originating domain
+commit is c6273e95e7d07cae647523cf797b41f92298e05c, with the later NFC-client
+addition adf913e9ad78af3632fed48909197f74d57203da. The shipped executable,
+HIDL service and secure-element HAL client role now have explicit policy.
+
+The following common-device adaptations label the MIUI algorithm library
+as same_process_hal_file, provide the camera provider's QuickCamera server
+and QSPM client roles, allow perf's observed shsusrd proc inspection, and
+label the actual touch/haptic/NFC wakeup directories as sysfs_wakeup. Existing
+other-board wakeup entries are retained. Qualcomm's secure DSP neverallows
+remain enforced; the proposed fingerprint DSP permission was removed after
+validation rejected it. No HAL was made permissive or disabled.
+
+The original BoardConfigCommon.mk and protected debug diffs were backed up
+locally. Only androidboot.selinux=permissive was removed under the user's
+explicit enforcing-boot instruction. The power-key change, extra module
+loads and logging edits remain uncommitted and preserved. The published
+BoardConfigCommon.mk already defaults to enforcing.
+
+The selinux_policy target passes all enabled neverallow, file/service/
+property-context and compatibility checks. The complete g.sh/build zeus
+build passes in 380.864 seconds. The full OTA SHA256 is
+ec89a14f29be443cb2489fb629fc0d2adfc0ebe018030349dbe4983b47af49fd. All 33
+payload hashes, 20 unchanged firmware images, ten matching DT combinations,
+baseline supply/reservation checks, both UFS PHYs and 441 final DLKM module
+byte/vermagic/dependency checks pass. The kernel and NFC module are
+byte-identical to candidate 6. The passing candidate-6 Cape kernel/module/DT
+regression still applies to these unchanged kernel/DT/module sources.
+
+Inspection of final vendor.img xattrs confirms both secure-element
+executable labels and the algorithm-library label; packaged policy/context
+bytes match staging. The unpacked vendor_boot bootconfig has no permissive
+override. Exact artifacts, checks and recovery procedure are frozen under
+out/waipio-zeus/full-build-7/deploy.
+
+The user previously authorized further build/flash retries. With snapshot
+state none, Zeus returned through Fastboot to the unchanged root recovery A.
+The verified full OTA installed through eat into inactive B, exit 0 at
+2026-11-07 22:42:27 UTC. Boot completion was observed at 22:42:59 UTC,
+uptime 25.87 seconds, build incremental 1794090620. All four installed B
+physical image hashes match the frozen images. No data wipe or recovery-A
+write was performed.
+
+The new boot reports Enforcing and has no permissive boot override. The
+HAL runs as hal_secure_element_default and its companion now runs as
+vendor_hal_esepowermanager_qti. Framework eSE1 reports connected; NFC is on
+and all four remote processors are running. This verifies initialization,
+not payment transactions or SIM secure elements. The fingerprint provider
+registers with one enrolled print and zero HAL deaths; authentication on
+this cold boot still needs a user test. Its optional DSP probes encounter
+policy restrictions before its normal provider registration.
+
+Initial log collection ran through non-root ADB and some protected reads
+failed. A standard adb root restart restored the userdebug su session; the
+separate complete root collection has no failing commands. Global SELinux
+stays enforcing. The standard userdebug su rescue domain remains permissive.
+Private secure-element access-rule dumps stay local. Raw evidence is under
+out/waipio-zeus/evidence/system-attempt-7.
+
+Remaining AVCs are being classified, including optional fingerprint DSP
+probes, legacy property enumeration and debug probes. Diagnostic shell
+denials from the initial non-root collection do not justify HAL grants.
+MIUI Camera's enforcing cold-boot functional result is pending the user's
+unlock/test. Sustained stability, cellular calls/data, the existing dynamic-
+refresh video issue and Cupid/Cape runtime remain unverified.
