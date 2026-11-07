@@ -183,12 +183,12 @@ def check_camera_iova(path, nodes):
                 offset += 4
                 address_bytes = 4 * cell_count(target, '#address-cells', 2)
                 size_bytes = 4 * cell_count(target, '#size-cells', 1)
-                start = int.from_bytes(maps[offset:offset + address_bytes], 'big')
+                map_start = int.from_bytes(maps[offset:offset + address_bytes], 'big')
                 offset += address_bytes
                 length = int.from_bytes(maps[offset:offset + size_bytes], 'big')
                 offset += size_bytes
                 if target == name:
-                    ranges.append((start, start + length))
+                    ranges.append((map_start, map_start + length))
         # These camera context banks use a 32-bit IOVA layout.
         if not 0 <= start < end <= 1 << 32:
             raise ValueError(f'{path}: {name} invalid 32-bit camera IO region')
