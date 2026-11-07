@@ -191,8 +191,8 @@ USB attachment.
 The first recovery attempt panicked in display RPMh. After the binding fix,
 the second approved attempt reached 6.6 recovery with root ADB, UFS reads,
 visible display and working buttons. Touch remains nonfunctional in recovery.
-ADSP firmware loading exceeds the old reservation, and battery/charging
-reporting is unavailable. Full thermal, DSP/audio, sensors, WLAN, Bluetooth,
+The third approved recovery trial confirms ADSP startup and battery/charging
+telemetry after the firmware-sized memory fix. Full thermal, DSP/audio, sensors, WLAN, Bluetooth,
 modem, GPU, camera, video, suspend and sustained stability are unverified.
 See zeus-test-report.rst for evidence and pending fixes. Android testing
 also requires matching DLKM images and explicit deployment approval.
@@ -220,7 +220,9 @@ out/waipio-zeus/patches and out/waipio-zeus/commit-series.txt.
 The final kernel is 6.6.144-android15-8-g3bfb6974dd86-dirty-4k; dirty marks
 the preserved, pre-existing power-key edit. Recovered minidump logs identify
 a display/RPMh parent-binding fault; its fix passed the second recovery
-trial. The new ADSP memory and USB BAM type fixes await another trial.
+trial. The ADSP memory and USB BAM type fixes passed the third recovery trial.
+Touch still produces no contact interrupts; baseline recovery comparison
+is the next prepared diagnostic.
 
 The Cape regression build also passed with audio target_product=mondrian
 (135 executed actions, 135.8 seconds), producing out/waipio-cape/dist.

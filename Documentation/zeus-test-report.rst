@@ -158,7 +158,61 @@ Ramdisk and filesystem-image module dependency checks pass. Exact hashes
 and checks are in waipio-validation-attempt3.json and the immutable
 out/waipio-zeus/attempt3-images directory, alongside TEST-PLAN.txt.
 
-This retry targets ADSP startup and battery/charging reporting; it does not
-claim a touchscreen fix. It has not been deployed and requires approval
-for the four named slot-a writes and recovery reboot. The current phone
-state is still the successful attempt-2 recovery.
+This retry targeted ADSP startup and battery/charging reporting and did
+not claim a touchscreen fix. The user subsequently approved its four
+slot-a writes and recovery reboot; the results follow.
+
+Attempt 3: ADSP and battery reporting restored
+----------------------------------------------
+
+The user approved the attempt-3 image set. All checksums passed, and Zeus
+product/serial/slot were rechecked before the four slot-a writes. All writes
+and recovery reboot returned OKAY. The ADB reboot-to-bootloader command
+exceeded its 20-second host timeout, but Fastboot appeared and identity was
+verified before proceeding. This is a slow transition, not a lost device.
+
+Recovery returns with root ADB and the same 6.6 kernel on slot _a. The live
+DT passes the RPMh, USB register and firmware-sized ADSP reservation checks.
+ADSP remoteproc reaches running at about 6.3 seconds, with no segment-outside-
+range error. Battery, USB and wireless power-supply nodes appear; battery
+health reports Good and status Charging. USB reports online. Capacity rises
+from 41 to 42 percent during observation, and reported battery temperature
+ranges from 30.1 down to 29.4 degrees C. ADSP and charging reporting remain
+available at 1041.98 seconds uptime without a panic; pstore is empty.
+This verifies idle telemetry/charging indication, not charging-rate or
+thermal-stress behavior. USB BAM now has its driver bound successfully.
+Other DSPs/modem remain offline in recovery and are not runtime-validated.
+
+The user confirms recovery remains visible. A coordinated 35-second input
+capture while the user was at the phone produces device headers only,
+with no input events. The FTS IRQ counter stays at 2 before and after the
+capture. GPIO20/reset is high and GPIO21/IRQ is input/high. The controller
+responds during initialization and to charger-mode commands, but contacts
+do not produce new interrupts. Generic IRQ debugfs is not enabled; mounting
+the temporary debugfs interface provided GPIO state only. No userdata
+filesystem was mounted for these diagnostics.
+
+The mode_active sysfs shadow is zero, but the FOD-aware mode handler does
+not populate that shadow as the ordinary branch does. It is not proof that
+hardware scanning is disabled. No raw touch commands or firmware writes
+were used to work around the failure.
+
+The supplied Diting patches address real but separate defects: FTS uses a
+hard-coded GPIO only for HARDWARE_PROJECT_L12=10, and Goodix checks gpio
+instead of ret after requesting its ID GPIO. Diting's combined touch node
+provides goodix,ts-id-gpio. Zeus is HARDWARE_PROJECT_L2=1 and uses FTS, so
+neither identification path explains this failure. Those patches have not
+been applied as a speculative Zeus fix. The existing user power-key and
+device-tree edits remain untouched.
+
+Baseline 5.10 recovery touch has not yet been tested. A reversible A/B plan
+is prepared at out/waipio-zeus/touch-ab-test/TEST-PLAN.txt with both exact,
+checksum-verified image sets in images.json: boot baseline recovery, capture
+touch/IRQ behavior, then restore attempt-3 recovery. That additional flash
+sequence has not been performed and requires explicit approval.
+
+Current state: attempt-3 recovery with root ADB, running ADSP, visible UI,
+working button navigation and charging telemetry. Touch remains failed.
+Android, full audio/sensors/radios, GPU/camera/video, suspend/resume and
+long-duration stability remain unverified. Evidence is preserved under
+out/waipio-zeus/evidence/attempt-3 with SHA256.json.
