@@ -302,3 +302,35 @@ return ADB is recorded in result.json. Previous attempts and the working
 5.10 baseline remain separate; this result supersedes the candidate's
 earlier undeployed status. Further diagnosis requires device observation
 and recovery of logs; no subsystem is disabled to bypass the failure.
+
+Attempt 5 follow-up: working recovery, touch and ADB
+---------------------------------------------------
+
+The user confirms recovery is visible and touch navigation works. Root
+ADB subsequently returned during the cable-reconnect investigation, at
+approximately 426 seconds uptime on the same 6.6 boot and slot _a. The boot
+log shows USB configured at 6.463 seconds, disconnected at 7.439 seconds,
+then configured again at 426.784 seconds. This was not a failure to boot
+recovery. The cause of the initial disconnect is not established and should
+be checked during later USB/reboot testing; no speculative USB change was made.
+
+The saved 293-line input capture contains event7 ABS contact positions,
+tracking IDs and BTN_TOUCH down/up. The FTS IRQ counter rises from 1377 to
+1569 across the capture. Live PM8008J L3 is enabled at 3304000 microvolts,
+consistent with its restored 3.3--3.304 V limits. This verifies touch on the
+audited candidate, rather than only on the 5.10 A/B baseline.
+
+ADSP reaches running at 5.879 seconds and remains running at 612 seconds.
+Battery reports Charging, health Good, capacity 62 percent and temperature
+about 30.8--30.9 degrees C. This verifies telemetry, not charging rate or
+thermal stress. A read-only 4 MiB boot_a read matches the frozen attempt-5
+image exactly. USB BAM is bound; pstore is empty. Recovery has not mounted
+userdata. The previously observed SPMI PMIC 0-05 probe warning remains.
+Other DSPs/modem are offline in recovery and remain unverified.
+
+Current milestone: recovery, display, touch, root ADB, UFS read, ADSP startup
+and idle charging telemetry work on 6.6. Android boot and its subsystem tests
+remain pending. The user requested a complete build for that test; it is
+being prepared with the local g.sh setup and build zeus helper, including
+ccache, for a separately reviewed OTA deployment. Existing recovery-test
+approval does not authorize that OTA's writes or slot change.
