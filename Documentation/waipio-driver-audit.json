@@ -1,0 +1,54 @@
+{
+  "scope": "Kernel/module/display-HAL review extending the DT include/history audit after runtime findings. This is not a runtime certificate.",
+  "root_compatible_search": {
+    "kernel": "Only drivers/soc/qcom/qcom_pd_mapper.c matches the exact qcom,cape root string.",
+    "external_modules": "No qcom,cape or qcom,sm8475 root strings in active external C/H sources. Per-peripheral tables still need subsystem tests."
+  },
+  "items": [
+    {
+      "origin": "1c0e4d1473ab1730745a18b20b2a960bd0f2c4cf",
+      "repository": "sm8450-kernel",
+      "topic": "PD mapper compatible/domain table",
+      "status": "Applicable; adapted as 254ca128bb95. Live module binds four auxiliary devices, audio PDR/GPR reaches UP, card registers and Android boot completes after recreating GPR service routing. Permanent cold boot pending."
+    },
+    {
+      "origin": "692023c723e25844dc69362e534c1ba6f47139dc",
+      "repository": "display/hal",
+      "topic": "SnapAlloc and UBWCP selection",
+      "status": "Applicable; adapted as d323b067bb. Live selection stopped SurfaceFlinger crash loop and user confirms animation."
+    },
+    {
+      "origin": "ef2d3c2f370d",
+      "repository": "sm8450-kernel",
+      "topic": "ARCH_CAPE Kconfig",
+      "status": "Already present; retained alongside Waipio and its PHY."
+    },
+    {
+      "origin": "915f5e7f1561",
+      "repository": "sm8450-kernel",
+      "topic": "Waipio perf config with Cape PHY",
+      "status": "Already present; 3bfb6974dd86 adds Waipio PHY. Both packaged."
+    },
+    {
+      "origin": "5c468339cd26",
+      "repository": "sm8450-kernel",
+      "topic": "Cape UFS snapshot",
+      "status": "Cape-specific; retained. Existing Waipio PHY enabled instead of another import."
+    },
+    {
+      "origin": "b62b48975a21",
+      "repository": "sm8450-kernel",
+      "topic": "GCC SDCC floor ops",
+      "status": "Already shared by Waipio/Cape; unchanged."
+    }
+  ],
+  "remaining_runtime": [
+    "Full boot after mapper fix",
+    "Audio playback/capture/routing",
+    "Wi-Fi and Bluetooth",
+    "Camera/video",
+    "Suspend/resume and USB wake-lock comparison",
+    "Sustained stability",
+    "Cupid and Cape runtime unverified"
+  ]
+}

@@ -713,3 +713,36 @@ Runtime after the mapper fix and full startup remain pending; candidate 5
 is building. Detailed evidence and the supported firmware domains are in
 zeus-system-attempt-4.json. This extends the migration audit beyond DTs to
 kernel service matching and display-HAL initialization.
+
+First complete Zeus Android boot with live corrections
+------------------------------------------------------
+
+At 2026-11-07 21:19:09 UTC Android reported sys.boot_completed=1 on B.
+The user confirmed both a complete boot and normally working system touch.
+SurfaceFlinger uses Adreno 730 / OpenGL ES 3.2 and the boot animation stops.
+Card 0 is waipio-mtp-snd-card; all four remoteprocs report running. The
+watchdog remains enabled and battery telemetry is approximately 37 C,
+charging. This is the first full-boot milestone, not complete qualification.
+
+The candidate-5 mapper was frozen as SHA256
+2111d510af2fd988681c2f47d221562f8aef435c524eda75c3e8feca39c57090.
+Its entire exported symbol-CRC table matches candidate 4 and normal insmod
+accepted it without force-loading. All four auxiliary devices bound and
+audio PDR/GPR reported UP. The first SPF-only rebind removed its service
+IDR entry; rebind does not reinsert it in the existing GPR driver. Thus its
+APM timeout was a diagnostic setup artifact, not proof of a cold-boot bug.
+Recreating the ADSP GPR RPMSG device rebuilt the service routing; APM replied,
+the sound-card children populated, and Android startup completed.
+
+This boot used candidate 4 images plus live SnapAlloc properties and the
+corrected mapper module. Candidate 5 contains both source changes and has
+passed full-build, OTA and final-image validation; its independent cold
+boot remains pending. The complete successful-boot snapshot is under
+out/waipio-zeus/evidence/system-attempt-4/booted-live, with continuous logs
+under continuation-1. Snapshot state is none after this boot, with no active
+merge, and no partition wipe has occurred. Audio playback/capture, complete
+sensor enumeration, radio operation, camera/video, suspend/resume and
+sustained stability remain to be tested. Camera service enumeration alone
+(eight devices) is not image-capture verification. Cupid/Cape runtime remain
+unverified. A separate Cape kernel/module regression build is running with
+the existing mondrian audio target_product flag.
