@@ -86,10 +86,47 @@
     }
   },
   "pending": [
-    "NFC module packaged-image/cold-boot validation",
-    "Suspend/resume and USB wake-lock comparison",
-    "Reboot and sustained stability",
+    "NFC packaged-image cold boot (candidate 6)",
+    "Video refresh pacing investigation",
+    "Longer stability and power testing",
+    "Cellular calls/data require SIM; both current slots absent",
     "Cupid and Cape runtime unverified"
   ],
-  "evidence": "out/waipio-zeus/evidence/system-attempt-5"
+  "evidence": "out/waipio-zeus/evidence/system-attempt-5",
+  "suspend_test": {
+    "same_boot_id": true,
+    "user_confirmation": "it comes back and works normally",
+    "successful_s2idle_cycles_before": 0,
+    "successful_s2idle_cycles_after": 7,
+    "aborted_entries": 2,
+    "abort_reasons": "Pending timerfd/WLAN wakeups; one freezer and one suspend-stage abort; no failed device name recorded",
+    "reset_or_watchdog_bite": false,
+    "evidence": "out/waipio-zeus/evidence/system-attempt-5/suspend-usb"
+  },
+  "video_pacing": {
+    "user_report": "playing videos is a little laggy",
+    "reproduction": "YouTube in Jelly using c2.qti.vp9.decoder, hardware-video-codec resource",
+    "thermal_status": 0,
+    "automatic_refresh_trace": {
+      "frames": 544,
+      "misses": 214,
+      "refresh_switches": 38,
+      "observed_rates_hz": [
+        24,
+        120
+      ]
+    },
+    "temporary_fixed_60_trace": {
+      "frames": 3018,
+      "misses": 3,
+      "refresh_switches": 0,
+      "user_feedback": "seems smooth"
+    },
+    "restored_settings": {
+      "min_refresh_rate": "null",
+      "peak_refresh_rate": "Infinity"
+    },
+    "permanent_fix": "pending; do not cap high refresh as a port workaround",
+    "evidence": "out/waipio-zeus/evidence/system-attempt-5/video-lag/youtube"
+  }
 }

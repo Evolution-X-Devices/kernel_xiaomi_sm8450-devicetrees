@@ -828,3 +828,44 @@ The user also confirmed Bluetooth audio, camera video recording and video
 playback. A physical USB-disconnect/screen-off suspend test is in progress,
 with boot ID and suspend counters saved first. Permanent NFC-image testing,
 suspend results and sustained stability remain pending at this checkpoint.
+
+Suspend and video frame-pacing observations
+------------------------------------------
+
+After USB disconnect/screen-off, the user confirmed a normal wake and return.
+The boot ID is unchanged. Kernel s2idle success count increased from zero to
+seven; two entries aborted with pending timerfd/WLAN wakeups. One abort is
+counted at freezer and one at suspend; no failed device name is reported.
+There is no watchdog reset. This verifies initial suspend/resume, including
+USB removal/reconnection, without establishing long-term idle power behavior.
+
+The user reported video playback lag. YouTube in Jelly uses the Qualcomm
+c2.qti.vp9.decoder hardware codec. A capture shows 544 display frames,
+214 misses and 38 refresh switches, with most display time at 24 Hz and
+short periods at 120 Hz. Holding display min/peak at 60 Hz temporarily
+produced 3018 frames, three misses and no refresh switches; the user reported
+smooth playback. The original min=null/peak=Infinity settings were restored
+and the diagnostic frame counter disabled. The evidence points to refresh
+pacing, but the permanent cause/fix remains open. No high-refresh cap or
+codec/driver disabling is included in the source changes.
+
+System candidate 6: packaged NFC support
+-----------------------------------------
+
+The complete g.sh/build zeus build passed in 432.878 seconds (Android 06:56).
+The frozen full OTA under out/waipio-zeus/full-build-6/deploy is 1844176433
+bytes, SHA256 469d913858d455e37320cdc3eba755b369c7bac3b6007cfa26e58eccb109e677.
+All 33 payload hashes, OTA checks and 20 unchanged installed-firmware
+comparisons pass. All ten DT combinations match the validated sources;
+Cape DTs and baseline supplies/reservations remain unchanged. Module
+counts are 261 recovery, 90 early-vendor, 79 system-DLKM and 362 vendor-DLKM,
+with all 441 final bytes/vermagic/dependencies and both UFS PHY lists checked.
+
+The kernel is byte-identical to working candidate 5; the packaged NFC module
+is byte-identical to the successful live test and appears in the vendor load
+list. The other driver sources are unchanged. A separate complete Cape
+module-group regression including NFC is running. Independent NFC startup
+and the reboot test will follow installation through tested recovery A;
+the video-pacing issue remains open. The source series has been published
+to cupid-development, including the display-HAL dependency and a complete
+source manifest in the build repository. Uncommitted user work stays local.
