@@ -94,5 +94,56 @@ SHA256SUMS, packaging-report.json and TEST-PLAN.txt. Their hashes and checks
 are also recorded in waipio-validation-attempt2.json. Attempt-1 artifacts
 and crash evidence remain preserved separately. The retry proposes the
 same four slot-a partitions and recovery boot, using these new images;
-it requires explicit approval. Until then the phone remains in restored
-5.10 recovery, and the fixes have no new hardware validation claim.
+it required explicit approval. The user subsequently approved and executed
+that retry; its results are recorded below.
+
+Attempt 2: recovery milestone reached
+-------------------------------------
+
+All six frozen retry-image checksums passed. Device/slot were rechecked
+from baseline recovery and Fastboot, and the four approved slot-a writes
+returned OKAY. Recovery enumerated with root ADB and kernel
+6.6.144-android15-8-g3bfb6974dd86-dirty-4k. The selected DTB/DTBO indices
+are 1/6, the model is Zeus, and SoC ID/revision are 457/2.2. The actual
+runtime DT is saved with this attempt's evidence.
+
+The user confirms that display looks correct and volume/power navigation
+works. UFS enumerates normally; a read-only 4 MiB boot_a read is byte-equal
+to the flashed image. This capture includes trailing dd statistics, excluded
+from the comparison and recorded separately in ufs-read-check.json.
+Recovery remains available with root ADB at 606.64 seconds uptime without
+a kernel panic. Pstore is empty. Android has not been booted, and slot b
+and both DLKM partitions remain unchanged.
+
+Touch does not operate in the recovery UI according to the user. The FTS
+driver probes, reads controller firmware information and exposes event7.
+Two input captures contain no events, but the user confirmed the first was
+idle and did not confirm tapping during the second window. Thus they do
+not independently prove an IRQ or input-driver failure. The IRQ counter
+reads one. Baseline touch functionality has not been tested in this session.
+
+ADSP remains offline: loading reports segment outside memory range. The
+installed adsp.mdt load segments span 0x3100000 bytes (49 MiB), exceeding
+the snapshot's 0x2100000 (33 MiB) reservation. There is no battery power-supply
+node, and recovery healthd reports no battery device. This blocks charging
+and battery-temperature verification; it is consistent with ADSP's failed
+startup but charging operation itself has not been established.
+
+The working 5.10 runtime DT reserves ADSP at 0x9fd00000/0x3100000 and XBL
+ramdump at 0xa6b80000/0x280000. f989a61e0 adapts c0421c0a6 to those inline
+Waipio regions, preserving labels and all other carveouts. Firmware-aware
+DT validation rejects the failed runtime layout and accepts the corrected
+Waipio and Cape bases/combined trees. No firmware is added to the repository.
+
+The USB BAM node now appears at its correct address, proving the register
+encoding change took effect, but probe next rejects a missing qcom,bam-type.
+6c5a107ba supplies DWC3_CTRL=0 as defined by the current driver. USB ADB
+already works independently of this optional BAM probe.
+
+Passed milestone: 6.6 recovery boot, root ADB, UFS discovery/read, visible
+display and button navigation. Known failures: recovery touch, ADSP startup
+and battery/charging reporting; optional USB BAM probe. Full thermal,
+DSP/audio, sensors, WLAN, Bluetooth, modem, GPU, camera, video, suspend,
+reboot and sustained stability remain unverified. Raw logs, DT and firmware
+metadata are in out/waipio-zeus/evidence/attempt-2 with a checksum manifest.
+The phone remains in attempt-2 recovery; no third deployment has occurred.

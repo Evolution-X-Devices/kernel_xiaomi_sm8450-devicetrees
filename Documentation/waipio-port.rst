@@ -188,15 +188,14 @@ images, then reboot. Slot _b remains untouched. Exact artifact hashes must
 be supplied with the approval request. No such operation is authorized by
 USB attachment.
 
-The first recovery attempt panicked in the display RPMh path; see
-zeus-test-report.rst. All 6.6 functionality remains unverified:
-boot/UFS/recovery/ADB; display, touch,
-charging and thermal; DSP, audio, sensors, WLAN, Bluetooth and modem; GPU,
-camera and video; suspend/resume, reboot and sustained stability. After
-recovery succeeds, Android testing additionally needs matching system_dlkm
-and vendor_dlkm images and its own explicit deployment approval. Capture
-dmesg and pstore at each stage when available, recording each failure by
-subsystem. Cupid and Cape runtime remain explicitly unverified.
+The first recovery attempt panicked in display RPMh. After the binding fix,
+the second approved attempt reached 6.6 recovery with root ADB, UFS reads,
+visible display and working buttons. Touch remains nonfunctional in recovery.
+ADSP firmware loading exceeds the old reservation, and battery/charging
+reporting is unavailable. Full thermal, DSP/audio, sensors, WLAN, Bluetooth,
+modem, GPU, camera, video, suspend and sustained stability are unverified.
+See zeus-test-report.rst for evidence and pending fixes. Android testing
+also requires matching DLKM images and explicit deployment approval.
 
 Image integration also requires two additive miuicamera-cupid policy fixes:
 exclude app-only policy from recovery, where the app domain lacks Android
@@ -214,14 +213,21 @@ and Waipio cross-pairings. Other platforms retain their default behavior.
 Frozen test artifacts and exact commands are in
 out/waipio-zeus/test-images/TEST-PLAN.txt, with SHA256SUMS and the packaging
 report. The first operation was explicitly approved and executed; recovery/ADB
-did not appear. Rollback completed and baseline recovery ADB is working.
+did not appear. Rollback completed; the second approved recovery attempt
+subsequently reached working 6.6 recovery.
 An exported additive patch series and index are under
 out/waipio-zeus/patches and out/waipio-zeus/commit-series.txt.
 The final kernel is 6.6.144-android15-8-g3bfb6974dd86-dirty-4k; dirty marks
 the preserved, pre-existing power-key edit. Recovered minidump logs identify
-a display/RPMh parent-binding fault; its fix and a USB BAM address encoding
-fix await a new hardware trial.
+a display/RPMh parent-binding fault; its fix passed the second recovery
+trial. The new ADSP memory and USB BAM type fixes await another trial.
 
 The Cape regression build also passed with audio target_product=mondrian
 (135 executed actions, 135.8 seconds), producing out/waipio-cape/dist.
 This verifies compilation and packaging, not Cape runtime operation.
+
+The validator accepts --adsp-metadata pointing to the installed adsp.mdt.
+It computes the loadable ELF32 image span, excluding MDT hash segments,
+and checks the remoteproc memory-region capacity. The Zeus firmware needs
+49 MiB; the previous 33 MiB reservation is rejected. The metadata stays in
+local test evidence and is not imported into the source tree.
