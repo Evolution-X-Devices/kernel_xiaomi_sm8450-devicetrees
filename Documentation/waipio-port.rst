@@ -8,8 +8,8 @@ Scope and provenance
 --------------------
 
 Zeus is the first hardware target. Cupid is built but has no runtime
-validation. Cape runtime behavior is likewise unverified. No USB boot,
-reboot or partition write has been performed by this port.
+validation. Cape runtime behavior is likewise unverified. The first approved
+USB recovery test and its outcome are recorded in zeus-test-report.rst.
 
 Starting revisions, dirty paths and binary-diff SHA256 values are recorded
 in waipio-baseline.json. The DT tree started clean: the previously reported
@@ -184,7 +184,9 @@ images, then reboot. Slot _b remains untouched. Exact artifact hashes must
 be supplied with the approval request. No such operation is authorized by
 USB attachment.
 
-All 6.6 runtime checks are pending: boot/UFS/recovery/ADB; display, touch,
+The first recovery attempt did not provide ADB or a USB endpoint; see
+zeus-test-report.rst. All 6.6 functionality remains unverified:
+boot/UFS/recovery/ADB; display, touch,
 charging and thermal; DSP, audio, sensors, WLAN, Bluetooth and modem; GPU,
 camera and video; suspend/resume, reboot and sustained stability. After
 recovery succeeds, Android testing additionally needs matching system_dlkm
@@ -207,12 +209,13 @@ and Waipio cross-pairings. Other platforms retain their default behavior.
 
 Frozen test artifacts and exact commands are in
 out/waipio-zeus/test-images/TEST-PLAN.txt, with SHA256SUMS and the packaging
-report. The first operation remains pending explicit user confirmation.
+report. The first operation was explicitly approved and executed; recovery/ADB
+did not appear, and rollback awaits manual Fastboot entry.
 An exported additive patch series and index are under
 out/waipio-zeus/patches and out/waipio-zeus/commit-series.txt.
 The final kernel is 6.6.144-android15-8-g3bfb6974dd86-dirty-4k; dirty marks
-the preserved, pre-existing power-key edit. Runtime failures and successes
-remain unclassified until the approved recovery test.
+the preserved, pre-existing power-key edit. The initial failure has no
+available kernel logs yet and cannot be attributed to a subsystem.
 
 The Cape regression build also passed with audio target_product=mondrian
 (135 executed actions, 135.8 seconds), producing out/waipio-cape/dist.
