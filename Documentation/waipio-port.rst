@@ -224,8 +224,9 @@ The final kernel is 6.6.144-android15-8-g3bfb6974dd86-dirty-4k; dirty marks
 the preserved, pre-existing power-key edit. Recovered minidump logs identify
 a display/RPMh parent-binding fault; its fix passed the second recovery
 trial. The ADSP memory and USB BAM type fixes passed the third recovery trial.
-Touch still produces no contact interrupts; baseline recovery comparison
-is the next prepared diagnostic.
+Attempt-3 touch produces no contact interrupts; the subsequent approved
+baseline comparison confirms working 5.10 touch. The board audit and
+corrected candidate are described below.
 
 The Cape regression build also passed with audio target_product=mondrian
 (135 executed actions, 135.8 seconds), producing out/waipio-cape/dist.
@@ -285,3 +286,29 @@ attempt-2/3 trees fail the regulator comparison. This independent baseline
 check would have caught the PM8008 omission before deployment.
 All ten overlays compile/apply; Cape base and six overlay DTs retain the
 same semantic contents as the previously validated distribution.
+
+Audited candidate packaging
+----------------------------
+
+The final Zeus build uses breakfast zeus and passes all six image targets
+(04:12 total; kernel/external-module build 143 executed actions). The
+Cape/Mondrian regression distribution passes separately (97 executed
+actions, 201.563 seconds). No new runtime claim follows from those builds.
+
+The frozen candidate is out/waipio-zeus/attempt5-images, with SHA256SUMS,
+packaging-report.json and TEST-PLAN.txt. waipio-validation-attempt5.json
+records exact image hashes and source revisions. All ten DT combinations
+extracted from the actual vendor_boot/DTBO images are semantically identical
+to the independently validated source outputs. Both Zeus combinations pass
+the 120-regulator/40-reservation working-baseline checks.
+Recovery contains 261 modules and the vendor DLKM ramdisk 348; both include
+and load the Waipio and Cape PHYs. Both filesystem images match staged
+module bytes (79 system, 361 vendor), with all cross-partition dependencies
+present. The extra migrated regulator provider is PM8450 L4; all 120
+baseline named regulators retain their constraints and supply identities.
+
+This candidate remains undeployed. Its plan requests only boot_a,
+vendor_boot_a, dtbo_a and recovery_a, followed by recovery boot, and gives
+the exact four-image rollback to the touch-working 5.10 recovery. It does
+not authorize Android boot or DLKM writes. Specific user approval remains
+pending; all earlier artifact sets and evidence remain preserved.

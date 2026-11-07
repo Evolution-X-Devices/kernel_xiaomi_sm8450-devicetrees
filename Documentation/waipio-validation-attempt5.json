@@ -1,0 +1,412 @@
+{
+  "source_revisions": {
+    "sm8450-kernel": {
+      "head": "3bfb6974dd861cad1ea3168a51879cf0b9037aed",
+      "status": "M drivers/input/misc/pm8941-pwrkey.c"
+    },
+    "sm8450-devicetrees": {
+      "head": "a2f40cf517e378a4defe530ab20ea63754a5a538",
+      "status": ""
+    },
+    "sm8450-modules": {
+      "head": "c210dbe007823a6f3b71a4d2573fed57550ea8d7",
+      "status": ""
+    },
+    "sm8450-build": {
+      "head": "3cead2d3ffa46e115247203b3c8037bbb4ad04d8",
+      "status": ""
+    }
+  },
+  "images": {
+    "boot.img": {
+      "size": 201326592,
+      "sha256": "3c34c6235f6458f6c97ef7f43d1a90fc2abdd882cb36942540fe76481df48872"
+    },
+    "vendor_boot.img": {
+      "size": 100663296,
+      "sha256": "632cefa6b5a95c027cd462cd77fb17561b3a7df8f45e9017a9dc6f3d8b69dc97"
+    },
+    "recovery.img": {
+      "size": 104857600,
+      "sha256": "0085ef94b20be61a9d2834e41608bbc947ad4307424f08f5494f77817cb8d647"
+    },
+    "dtbo.img": {
+      "size": 25165824,
+      "sha256": "56268904a3f441908b67f155395561303fdcae10436fb2a8f23c32d2d62f5f33"
+    },
+    "vendor_dlkm.img": {
+      "size": 71454720,
+      "sha256": "962c738e76643f48756798736eb6982c5f0edf068d3a3254998666f1289e6ad8"
+    },
+    "system_dlkm.img": {
+      "size": 11653120,
+      "sha256": "a7b25b4560f40509827c1e385077d28e6fc349fd1746bf3861f1f355e9fec3c7"
+    }
+  },
+  "dtbs": [
+    {
+      "model": "Qualcomm Technologies, Inc. Cape SoC",
+      "soc_ids": [
+        530,
+        65536
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "soc_ids": [
+        457,
+        131072
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio SoC",
+      "soc_ids": [
+        457,
+        65536
+      ]
+    }
+  ],
+  "dtbos": [
+    {
+      "model": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Diting based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "thor based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0,
+        50397192,
+        3
+      ]
+    },
+    {
+      "model": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    }
+  ],
+  "applied_combinations": [
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "Diting based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "thor based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Cape SoC",
+      "board": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "board": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "board": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "passed": true,
+      "working_baseline": {
+        "regulators": 120,
+        "fixed_reservations": 40
+      }
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Waipio SoC",
+      "board": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "passed": true
+    },
+    {
+      "base": "Qualcomm Technologies, Inc. Waipio SoC",
+      "board": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "passed": true,
+      "working_baseline": {
+        "regulators": 120,
+        "fixed_reservations": 40
+      }
+    }
+  ],
+  "recovery": {
+    "modules": 261,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "vendor_dlkm_ramdisk": {
+    "modules": 348,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "system_dlkm": {
+    "modules": 79,
+    "all_dependencies_present": true,
+    "all_modules_match_staging": true
+  },
+  "vendor_dlkm": {
+    "modules": 361,
+    "all_dependencies_present": true,
+    "all_modules_match_staging": true
+  },
+  "adsp_firmware_span": 51380224,
+  "packaged_dts_match_validated_sources": [
+    {
+      "base": "cape",
+      "board": "thor",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "cape",
+      "board": "mayfly",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "cape",
+      "board": "mondrian",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "cape",
+      "board": "zizhan",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "cape",
+      "board": "diting",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "cape",
+      "board": "unicorn",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "waipio-v2",
+      "board": "zeus",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "waipio-v2",
+      "board": "cupid",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "waipio",
+      "board": "zeus",
+      "identical_to_validated_source": true
+    },
+    {
+      "base": "waipio",
+      "board": "cupid",
+      "identical_to_validated_source": true
+    }
+  ],
+  "cape_regression_build": {
+    "result": "PASS",
+    "audio_target_product": "mondrian",
+    "executed_actions": 97,
+    "elapsed_seconds": 201.563,
+    "log": "out/waipio-zeus/audit/cape-build.log"
+  },
+  "zeus_image_build": {
+    "result": "PASS",
+    "configured_with": "breakfast zeus",
+    "kernel_and_external_module_actions": 143,
+    "total_elapsed": "04:12",
+    "log": "out/waipio-zeus/audit/zeus-images-build.log"
+  },
+  "dt_source_validation": [
+    {
+      "base": "waipio",
+      "board": "zeus",
+      "passed": true
+    },
+    {
+      "base": "waipio",
+      "board": "cupid",
+      "passed": true
+    },
+    {
+      "base": "waipio-v2",
+      "board": "zeus",
+      "passed": true
+    },
+    {
+      "base": "waipio-v2",
+      "board": "cupid",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "diting",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "mayfly",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "mondrian",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "thor",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "unicorn",
+      "passed": true
+    },
+    {
+      "base": "cape",
+      "board": "zizhan",
+      "passed": true
+    }
+  ],
+  "regression_checks": {
+    "failed_runtime_trees_rejected": [
+      {
+        "attempt": 2,
+        "rejected": true,
+        "reason": "out/waipio-zeus/evidence/attempt-2/runtime.dtb: baseline regulator mismatch: b'pm8008j_l1\\x00'"
+      },
+      {
+        "attempt": 3,
+        "rejected": true,
+        "reason": "out/waipio-zeus/evidence/attempt-3/runtime.dtb: baseline regulator mismatch: b'pm8008j_l1\\x00'"
+      }
+    ],
+    "cape_dist_semantic_identity": [
+      "cape.dtb",
+      "zizhan-sm8475-pm8008-overlay.dtbo",
+      "unicorn-sm8475-pm8008-overlay.dtbo",
+      "thor-sm8475-pm8008-overlay.dtbo",
+      "diting-sm8475-pm8008-overlay.dtbo",
+      "mondrian-sm8475-pm8008-overlay.dtbo",
+      "mayfly-sm8475-pm8008-overlay.dtbo"
+    ]
+  },
+  "deployment_status": "Not deployed. Specific four-partition recovery approval pending."
+}
