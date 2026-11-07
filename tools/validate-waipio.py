@@ -129,6 +129,75 @@ def check_bindings(path, adsp_span=None):
             _, _, high, low = struct.unpack('>4I', region['reg'])
             if (high << 32 | low) < adsp_span:
                 raise ValueError(f'{path}: {name} carveout is smaller than the ADSP image')
+    check_camera_iova(path, nodes)
+
+
+def check_camera_iova(path, nodes):
+    handles = {int.from_bytes(p['phandle'], 'big'): name
+               for name, p in nodes.items() if 'phandle' in p}
+
+    def cell_count(name, property_name, default):
+        parent = name.rpartition('/')[0]
+        while parent in nodes:
+            if property_name in nodes[parent]:
+                return int.from_bytes(nodes[parent][property_name], 'big')
+            if not parent:
+                break
+            parent = parent.rpartition('/')[0]
+        return default
+
+    def covers(start, end, ranges):
+        for low, high in sorted(ranges):
+            if low > start:
+                break
+            start = max(start, high)
+            if start >= end:
+                return True
+        return start >= end
+
+    for name, properties in nodes.items():
+        if b'qcom,msm-cam-smmu-cb' not in properties.get('compatible', b'').split(b'\0'):
+            continue
+        io = nodes.get(name + '/iova-mem-map/iova-mem-region-io')
+        if io is None:
+            continue
+        discard = properties.get('iova-region-discard', bytes(8))
+        if discard != io.get('iova-region-discard', bytes(8)):
+            raise ValueError(f'{path}: {name} camera discard regions disagree')
+        start = int.from_bytes(io['iova-region-start'], 'big')
+        end = start + int.from_bytes(io['iova-region-len'], 'big')
+        discard_start, discard_size = struct.unpack('>II', discard)
+        if discard_size and not start < discard_start < discard_start + discard_size < end:
+            raise ValueError(f'{path}: {name} camera discard range is outside its IO region')
+        if 'memory-region' not in properties:
+            # Existing Cape banks still describe their legacy DMA pool.
+            continue
+        ranges = []
+        regions = properties['memory-region']
+        for offset in range(0, len(regions), 4):
+            region_name = handles[int.from_bytes(regions[offset:offset + 4], 'big')]
+            maps = nodes[region_name].get('iommu-addresses', b'')
+            offset = 0
+            while offset < len(maps):
+                target = handles[int.from_bytes(maps[offset:offset + 4], 'big')]
+                offset += 4
+                address_bytes = 4 * cell_count(target, '#address-cells', 2)
+                size_bytes = 4 * cell_count(target, '#size-cells', 1)
+                start = int.from_bytes(maps[offset:offset + address_bytes], 'big')
+                offset += address_bytes
+                length = int.from_bytes(maps[offset:offset + size_bytes], 'big')
+                offset += size_bytes
+                if target == name:
+                    ranges.append((start, start + length))
+        # These camera context banks use a 32-bit IOVA layout.
+        if not 0 <= start < end <= 1 << 32:
+            raise ValueError(f'{path}: {name} invalid 32-bit camera IO region')
+        required = [(0, start), (end, 1 << 32)]
+        if discard_size:
+            required.append((discard_start, discard_start + discard_size))
+        for low, high in required:
+            if not covers(low, high, ranges):
+                raise ValueError(f'{path}: {name} IOVA reservation missing for {low:#x}..{high:#x}')
 
 
 def check_zeus_baseline(path, baseline):
