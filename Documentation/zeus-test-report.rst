@@ -470,3 +470,21 @@ with automatic Android boot and a Fastboot return to slot-a recovery if
 needed. This new deployment awaits specific approval; no further writes,
 slot changes or reboots have been performed. Android boot and subsystem
 tests, plus Cupid/Cape runtime, remain unverified.
+
+System attempt 2: installation complete, boot observation pending
+----------------------------------------------------------------
+
+The user approved the exact candidate 2 OTA and its slot-b install/automatic
+Android boot, including return to slot-a recovery if necessary. The serial,
+Zeus identity, recovery mode, slot a and ZIP checksum were verified before
+eat. Installation completed at 2026-11-07 18:52:22 UTC with exit status 0
+and Total xfer 1.00x. The complete transcript, approval, pre-install kernel
+log and USB observations are in out/waipio-zeus/evidence/system-attempt-2.
+
+Android ADB has not appeared after installation. No post-install kernel
+log or boot-completed result is available yet; screen observation has been
+requested. Successful installation does not establish successful Android
+boot, and the camera fix is not runtime-verified. The approved fallback
+requires Fastboot access to select physical slot a and boot its tested
+recovery, then collect new minidump/pstore logs. No rescue slot change or
+additional partition write has been performed at this point.

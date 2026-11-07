@@ -418,5 +418,6 @@
       }
     ]
   },
-  "deployment_status": "Prepared and validated; awaiting specific approval for this new OTA. Zeus remains in working slot-a recovery."
+  "deployment_status": "User explicitly approved and eat installed the exact OTA successfully (exit 0, Total xfer 1.00x, finished 2026-11-07T18:52:22Z). Android ADB has not appeared; screen observation and boot outcome pending. Approved fallback is slot-a recovery. No boot success claim.",
+  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-2"
 }
