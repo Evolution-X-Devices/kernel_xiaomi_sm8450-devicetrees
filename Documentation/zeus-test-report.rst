@@ -4,6 +4,11 @@
 Zeus hardware validation
 ========================
 
+Latest verified milestone: attempt 5 has working 6.6 recovery, display/touch,
+root ADB, UFS read, ADSP startup and idle charging telemetry. Full Android
+boot is pending approval of the complete OTA described at the end of this
+report. Cupid and Cape runtime remain unverified.
+
 Attempt 1: recovery, 2026-11-07
 -------------------------------
 
@@ -259,12 +264,12 @@ runtime behavior remain explicitly unverified.
 Prepared audited recovery candidate
 -----------------------------------
 
-Attempt-5 is frozen at out/waipio-zeus/attempt5-images and has not been
+Attempt-5 is frozen at out/waipio-zeus/attempt 5-images and has not been
 deployed. The Zeus kernel/external-module/six-image build and separate
 Cape/Mondrian build pass. Actual packaged DTs match all ten validated
 source combinations; both Zeus bases match 120 baseline regulators and
 40 fixed reservations. Ramdisk and filesystem module dependency/byte
-checks pass. See waipio-validation-attempt5.json for hashes and provenance.
+checks pass. See waipio-validation-attempt 5.json for hashes and provenance.
 
 TEST-PLAN.txt requests exactly the four slot-a recovery-test writes,
 then recovery boot, with serial/product/slot verification before writes.
@@ -334,3 +339,46 @@ remain pending. The user requested a complete build for that test; it is
 being prepared with the local g.sh setup and build zeus helper, including
 ccache, for a separately reviewed OTA deployment. Existing recovery-test
 approval does not authorize that OTA's writes or slot change.
+
+Complete system candidate prepared
+------------------------------------
+
+The user requested a complete build for system testing and the local
+g.sh/build zeus flow. That flow, including ccache, passed in 00:54:19
+(Android build 54:16, 101673 Ninja steps). The wrapper's Telegram hook was
+suppressed in this shell; source scripts were unchanged. Full source refs
+and dirty-input state are in out/waipio-zeus/full-build.
+
+The frozen full OTA is lineage-24.0-20261107-UNOFFICIAL-zeus.zip, 1844154954
+bytes, SHA256 c2ad893abeff524f12322de9077b61bc08e409746bfbb29d136625d34259c9a1.
+It is under out/waipio-zeus/full-build/deploy with TEST-PLAN.txt, checksum
+and payload/image validation reports. waipio-system-candidate.json records
+the exact artifact and checks. No complete OTA has been deployed yet.
+
+All 33 payload partition hashes match the assembled target-files images.
+The builder repacks boot/vendor_boot from target-files, so their final
+payload images were independently inspected. The kernel bytes are identical
+to the working attempt 5 kernel. All 10 applied DT combinations equal the
+validated source outputs. Both Zeus bases retain the 120 regulator/40 fixed
+reservation baseline checks. Recovery has 261 modules; the final vendor_boot
+fragment has 90 early modules, with both PHYs loaded and all dependencies
+present. The 79 system and 361 vendor filesystem modules match staging and
+the running kernel's vermagic. First-stage fstab mounts both DLKMs.
+
+The full payload adds system_dlkm, absent from the old 5.10 logical layout.
+All 20 firmware images match exact payload-sized prefixes of the currently
+installed slot-a partitions. Certificate, ZIP CRC, payload/metadata hashes,
+full-update metadata and timestamps pass. No wipe/downgrade flag or
+userdata/metadata payload is present. At 4296 seconds recovery uptime, ADSP
+still runs, battery is Charging/Good at 68 percent and 29.1 C, AVDD remains
+3.304 V, root ADB works and pstore is empty. This is idle observation, not
+a thermal/load stress test.
+
+The reviewed plan proposes eat with serial 4feb552c and its OUT pinned to
+the one frozen ZIP. A/B installation targets slot b and automatically boots
+Android. This broader operation requires new specific approval. The plan
+provides a hardware-key/Fastboot path back to tested slot-a recovery and
+retains actual inactive-slot boot/recovery readbacks plus the original
+full 5.10 package. Virtual A/B snapshot merging means slot selection alone
+is not a promise of full OS/application-data rollback. No factory reset or
+format is proposed. Android and subsequent subsystem tests remain unverified.
