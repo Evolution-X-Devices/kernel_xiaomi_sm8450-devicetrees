@@ -565,3 +565,12 @@ again; eat was started with OUT pinned to the frozen candidate directory.
 The installation transcript and boot monitor are under
 out/waipio-zeus/evidence/system-attempt-3. Installation/boot results and
 GPU/watchdog runtime behavior are pending at this preparation checkpoint.
+
+The authorized eat installation subsequently completed successfully at
+2026-11-07 19:44:01 UTC, exit status 0 and Total xfer 1.00x. No Android
+ADB appeared during the initial boot observation, and neither Android nor
+Fastboot was visible five minutes after installation. A screen observation
+has been requested. No fresh post-install kernel log is available yet;
+the GPU fix and watchdog behavior remain runtime-unverified. The approved
+slot-a recovery fallback remains prepared, awaiting Fastboot access if
+startup fails. No further boot attempt, slot change or flash was performed.

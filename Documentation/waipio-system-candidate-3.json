@@ -438,5 +438,6 @@
     "zip_bytes": 1844158205,
     "validation": "PASS"
   },
-  "deployment_status": "Validated and authorized; proceeding with eat and automatic Android boot."
+  "deployment_status": "Explicitly authorized OTA installed successfully with eat (exit 0, Total xfer 1.00x) at 2026-11-07T19:44:01Z; no Android ADB during the first five minutes. Awaiting screen observation or Fastboot availability; no post-install kernel log or successful Android boot claim.",
+  "deployment_evidence": "out/waipio-zeus/evidence/system-attempt-3"
 }
