@@ -205,14 +205,53 @@ neither identification path explains this failure. Those patches have not
 been applied as a speculative Zeus fix. The existing user power-key and
 device-tree edits remain untouched.
 
-Baseline 5.10 recovery touch has not yet been tested. A reversible A/B plan
-is prepared at out/waipio-zeus/touch-ab-test/TEST-PLAN.txt with both exact,
-checksum-verified image sets in images.json: boot baseline recovery, capture
-touch/IRQ behavior, then restore attempt-3 recovery. That additional flash
-sequence has not been performed and requires explicit approval.
+A reversible A/B plan was prepared at
+out/waipio-zeus/touch-ab-test/TEST-PLAN.txt with both exact image sets in
+images.json. The user subsequently approved that sequence; its results follow.
 
 Current state: attempt-3 recovery with root ADB, running ADSP, visible UI,
 working button navigation and charging telemetry. Touch remains failed.
 Android, full audio/sensors/radios, GPU/camera/video, suspend/resume and
 long-duration stability remain unverified. Evidence is preserved under
 out/waipio-zeus/evidence/attempt-3 with SHA256.json.
+
+Confirmed touch A/B and board audit
+-----------------------------------
+
+The first baseline input capture was inconclusive because the user was
+away. The same approved A/B sequence was repeated with the user at Zeus.
+In 5.10 baseline recovery the user explicitly confirms touch works. The
+coordinated 15-second capture contains 98 lines including ABS contact and
+BTN_TOUCH events, and the FTS IRQ count rises from 3 to 56. The controller
+reports the same firmware release as on 6.6. This establishes a 6.6 touch
+regression rather than an unverified baseline problem.
+
+The four approved attempt-3 slot-a images were restored afterward. Root
+ADB confirms 6.6 recovery, running ADSP and Charging status. Fastboot product
+and slot were checked before writes. One bootloader entry did not expose
+product/slot variables; restarting bootloader restored them, and no writes
+were made until identity was established. No Android/DLKM or slot-b write
+was performed. Evidence, active contact trace and flash transcripts are
+under out/waipio-zeus/evidence/touch-ab.
+
+Zeus touch AVDD references PM8008J L3. The generic imported constraints
+limited it to 1.8 V, while the working runtime DT specifies 3.3--3.304 V
+with BOB as its upstream supply. The 6.6 log confirms the regulator lowered
+the rail. Xiaomi source aef1e9aed restores this and the other PM8008J
+constraints; eea5f4bd0 ports it without driver changes. This is a concrete
+DT error consistent with probing without contact interrupts, but its
+hardware fix is not yet verified.
+
+The attempt-4 images containing that rail fix built and passed packaging
+checks, but were held undeployed when the user requested a broader audit.
+The ensuing 76-commit/112-file audit restored 13 additional Xiaomi source
+adaptations, recorded in waipio-xiaomi-audit.json. Further artifacts must
+include that complete series and require their own specific deployment
+approval. The earlier attempt-4 test plan does not authorize deployment.
+
+Latest verified state: 6.6 attempt-3 recovery with visible display, buttons,
+root ADB, UFS read, ADSP startup and idle charging telemetry. Touch works
+in the 5.10 A/B baseline and fails in attempt-3 6.6. No corrected-rail
+runtime result exists yet. Android, audio/sensors/radios, GPU/camera/video,
+suspend/resume and sustained stability remain unverified. Cupid and Cape
+runtime behavior remain explicitly unverified.

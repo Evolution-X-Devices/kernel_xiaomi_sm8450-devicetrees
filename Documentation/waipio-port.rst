@@ -15,14 +15,15 @@ Starting revisions, dirty paths and binary-diff SHA256 values are recorded
 in waipio-baseline.json. The DT tree started clean: the previously reported
 Mondrian edit was already committed. The power-key edit and the three dirty
 sm8450-common files were preserved. Only the additional Waipio PHY load line
-was staged from modules.load.vendor_boot. Baseline patches and detailed logs
-are in /tmp/waipio-port on the development host.
+was staged from modules.load.vendor_boot. Starting-diff hashes are recorded in that manifest. Persistent build artifacts
+and hardware evidence are under out/waipio-zeus; the former temporary
+/tmp/waipio-port directory is no longer available.
 
 The Cape import d2452eb5acadd1d7feac7cbc30030bcb86fbe9aa records KP 1.0
 DT revision e0f68cedcf57. Missing Waipio DTs and their include closure are
 snapshots of that same revision. Existing shared files were never replaced.
 The display subtree is absent from that old DT revision; its missing
-foundation is taken from Xiaomi 5.10 DT revision
+foundation is taken from the kernel/qcom/sm8450-devicetrees 5.10 revision
 13fe1ba65b42d44c6f501085a516454bfbb11335. That subtree was imported from
 8b213c136573ee1f621ca9747eedd391c7f9fe62 by aaf9f794ece68b476a7b367aec7299c55c088712.
 waipio-snapshots.json lists each imported path and revision. Snapshot commits
@@ -65,7 +66,8 @@ was considered, including later Xiaomi integration. Derived commits retain
 the originating author, identify the source commit and carry a new Change-Id
 and Assisted-by trailer. Hardware policy is distinguished from binding work.
 
-* b17b17024: applicable; AOSS uses qcom,sm8450-aoss-qmp.
+* b17b17024: applicable; subsequent qcom,qmp migration uses the current
+  qcom,aoss-qmp compatible.
 * 65b2cdf5c: applicable; LLCC uses qcom,sm8450-llcc and six bank/broadcast
   register ranges consumed by drivers/soc/qcom/llcc-qcom.c.
 * 64a7ddf61: applicable; RPMh uses qcom,sm8450-rpmh-clk and its XO input.
@@ -101,8 +103,9 @@ Adreno730v2/gen7-0-1 power data remain in waipio-v2.dtsi and
 waipio-v2-gpu.dtsi. Both clock drivers explicitly match the v2 compatibles;
 the graphics module has gen7-0-0 and gen7-0-1 core data.
 
-Cape SPSS disabling was rejected as hardware policy; a follow-up restores
-the original Waipio status. The TOF pinctrl migration is required because
+The initial Cape-only review mistakenly rejected SPSS disabling. The complete
+Xiaomi Waipio history independently establishes the same policy in
+461fb54c106c; dda162a01 now restores it with that source's authorship. The TOF pinctrl migration is required because
 the Zeus/Cupid board files already reference PM8350B GPIO2; its provider and ADC
 mux selection follow b673568ce. Thor UART definitions
 are omitted from Waipio. The Xiaomi UART states for Zeus/Cupid are derived
@@ -233,3 +236,52 @@ It computes the loadable ELF32 image span, excluding MDT hash segments,
 and checks the remoteproc memory-region capacity. The Zeus firmware needs
 49 MiB; the previous 33 MiB reservation is rejected. The metadata stays in
 local test evidence and is not imported into the source tree.
+
+Xiaomi board-history audit
+--------------------------
+
+The original port reviewed Cape's migration series against a generic Waipio
+snapshot, but did not replay the complete Xiaomi Waipio board delta. This
+missed aef1e9aed and other changes to Waipio-only dependencies. Compilation
+and controller probing could not establish correct board supply voltages.
+
+The follow-up audits the actual include closure of both Waipio bases and
+Zeus/Cupid overlays, plus the two former standalone audio overlays.
+waipio-xiaomi-audit.json pins Xiaomi source b262396b07920e54fc4bde0ff6ff58c7fcc81ee1,
+records all 76 post-snapshot commits affecting these inputs, and reviews
+all 112 current DT dependencies, including retained shared 6.6 migrations.
+Each file records source/current hashes; each commit has a disposition.
+This is a bounded DT audit, not certification of every kernel driver or
+runtime subsystem.
+
+Fourteen source changes were restored in the follow-up: PM8008J supply
+voltages/parents; unused PCIe1/MSI policy; tertiary TDM clock drive strength;
+reference SDPM monitor removal; optional EUD PHY resource removal; memory-
+offline policy; SPSS/SPCOM policy; inactive trusted-UI/OEM VM allocations;
+Bluetooth/WLAN RF_CLK3; CNSS bandwidth votes, rail retention and NV MAC;
+reference QBT handler removal; and the disabled SE1 DIO4480 placeholder.
+The latter source title is misleading: it does not disable the active SE5
+FSA4480 device. These are Xiaomi source policies, not broad feature removal
+to hide bring-up failures. Thermal zones/cooling, PCIe0/WLAN and all unrelated
+reservations remain intact. Each adaptation retains its original author,
+source commit, fresh Change-Id and Assisted-by trailer.
+
+The source's five sequential I2C aliases are superseded by the existing
+6.6 shared serial-engine numbering (aad1d05d5), so they are not replayed.
+The SMEM enlargement is reverted in the source history and has no net
+change. Thor-only UART states remain in Cape. The selected L2/L3 panel
+files and the common board/audio descriptions match the pinned source.
+
+The current SNPS PHY accepts an absent EUD resource. CNSS2 power.c consumes
+rf_clk and the rail retention configuration; main.c consumes use-nv-mac.
+Bluetooth pwr/btpower.c reads the supplied clock name. Existing drivers
+provide these bindings; no driver snapshot is imported.
+
+The validator also accepts --zeus-baseline-dtb pointing at the saved working
+5.10 runtime DT. For both Zeus silicon bases it compares all 120 named
+baseline regulators' voltage constraints and named upstream supplies, and
+all 40 fixed baseline memory reservations. Corrected trees pass; the saved
+attempt-2/3 trees fail the regulator comparison. This independent baseline
+check would have caught the PM8008 omission before deployment.
+All ten overlays compile/apply; Cape base and six overlay DTs retain the
+same semantic contents as the previously validated distribution.

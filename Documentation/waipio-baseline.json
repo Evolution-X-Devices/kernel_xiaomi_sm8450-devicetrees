@@ -43,5 +43,11 @@
     "head": "81ab177340ac54ea911b88f1e58c1e9fac048653",
     "status": "",
     "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "kernel/xiaomi/sm8450-devicetrees": {
+    "head": "b262396b07920e54fc4bde0ff6ff58c7fcc81ee1",
+    "status": "",
+    "source_commit": "aef1e9aedc8123e45ad48ee7c60b84b56f25c8fb",
+    "purpose": "Read-only reference for Xiaomi PM8008 board adaptation"
   }
 }

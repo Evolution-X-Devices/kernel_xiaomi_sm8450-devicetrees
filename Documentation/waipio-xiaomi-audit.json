@@ -1,0 +1,1923 @@
+{
+  "reference_repository": "kernel/xiaomi/sm8450-devicetrees",
+  "reference_revision": "b262396b07920e54fc4bde0ff6ff58c7fcc81ee1",
+  "snapshot_revision": "e0f68cedcf57756593bb3f21345fa274f2aa027f",
+  "reviewed_implementation": "3fd66fc5ea621fcaf7738cae81e2ef3c88a33dd4",
+  "scope": "Actual Zeus/Cupid base and board include closure, plus mapped former audio .dts units. Reference boards and unrelated device ports excluded. Kernel-driver runtime behavior is not certified by this audit.",
+  "include_closure": {
+    "waipio.dts": [
+      "qcom/audio/msm-audio-lpass.dtsi",
+      "qcom/audio/waipio-audio.dtsi",
+      "qcom/camera/waipio-camera.dtsi",
+      "qcom/display/display/waipio-sde-common.dtsi",
+      "qcom/display/display/waipio-sde.dtsi",
+      "qcom/dsp/waipio/waipio-dsp.dtsi",
+      "qcom/eva/waipio-eva.dtsi",
+      "qcom/ipcc-test.dtsi",
+      "qcom/mmrm/waipio-mmrm.dtsi",
+      "qcom/msm-arm-smmu-waipio.dtsi",
+      "qcom/msm-rdbg.dtsi",
+      "qcom/synx/synx/waipio-synx.dtsi",
+      "qcom/video/waipio-vidc.dtsi",
+      "qcom/waipio-clock.dtsi",
+      "qcom/waipio-coresight.dtsi",
+      "qcom/waipio-debug.dtsi",
+      "qcom/waipio-dma-heaps.dtsi",
+      "qcom/waipio-gpu.dtsi",
+      "qcom/waipio-pcie.dtsi",
+      "qcom/waipio-pinctrl.dtsi",
+      "qcom/waipio-qupv3.dtsi",
+      "qcom/waipio-regulators.dtsi",
+      "qcom/waipio-smp2p.dtsi",
+      "qcom/waipio-thermal-modem.dtsi",
+      "qcom/waipio-thermal.dtsi",
+      "qcom/waipio-usb.dtsi",
+      "qcom/waipio-walt.dtsi",
+      "qcom/waipio.dts",
+      "qcom/waipio.dtsi"
+    ],
+    "waipio-v2.dts": [
+      "qcom/audio/msm-audio-lpass.dtsi",
+      "qcom/audio/waipio-audio.dtsi",
+      "qcom/camera/waipio-camera.dtsi",
+      "qcom/display/display/waipio-sde-common.dtsi",
+      "qcom/display/display/waipio-sde.dtsi",
+      "qcom/dsp/waipio/waipio-dsp.dtsi",
+      "qcom/eva/waipio-eva.dtsi",
+      "qcom/ipcc-test.dtsi",
+      "qcom/mmrm/waipio-mmrm.dtsi",
+      "qcom/mmrm/waipio-v2-mmrm.dtsi",
+      "qcom/msm-arm-smmu-waipio.dtsi",
+      "qcom/msm-rdbg.dtsi",
+      "qcom/synx/synx/waipio-synx.dtsi",
+      "qcom/video/waipio-vidc.dtsi",
+      "qcom/waipio-clock.dtsi",
+      "qcom/waipio-coresight.dtsi",
+      "qcom/waipio-debug.dtsi",
+      "qcom/waipio-dma-heaps.dtsi",
+      "qcom/waipio-gpu.dtsi",
+      "qcom/waipio-pcie.dtsi",
+      "qcom/waipio-pinctrl.dtsi",
+      "qcom/waipio-qupv3.dtsi",
+      "qcom/waipio-regulators.dtsi",
+      "qcom/waipio-smp2p.dtsi",
+      "qcom/waipio-thermal-modem.dtsi",
+      "qcom/waipio-thermal.dtsi",
+      "qcom/waipio-usb.dtsi",
+      "qcom/waipio-v2-gpu.dtsi",
+      "qcom/waipio-v2.dts",
+      "qcom/waipio-v2.dtsi",
+      "qcom/waipio-walt.dtsi",
+      "qcom/waipio.dtsi"
+    ],
+    "zeus-sm8450-pm8008-overlay.dts": [
+      "qcom/audio/waipio-audio-overlay.dtsi",
+      "qcom/audio/waipio-lpi.dtsi",
+      "qcom/audio/xiaomi-sm8450-common.dtsi",
+      "qcom/audio/zeus-audio-mtp.dtsi",
+      "qcom/camera/zeus-sm8450-camera-sensor.dtsi",
+      "qcom/display/display/dsi-panel-ext-bridge-1080p.dtsi",
+      "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+      "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-splitlink-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-video.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-splitlink-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-video.dtsi",
+      "qcom/display/display/dsi-panel-nt36672c-fhd-plus-90hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-nt36672e-fhd-plus-120-video.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-120hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-sync-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-rm69299-visionox-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-sharp-1080p-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-4k-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-4k-video.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-qsync-wqhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-qsync-wqhd-video.dtsi",
+      "qcom/display/display/dsi-panel-sim-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dsc-10bit-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dsc375-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-dsc375-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-video.dtsi",
+      "qcom/display/display/dsi-panel-sim-sec-hd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-vdc-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-vdc-vid.dtsi",
+      "qcom/display/display/dsi-panel-sim-video.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-1280p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dsc-2544p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dualmipi-1280p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dualmipi-dsc-2544p-video.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-cmd.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-video.dtsi",
+      "qcom/display/display/waipio-sde-display-common.dtsi",
+      "qcom/display/display/waipio-sde-display-pinctrl.dtsi",
+      "qcom/display/display/waipio-sde-display.dtsi",
+      "qcom/display/display/zeus-sde-display-mtp.dtsi",
+      "qcom/pm8350.dtsi",
+      "qcom/pm8350b.dtsi",
+      "qcom/pm8350c.dtsi",
+      "qcom/pm8450.dtsi",
+      "qcom/pmk8350.dtsi",
+      "qcom/pmr735a.dtsi",
+      "qcom/pmr735b.dtsi",
+      "qcom/waipio-pm8008.dtsi",
+      "qcom/waipio-pmic-overlay.dtsi",
+      "qcom/waipio-thermal-overlay.dtsi",
+      "qcom/xiaomi-sm8450-common.dtsi",
+      "qcom/zeus-pinctrl.dtsi",
+      "qcom/zeus-sm8450-pm8008-overlay.dts",
+      "qcom/zeus-sm8450.dtsi"
+    ],
+    "cupid-sm8450-pm8008-overlay.dts": [
+      "qcom/audio/cupid-audio-mtp.dtsi",
+      "qcom/audio/waipio-audio-overlay.dtsi",
+      "qcom/audio/waipio-lpi.dtsi",
+      "qcom/audio/xiaomi-sm8450-common.dtsi",
+      "qcom/camera/cupid-sm8450-camera-sensor.dtsi",
+      "qcom/cupid-pinctrl.dtsi",
+      "qcom/cupid-pm8008.dtsi",
+      "qcom/cupid-sm8450-pm8008-overlay.dts",
+      "qcom/cupid-sm8450.dtsi",
+      "qcom/display/display/cupid-sde-display-mtp.dtsi",
+      "qcom/display/display/dsi-panel-ext-bridge-1080p.dtsi",
+      "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-splitlink-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-video.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-splitlink-cmd.dtsi",
+      "qcom/display/display/dsi-panel-nt35695b-truly-fhd-video.dtsi",
+      "qcom/display/display/dsi-panel-nt36672c-fhd-plus-90hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-nt36672e-fhd-plus-120-video.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-120hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-sync-cmd.dtsi",
+      "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-cmd-cphy.dtsi",
+      "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-video-cphy.dtsi",
+      "qcom/display/display/dsi-panel-rm69299-visionox-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-sharp-1080p-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-4k-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-4k-video.dtsi",
+      "qcom/display/display/dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-qsync-wqhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sharp-qsync-wqhd-video.dtsi",
+      "qcom/display/display/dsi-panel-sim-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dsc-10bit-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dsc375-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-dsc375-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-dualmipi-video.dtsi",
+      "qcom/display/display/dsi-panel-sim-sec-hd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-vdc-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sim-vdc-vid.dtsi",
+      "qcom/display/display/dsi-panel-sim-video.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-cmd.dtsi",
+      "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-1280p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dsc-2544p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dualmipi-1280p-video.dtsi",
+      "qcom/display/display/dsi-panel-sy103-dualmipi-dsc-2544p-video.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-cmd.dtsi",
+      "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-video.dtsi",
+      "qcom/display/display/waipio-sde-display-common.dtsi",
+      "qcom/display/display/waipio-sde-display-pinctrl.dtsi",
+      "qcom/display/display/waipio-sde-display.dtsi",
+      "qcom/pm8350.dtsi",
+      "qcom/pm8350b.dtsi",
+      "qcom/pm8350c.dtsi",
+      "qcom/pm8450.dtsi",
+      "qcom/pmk8350.dtsi",
+      "qcom/pmr735a.dtsi",
+      "qcom/pmr735b.dtsi",
+      "qcom/waipio-pmic-overlay.dtsi",
+      "qcom/waipio-thermal-overlay.dtsi",
+      "qcom/xiaomi-sm8450-common.dtsi"
+    ]
+  },
+  "mapped_sources": {
+    "qcom/audio/zeus-audio-mtp.dtsi": "qcom/audio/zeus-audio-mtp.dts",
+    "qcom/audio/cupid-audio-mtp.dtsi": "qcom/audio/cupid-audio-mtp.dts"
+  },
+  "commits": [
+    {
+      "commit": "477aab9e7479ff553c7a162ae74029170a2e8291",
+      "title": "ARM: dts: msm: increase smem memory to 44k",
+      "author": "Jagadeesh Ponduru",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "reverted in source",
+      "review": "0cff0b070 reverts the SMEM enlargement; retain the final 32 KiB source layout."
+    },
+    {
+      "commit": "6c14d75ddf01e4c99e6d133c2605ef517eefc949",
+      "title": "pm8350b: Decrease qcom hv-haptics max voltage",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/pm8350b.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "dfb4dfa5da8394612029ecb4bc3035a97a09ffdd",
+      "title": "pm8350b: Decrease initial resonance period for LRA actuator",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/pm8350b.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "9d8cec9ea9cc8d77fdd97b7ee77b1b6ea42cbf02",
+      "title": "pm8350b: Disable thermal-sensors for socd",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/pm8350b.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "02d2607c7775d049219ac9fd5d17e4c08d3cb623",
+      "title": "pm8350c: Disable qcom,hw-strobe-gpios",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/pm8350c.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "88e28f916df77e32f5c9296b7afc4aa84e4b7edb",
+      "title": "pmk8350: Remove xo-therm",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/pmk8350.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "7ca70ca1517b6a2a3047951955524f567d661604",
+      "title": "waipio-pcie: Disable pcie1 and pcie1_msi",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pcie.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "05bfd0a31b75fdf40d8a1a7161b5ac4632d6695e",
+      "review": "Keep PCIe0/WLAN enabled; apply the original unused PCIe1/MSI policy to the migrated PCIe node name."
+    },
+    {
+      "commit": "40263fb53bd0199a7a837c2b946b6094684e3e97",
+      "title": "waipio-pinctrl: Add zeus, cupid and thor uart pins",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pinctrl.dtsi"
+      ],
+      "status": "adapted",
+      "review": "9e7940cc3 restores Zeus/Cupid UART pins; Thor is a Cape target and retains its existing definitions there."
+    },
+    {
+      "commit": "79fdd0703165b0ea5eab06fd042cbab426e19171",
+      "title": "waipio-pinctrl: Enable pull down on usb3phy portselect default",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pinctrl.dtsi"
+      ],
+      "status": "present",
+      "review": "e69dc08d4 preserves the USB portselect pull-down."
+    },
+    {
+      "commit": "f2fe3a28bb4576146ae72bb25449cf0d2ad11966",
+      "title": "waipio-pinctrl: Decrease drive strength on tert tdm clk active",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pinctrl.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "2cf0e3ca2b2bc44d85b5dfb6e8b689b27b84db80",
+      "review": "Retain the Xiaomi GPIO121 active clock drive strength; the shared tertiary data pull-down migration remains unchanged."
+    },
+    {
+      "commit": "aef1e9aedc8123e45ad48ee7c60b84b56f25c8fb",
+      "title": "waipio-pm8008: Adjust regulator voltages",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pm8008.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "eea5f4bd0226a259c49d4ad0e5903af27f7a22ba",
+      "review": "Restore all PM8008J constraints and supply relationships; Zeus AVDD is L3J at 3.3 V."
+    },
+    {
+      "commit": "85862a1f7a6b7afae4cf81cad12308df75058faa",
+      "title": "waipio-pmic-overlay: Add pwrkey bark",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pmic-overlay.dtsi"
+      ],
+      "status": "present",
+      "review": "c6ed6b49d adds the bark node; retain migrated PMK8350 compatible."
+    },
+    {
+      "commit": "54a7f9a9a47f2542af0e3093a8340cc430c98870",
+      "title": "waipio-pmic-overlay: Decomonize thermal zones",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pmic-overlay.dtsi"
+      ],
+      "status": "present",
+      "review": "383aae084 decommonizes board thermal zones; final ADC channels use the 6.6 SID macros."
+    },
+    {
+      "commit": "c1ab325c3f138f14824595e0999d181bfc5bcae6",
+      "title": "waipio-pmic-overlay: Move tof therm to pm8350b",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-pmic-overlay.dtsi"
+      ],
+      "status": "present",
+      "review": "1c9e0ab5f restores the PM8350B GPIO2 TOF provider and ADC mux selection referenced by both boards."
+    },
+    {
+      "commit": "6b80aa4904945947bd0daac7cb1cd6dbbd85d60e",
+      "title": "waipio-regulators: Add ldoc11 regulator",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-regulators.dtsi"
+      ],
+      "status": "present",
+      "review": "6069f517b includes L11C plus the L1C/L4H providers needed by migrated USB/audio."
+    },
+    {
+      "commit": "8f3ddaa1f0643f041157e050171f56a6bf2de725",
+      "title": "waipio-thermal-overlay: Remove xo-therm",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-thermal-overlay.dtsi"
+      ],
+      "status": "present",
+      "review": "Shared thermal overlay is byte-identical to final Xiaomi source."
+    },
+    {
+      "commit": "c1ff155c56ee21a30cffae2c35499292416a915d",
+      "title": "waipio-thermal: Remove {cx,mx}_sdpm",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-thermal.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "84bec299ed8c4cf915ddd48c468d8e9285d7a788",
+      "review": "Remove only the two reference-board SDPM clock monitors, retaining thermal zones and cooling devices."
+    },
+    {
+      "commit": "a58ecfbecd427a4464aad052fe8c41ec6ef4db7e",
+      "title": "waipio-usb: Remove edu_enable_reg",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio-usb.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "fb0f9519192dce81cda5b116e867d1ddc83c63a5",
+      "review": "The 6.6 SNPS PHY driver treats eud_enable_reg as optional; retain the Xiaomi USB PHY resource selection."
+    },
+    {
+      "commit": "a33d7707ecc110a20985d4d9314c719255bb5bc1",
+      "title": "waipio: Remove mem-offline",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "5efdef7a7688ee3d76197ddf8fd0f02b1e89f39f",
+      "review": "Restore the Xiaomi memory policy rather than the generic reference memory-offline table."
+    },
+    {
+      "commit": "e1c7ed500f2cd3f614b0819a0ec52253d12c2730",
+      "title": "waipio: Add i2c 0-4 aliases",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "superseded by 6.6 migration",
+      "review": "aad1d05d5 numbers every QUP bus after its serial engine. Preserve the shared Cape/Waipio aliases rather than assigning multiple aliases to the same bus."
+    },
+    {
+      "commit": "461fb54c106c38ecf79e60317a9e729e49085d60",
+      "title": "waipio: Disable spss remote processor",
+      "author": "Jens Reidel",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "dda162a011904596378a70db9a472ccb2a604410",
+      "review": "The Waipio Xiaomi source confirms this policy independently of Cape. Supersede the earlier mistaken Cape-only exclusion; retain the firmware reservation."
+    },
+    {
+      "commit": "0dab04d349020252052c8fe79b89818e64203cac",
+      "title": "waipio: Disable trust ui and oem vm memory regions",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "19bdd07ff4ac695d9a363f2a5450378dec83f38e",
+      "review": "Omit the disabled properties instead of retaining commented-out allocations. Keep labels and unrelated VM regions intact."
+    },
+    {
+      "commit": "c03702369fdf76032bc874dee792e5526de8fae6",
+      "title": "waipio: Enlarge and move adsp and xbl ramdump memory regions",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "present",
+      "review": "f989a61e0 restores ADSP 0x9fd00000/0x3100000 and XBL 0xa6b80000/0x280000, confirmed against installed firmware and runtime baseline."
+    },
+    {
+      "commit": "ded08021dc86652fefe2a595171bedf030f19792",
+      "title": "waipio: Disable ramoops memory region",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "adapted",
+      "review": "b5fa73c1b removes the generic allocation; c97132e16 uses the 6.6 ramoops driver. Preserve the Xiaomi common 4 MiB reservation."
+    },
+    {
+      "commit": "1a3411dc4f7617962b416fbb34961423b20d96e5",
+      "title": "waipio: Add rf clk3 clocks to qca6490",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "06590f40f5aa2b0943eb7a95ab585b8d767e2d00",
+      "review": "The existing Bluetooth power driver reads clock-names and CNSS2 requests rf_clk; both use the existing RPMH_RF_CLK3 provider."
+    },
+    {
+      "commit": "0a088bad4f8e9f01c6ee95e715d7a701068be1c7",
+      "title": "waipio: Adjust high bus bandwidth voting data",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "db6933ae5e4a892f7824d30e8058bee9f1a29e9a",
+      "review": "Retain the Xiaomi CNSS interconnect voting table with all other bandwidth levels unchanged."
+    },
+    {
+      "commit": "863a81b5f92916856ee55195caa9bc3ef921f588",
+      "title": "waipio: Adjust wlan aon and dig config",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "a2b1c5f5a30534f53f56fc0b1c0d22e651f8d629",
+      "review": "Retain Xiaomi CNSS always-on/digital rail retention settings without changing their voltages or supply phandles."
+    },
+    {
+      "commit": "2c63c79264aca7415f86071f50ad939596c24d04",
+      "title": "waipio: Enable nv-mac",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "5bf1ff7ce85883fefbc21bdf5445fcd28e558731",
+      "review": "The existing CNSS2 driver consumes use-nv-mac to select the DMS MAC address."
+    },
+    {
+      "commit": "d556f7154b3829ddcc7c2621050ca330dd3490cc",
+      "title": "waipio: Disable qbt handler",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "432740caf6a8a400f26fb6e3869278d5631c96ba",
+      "review": "Remove the reference fingerprint handler and its GPIO claims; keep the Xiaomi Goodix fingerprint descriptions."
+    },
+    {
+      "commit": "e2a0b564529316f940c498df78edcdd07f618937",
+      "title": "waipio: Disable qcom,fsa4480-i2c",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "restored in audit",
+      "adaptation": "3fd66fc5ea621fcaf7738cae81e2ef3c88a33dd4",
+      "review": "The original patch adds a disabled SE1 placeholder; it does not disable the SE5 FSA4480 device. Preserve that exact distinction."
+    },
+    {
+      "commit": "79d620fcd1db9332ca8a874f2b45eccf9ce3094d",
+      "title": "Add xiaomi-sm8450-common configuration",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/xiaomi-sm8450-common.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "e76446760ba9b4262aea310e371e20be87c27620",
+      "title": "Add support for Xiaomi 12 Pro (zeus|L2)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/zeus-pinctrl.dtsi",
+        "qcom/zeus-sm8450-pm8008-overlay.dts",
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "cc0af82aeef2c2384ca15a0e85148743e8b01ad8",
+      "title": "Add support for Xiaomi 12 (cupid|L3)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/cupid-pinctrl.dtsi",
+        "qcom/cupid-pm8008.dtsi",
+        "qcom/cupid-sm8450-pm8008-overlay.dts",
+        "qcom/cupid-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "50754e95c3cc86e905674cfc2ff357190afda92c",
+      "title": "audio: Add xiaomi-sm8450-common configuration",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/audio/xiaomi-sm8450-common.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "6a3cef031ee03df587b1256e04441d594a04bf6c",
+      "title": "camera: Decommonize active and suspend rst0 from waipio-camera",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/camera/waipio-camera.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "454d37e24e11855d40e088688d696b558c761edd",
+      "title": "camera: Add support for Xiaomi 12 Pro (zeus|L1)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/camera/zeus-sm8450-camera-sensor.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "4d611e79c59c7c7e19fd055ef6c79c38b60053f3",
+      "title": "camera: Add support for Xiaomi 12 (cupid|L3)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/camera/cupid-sm8450-camera-sensor.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "32eff8a18a2faec1ccd08a6a87783726507c2e98",
+      "title": "display: waipio: Add vci panel regulator",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/waipio-sde-display.dtsi"
+      ],
+      "status": "present",
+      "review": "600597a5e restores Zeus panel VCI; all panel supply references remain present."
+    },
+    {
+      "commit": "12bb2ea4bed6f922db48522babb15a596acbef6c",
+      "title": "display: waipio: Enlarge disp rdump region",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/waipio-sde-display.dtsi"
+      ],
+      "status": "present",
+      "review": "0de21fb01 preserves the display ramdump enlargement."
+    },
+    {
+      "commit": "3e5bb4b3cff2c186b169de90180e4a88fc150bdf",
+      "title": "display: waipio: Enable sde wakup with touch",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/waipio-sde.dtsi"
+      ],
+      "status": "present",
+      "review": "1b195f0a8 preserves display wakeup-with-touch."
+    },
+    {
+      "commit": "e0deb63ec93a81681834385e78e9a3c3cc763aca",
+      "title": "display: Add support for Xiaomi 12 Pro (zeus|L1)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/zeus-sde-display-mtp.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "32afd20b564a34625d531ff899745e00fe872bd8",
+      "title": "display: Add support for Xiaomi 12 (cupid|L3)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/cupid-sde-display-mtp.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "373e6605c05ac0fcef9b6d98e95723b20d323a37",
+      "title": "display: cupid: Nuke 90Hz timing",
+      "author": "Kujou Yuko",
+      "relevant_paths": [
+        "qcom/display/display/cupid-sde-display-mtp.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "59d2986488ca20740dc42e4bfa05f57a11bd0db6",
+      "title": "display: Correct physical panel dimensions for our devices",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "e77a0130ad01b14558da1bc240b5a7d54e336e5c",
+      "title": "display: Bump minimal brightness to 8 for all our devices",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/cupid-sde-display-mtp.dtsi",
+        "qcom/display/display/zeus-sde-display-mtp.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "3fe4964658ced45b9bb522e4bfab9f1cd8685a82",
+      "title": "Move to upstream ir-spi-led driver",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/xiaomi-sm8450-common.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "e889356988c2bd8351016ba8cb232a246d8d6550",
+      "title": "{unicorn, zeus}: Disable thp",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "c29e3d237025e774a9ae77bdc124967a47b01de7",
+      "title": "{unicorn, zeus}: Use L1 fts firmware which disabled THP completely",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Board firmware-name/limit properties retain the source L1 FTS selection; panel/firmware bytes are not changed by this audit."
+    },
+    {
+      "commit": "56b3e28521f60b1708834eabd48d6c9266abd4b3",
+      "title": "Standardize supply names for goodix fingerprint",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/cupid-sm8450.dtsi",
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "0e9cfa7c2b8e0efb8e94860bd444f508ffc4d92d",
+      "title": "Move to new xiaomi-touch driver",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/cupid-sm8450.dtsi",
+        "qcom/display/display/cupid-sde-display-mtp.dtsi",
+        "qcom/display/display/zeus-sde-display-mtp.dtsi",
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "ff5f83bced2ee50495b626d1867fab5572ea92e5",
+      "title": "Modify aw8697 properties to work with aw86927 driver",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/cupid-sm8450.dtsi",
+        "qcom/zeus-sm8450.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "0cff0b070363fb9a312ba6e66244898013e7038f",
+      "title": "Revert \"ARM: dts: msm: increase smem memory to 44k\"",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/waipio.dtsi"
+      ],
+      "status": "present",
+      "review": "SMEM is 0x8000, matching the net source history."
+    },
+    {
+      "commit": "ffb43b1ad989e1a0b4e35db634b930ca688f13d0",
+      "title": "xiaomi: Increase volumeup debounce interval as seen on OS3.0.2.0.VLECNXM",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/xiaomi-sm8450-common.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "0352c548b0a8b1ffceb9e61e41e1237bf56161ed",
+      "title": "dsi-panel-l2-38-0c-0a-dsc-cmd: Update commands from OS3.0.2.0.VLECNXM",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "204a533a025305df4bdd32ad9e36e1f9d2acb2d7",
+      "title": "display: Select DSC rate control profiles for Novatek panels",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "921f730fb64131fa1b52d7fec318ae2ec13a5738",
+      "title": "display: Expose the full HBM brightness range",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/zeus-sde-display-mtp.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "c9046c6d9a4572a6e1298809ba1293cbea760c6d",
+      "title": "display: Enable doze specific NOLP commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "55d993fee2f6cf5084569007fcf38214511418c7",
+      "title": "display: Describe local HBM parameters of Novatek panels",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "e94ad1bd01c6cfafe79e760ae47a7e5e724811fd",
+      "title": "display: Describe DBV skip ranges",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "e929d3cc604c2513da589ff7d5717a57ce6d7913",
+      "title": "display: Describe panel post unprepare delays",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "3fcc9cd957a35a746fa3342268a2089f5e5891aa",
+      "title": "display: Describe local HBM white calibration layouts",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "c75030f74b0506e4d5c8d5fa38a9f97f141f0cd1",
+      "title": "display: Describe the doze LBM quirk of early L2 panels",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "a400fc4c18a49202200a5f8d3b7cad9d475c1de5",
+      "title": "display: Drop properties no driver uses",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "8218653a7225b702f20786d3dd1016623f71b23b",
+      "title": "display: Drop Xiaomi panel ids",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "32c53ac4346755cba1a49fae40427323a4ddab11",
+      "title": "display: Drop brightness clone and factory brightness levels",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "617e0b5755e8110eec691c9237061091f7d0d44a",
+      "title": "display: Drop local HBM flags replaced by panel properties",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "8c73690715343bf97a12d8986e02376712c7e84a",
+      "title": "display: Drop flat mode commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "7f689b52483766f09c82d3702e37e071bf634087",
+      "title": "display: Drop DC dimming commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "6426e3f2af7b5199f4524ca623b85fc896f5d930",
+      "title": "display: Drop DDIC round corner commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "aac66f3e30fb47bff39c5456ab5747795224cebb",
+      "title": "display: Drop DDIC dimming speed and dimming off commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "101fa5b6113dbe2dafbb033c96c43da144d3135e",
+      "title": "display: Drop green local HBM commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "5f5b315a5ecfa6822577ddf65b92870533296bab",
+      "title": "display: Drop unused local HBM brightness levels",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "7cbee22ada3dc96e7399d2be0b9083c0dadd1a8d",
+      "title": "display: Drop local HBM GIR pre-read commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "04c4fa95d5ff7def35798c0431b7c2a89ffdcdc2",
+      "title": "display: Drop FOD HBM commands",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+        "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi"
+      ],
+      "status": "present",
+      "review": "Final board/shared descriptions retain this change. See file reviews for intentional 6.6 binding differences and later source replacements."
+    },
+    {
+      "commit": "90163c1b3b086a061c06ec4e79e71ea4036093d1",
+      "title": "audio: Add support for Xiaomi 12 Pro (zeus|L2)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/audio/zeus-audio-mtp.dts"
+      ],
+      "status": "adapted",
+      "review": "Board audio body retained in zeus-audio-mtp.dtsi and included by 073b59697; overlay identity is supplied by the enclosing board DTBO."
+    },
+    {
+      "commit": "9cbd53252c6836f01f40ea231b70ccb49631be9b",
+      "title": "audio: Add support for Xiaomi 12 (cupid|L3)",
+      "author": "Arian",
+      "relevant_paths": [
+        "qcom/audio/cupid-audio-mtp.dts"
+      ],
+      "status": "adapted",
+      "review": "Board audio body retained in cupid-audio-mtp.dtsi and included by 073b59697; overlay identity is supplied by the enclosing board DTBO."
+    }
+  ],
+  "files": [
+    {
+      "path": "qcom/audio/cupid-audio-mtp.dtsi",
+      "reference_path": "qcom/audio/cupid-audio-mtp.dts",
+      "same_bytes": false,
+      "sha256": "f5dfc3de1daa6fc9c5d942bfcc27dbe4eb6b7751522b94ef0247c2ab12279add",
+      "reference_sha256": "ebae301a599b8bf16e65c31094a9c4c562813c77728a10d356da4afe19636eef",
+      "review": "Audio board body matches mapped .dts source after removing plugin/root metadata wrapper."
+    },
+    {
+      "path": "qcom/audio/msm-audio-lpass.dtsi",
+      "reference_path": "qcom/audio/msm-audio-lpass.dtsi",
+      "same_bytes": true,
+      "sha256": "fbda2002d9facb7fc846cf2fd1d84ce104fd7d6ee3daf88ab6b178bd40d42a52",
+      "reference_sha256": "fbda2002d9facb7fc846cf2fd1d84ce104fd7d6ee3daf88ab6b178bd40d42a52",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/audio/waipio-audio-overlay.dtsi",
+      "reference_path": "qcom/audio/waipio-audio-overlay.dtsi",
+      "same_bytes": false,
+      "sha256": "cf1b3f122bb1d729f9b347dfc2f560ec3a0dede06d235792e9bc714acd6cacb9",
+      "reference_sha256": "cff9029e5ab72855b480484f7af36e48f4aa7d90ad1be8e258666b1d9484c033",
+      "review": "Existing shared 6.6 SoundWire version and codec low-power/on-demand supply migration."
+    },
+    {
+      "path": "qcom/audio/waipio-audio.dtsi",
+      "reference_path": "qcom/audio/waipio-audio.dtsi",
+      "same_bytes": false,
+      "sha256": "3d71a54495698a3a6c590044f77cb58b0edf1d799470ed9a2970900d3d2d8dcf",
+      "reference_sha256": "a48b1a9218ad1bc2cab85e26a38ead3ec8ce3fb2d704a166cfbb17d40bf4ee20",
+      "review": "Existing shared 6.6 GPR scheduling and IOMMU reserved-address binding."
+    },
+    {
+      "path": "qcom/audio/waipio-lpi.dtsi",
+      "reference_path": "qcom/audio/waipio-lpi.dtsi",
+      "same_bytes": true,
+      "sha256": "3cab76c4f92f7a6e2dc149abee7cd203d5da6ff0ef60f3424e3e82044a39afff",
+      "reference_sha256": "3cab76c4f92f7a6e2dc149abee7cd203d5da6ff0ef60f3424e3e82044a39afff",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/audio/xiaomi-sm8450-common.dtsi",
+      "reference_path": "qcom/audio/xiaomi-sm8450-common.dtsi",
+      "same_bytes": true,
+      "sha256": "04f1ca40ac2627d4d2d0117f79538be22904da5335d13487aac83a0edaa0deed",
+      "reference_sha256": "04f1ca40ac2627d4d2d0117f79538be22904da5335d13487aac83a0edaa0deed",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/audio/zeus-audio-mtp.dtsi",
+      "reference_path": "qcom/audio/zeus-audio-mtp.dts",
+      "same_bytes": false,
+      "sha256": "1b2c55ff9f7470843e59a3114647e67e0dcfa814eeaccbf7c550471057e74305",
+      "reference_sha256": "6a732f3d9ad27d629501fa0e3b42f2f8876fbdb485f103a3ef97606f88693744",
+      "review": "Audio board body matches mapped .dts source after removing plugin/root metadata wrapper."
+    },
+    {
+      "path": "qcom/camera/cupid-sm8450-camera-sensor.dtsi",
+      "reference_path": "qcom/camera/cupid-sm8450-camera-sensor.dtsi",
+      "same_bytes": false,
+      "sha256": "c11f9f94b35bd6e2634aeb63641ed59f0407c75f785bdaa6427a129df671c2a1",
+      "reference_sha256": "ffca4394df47285e22058019579426712321c24941cab6ae755bfc7dac988454",
+      "review": "Existing shared conversion from global GPIO403 to TLMM102 descriptor."
+    },
+    {
+      "path": "qcom/camera/waipio-camera.dtsi",
+      "reference_path": "qcom/camera/waipio-camera.dtsi",
+      "same_bytes": false,
+      "sha256": "6322b765034b2f039b63725f4ce4bfd1f8eac96c2ada36bfb3d03ffc86dffa89",
+      "reference_sha256": "04f55fa09635fdc4c774dc90f348867fb77931f4007fc2db85777b9e6b4356aa",
+      "review": "Existing shared camera IOMMU migration; board reset pin decommonization already retained."
+    },
+    {
+      "path": "qcom/camera/zeus-sm8450-camera-sensor.dtsi",
+      "reference_path": "qcom/camera/zeus-sm8450-camera-sensor.dtsi",
+      "same_bytes": false,
+      "sha256": "50bc8d458d5b38a52daaf78b542cb219c9ba0bc70d66327e1d2df7ea3e07dcd9",
+      "reference_sha256": "1dfe4cfd315a3e022677e9922d21fe51ffb4f296a0bb56b86d8e476b0004e0c5",
+      "review": "Existing shared conversion of global GPIO427/371/303/403 to TLMM126/70/2/102 descriptors."
+    },
+    {
+      "path": "qcom/cupid-pinctrl.dtsi",
+      "reference_path": "qcom/cupid-pinctrl.dtsi",
+      "same_bytes": true,
+      "sha256": "32a938ae3f141fcc5fcfdf2fbf1bc46368f7bf64dcfac0618a705f37358c0001",
+      "reference_sha256": "32a938ae3f141fcc5fcfdf2fbf1bc46368f7bf64dcfac0618a705f37358c0001",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/cupid-pm8008.dtsi",
+      "reference_path": "qcom/cupid-pm8008.dtsi",
+      "same_bytes": true,
+      "sha256": "fa1c3836f22d01d333db478fad689b9f8f196b889df559fff99438190a1ccaf5",
+      "reference_sha256": "fa1c3836f22d01d333db478fad689b9f8f196b889df559fff99438190a1ccaf5",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/cupid-sm8450-pm8008-overlay.dts",
+      "reference_path": "qcom/cupid-sm8450-pm8008-overlay.dts",
+      "same_bytes": false,
+      "sha256": "5dac032404030217a284b1228f955bb1c43a061106458de9051bd48bafc42523",
+      "reference_sha256": "0728f88f8400e5d332a743b5521090dbdf4987270907b89c98dc5798aedd1891",
+      "review": "Explicit multimedia includes and SM8450-only supported ID set; original board ID preserved."
+    },
+    {
+      "path": "qcom/cupid-sm8450.dtsi",
+      "reference_path": "qcom/cupid-sm8450.dtsi",
+      "same_bytes": false,
+      "sha256": "88f910aaf500430b472a88c8ae78c7b8b43aa5ccd5b2e7c4bbd257f06d3cdc0d",
+      "reference_sha256": "d4852af660e1dec9759d75886233599a223d161ea731028b9d0904163f1fc693",
+      "review": "Only PM8350 ADC SID macro adaptation differs."
+    },
+    {
+      "path": "qcom/display/display/cupid-sde-display-mtp.dtsi",
+      "reference_path": "qcom/display/display/cupid-sde-display-mtp.dtsi",
+      "same_bytes": false,
+      "sha256": "76745013230d093055ab660a4224d3d132bd9c52728c0ca94936352a9be3c0af",
+      "reference_sha256": "1ae2de99445bd1107932c06cfd165556081274ccd9389b11419aeddf90fae9b7",
+      "review": "Existing 6.6 default-brightness property addition."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-ext-bridge-1080p.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-ext-bridge-1080p.dtsi",
+      "same_bytes": true,
+      "sha256": "2be404f7c799de7351c66640941d81e4a33fe60571073f4aca1b8135af9a1c63",
+      "reference_sha256": "2be404f7c799de7351c66640941d81e4a33fe60571073f4aca1b8135af9a1c63",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd-common.dtsi",
+      "same_bytes": true,
+      "sha256": "f283b31e8bf66f22e2476369004f4c8cd4711db5f9edd4cb49047b794d7fc4c6",
+      "reference_sha256": "f283b31e8bf66f22e2476369004f4c8cd4711db5f9edd4cb49047b794d7fc4c6",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-l2-38-0c-0a-dsc-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "84e3f9d1638843485debd05c76c4fee3693676a8e922427e3faba86350665c37",
+      "reference_sha256": "84e3f9d1638843485debd05c76c4fee3693676a8e922427e3faba86350665c37",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-l3-42-02-0a-dsc-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "7daf09cb68fb0203dd71705ab1c83e38b917055980074f122d532b56c75ed709",
+      "reference_sha256": "7daf09cb68fb0203dd71705ab1c83e38b917055980074f122d532b56c75ed709",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "5cb047d703bf0c599d3493289f3932b75db119507c015f8c06c43d9dcdc21419",
+      "reference_sha256": "5cb047d703bf0c599d3493289f3932b75db119507c015f8c06c43d9dcdc21419",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-splitlink-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-splitlink-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "c942befb1048d26ca875c19e67c1549ec006faa658f6315ee322822ead9306b1",
+      "reference_sha256": "c942befb1048d26ca875c19e67c1549ec006faa658f6315ee322822ead9306b1",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35597-truly-dualmipi-wqxga-video.dtsi",
+      "same_bytes": true,
+      "sha256": "b5dbe504c4fcbdb6255bfc5d38e14f13e501faea1ca5990c65a419d08cec2044",
+      "reference_sha256": "b5dbe504c4fcbdb6255bfc5d38e14f13e501faea1ca5990c65a419d08cec2044",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "b9b41dd103bdf32fddb0837d729661600f49a0bec09ed8ce7afc2f9c5c345781",
+      "reference_sha256": "b9b41dd103bdf32fddb0837d729661600f49a0bec09ed8ce7afc2f9c5c345781",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-splitlink-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-splitlink-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "098fbf1adef6a48e49caba1ac134da5d5077d15c5635aad0d9112a5884cf2593",
+      "reference_sha256": "098fbf1adef6a48e49caba1ac134da5d5077d15c5635aad0d9112a5884cf2593",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt35695b-truly-fhd-video.dtsi",
+      "same_bytes": true,
+      "sha256": "239fbdb3527c19eb53d6c47b70130a82bd66ff3a01239b29c31064ac3cdbab0f",
+      "reference_sha256": "239fbdb3527c19eb53d6c47b70130a82bd66ff3a01239b29c31064ac3cdbab0f",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt36672c-fhd-plus-90hz-video-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt36672c-fhd-plus-90hz-video-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "a5cfe80a59afefe92f8c126ee040161835cb1471829e1a8ee6496b7f0dbbc737",
+      "reference_sha256": "a5cfe80a59afefe92f8c126ee040161835cb1471829e1a8ee6496b7f0dbbc737",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-nt36672e-fhd-plus-120-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-nt36672e-fhd-plus-120-video.dtsi",
+      "same_bytes": true,
+      "sha256": "00733b1c0fbbf0474a0c662bbd8b366828e7bd5619edfd558cd62b7023568b44",
+      "reference_sha256": "00733b1c0fbbf0474a0c662bbd8b366828e7bd5619edfd558cd62b7023568b44",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-120hz-cmd-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-120hz-cmd-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "7cdac0689f8007dbe7b3e54b44c2f7bd97ad62b4b1bdf0edfd029b7285b35089",
+      "reference_sha256": "7cdac0689f8007dbe7b3e54b44c2f7bd97ad62b4b1bdf0edfd029b7285b35089",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "39a6ae3214013bc45f1f96966622fb04c2c59558d254285c6bd0ccf4547088c5",
+      "reference_sha256": "39a6ae3214013bc45f1f96966622fb04c2c59558d254285c6bd0ccf4547088c5",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "24e3a928ca5e82d668dacbd436dc9e9dc166029cc3495b170980d3928a806cb1",
+      "reference_sha256": "24e3a928ca5e82d668dacbd436dc9e9dc166029cc3495b170980d3928a806cb1",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-video-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-144hz-video-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "243bfbc36a7387d5e14a0fc6f4900867ae52bb365828431f645cf9ea99cd9f49",
+      "reference_sha256": "243bfbc36a7387d5e14a0fc6f4900867ae52bb365828431f645cf9ea99cd9f49",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "b988bce65eb162b1effb0483758aeca05378ba275e4712147764e3d0df1bb17e",
+      "reference_sha256": "b988bce65eb162b1effb0483758aeca05378ba275e4712147764e3d0df1bb17e",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-sync-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-sync-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "c5fb46050ed63742a0c05dfa7c65799cf4919719a9decd0f0240eab444e61df1",
+      "reference_sha256": "c5fb46050ed63742a0c05dfa7c65799cf4919719a9decd0f0240eab444e61df1",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-dsc-fhd-plus-video.dtsi",
+      "same_bytes": true,
+      "sha256": "1f1bab61cf9a53b60e5d0f64c04a752731586604b467407cee8f6e33f206c972",
+      "reference_sha256": "1f1bab61cf9a53b60e5d0f64c04a752731586604b467407cee8f6e33f206c972",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-cmd-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-cmd-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "d895ebae8c1d4a45cc543e343b1c30cc3b4ad95cd438f64aee51cadab5d38fa8",
+      "reference_sha256": "d895ebae8c1d4a45cc543e343b1c30cc3b4ad95cd438f64aee51cadab5d38fa8",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-video-cphy.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-r66451-fhd-plus-90hz-video-cphy.dtsi",
+      "same_bytes": true,
+      "sha256": "b157bb68c0ac800ce8371870644d57fdbfe5eb843d5a8e458b691f875e0b62c9",
+      "reference_sha256": "b157bb68c0ac800ce8371870644d57fdbfe5eb843d5a8e458b691f875e0b62c9",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-rm69299-visionox-fhd-plus-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-rm69299-visionox-fhd-plus-video.dtsi",
+      "same_bytes": true,
+      "sha256": "e13b9e1e6c613f6d59fbb4030aef564d426c0c1c767f636f90474bde893ae04e",
+      "reference_sha256": "e13b9e1e6c613f6d59fbb4030aef564d426c0c1c767f636f90474bde893ae04e",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-1080p-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-1080p-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "d7cba85d861b7e977eafc8dfaf94d485f7fd4ab94fd17bad34b7c3155c972bc3",
+      "reference_sha256": "d7cba85d861b7e977eafc8dfaf94d485f7fd4ab94fd17bad34b7c3155c972bc3",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-dsc-4k-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-dsc-4k-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "43e6435d10448651253a85fda1e71c124d88f78b30423a7c6a26b968c9889292",
+      "reference_sha256": "43e6435d10448651253a85fda1e71c124d88f78b30423a7c6a26b968c9889292",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-dsc-4k-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-dsc-4k-video.dtsi",
+      "same_bytes": true,
+      "sha256": "c282fff4337b2d4b9b40c19a34c641bfb82a2eecfc853c6e1ad1d9fb57a8bc8f",
+      "reference_sha256": "c282fff4337b2d4b9b40c19a34c641bfb82a2eecfc853c6e1ad1d9fb57a8bc8f",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-dsc-qhd-plus-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "75b426cffa982d8a7e5be89f3949118377d1bb245239c5c36ad057d5f5fc4d78",
+      "reference_sha256": "75b426cffa982d8a7e5be89f3949118377d1bb245239c5c36ad057d5f5fc4d78",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-qsync-wqhd-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-qsync-wqhd-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "74f820f9bc19cf00b1c21191a0e0318f584edfa41834f766d16b6e071d283b57",
+      "reference_sha256": "bc8d069aa91dd48ca09abf408f46dfde32e4f6d6ba53b620492c010fbd84d508",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sharp-qsync-wqhd-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sharp-qsync-wqhd-video.dtsi",
+      "same_bytes": true,
+      "sha256": "5aa22b30b825f2a51d3706c8787b333ad7e287b91a9eea4fc9b52c36620b5c27",
+      "reference_sha256": "5aa22b30b825f2a51d3706c8787b333ad7e287b91a9eea4fc9b52c36620b5c27",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "a3151dfe073b831de3ad03c81b959bcebacc1b0c380c6952c0dee08c049ed903",
+      "reference_sha256": "007f093a10f5bc9cbf82e90f0d5734eca908b4053b91714ef7a966ef4bd01905",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-dsc-10bit-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-dsc-10bit-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "252087fcc3886c1b435332a4e818a92c9c2b99134373219d26f3a6c108387533",
+      "reference_sha256": "9e60e257872aa6f545727bcc667fe67fc7dadacd188dc95aad267798af4ae6cf",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-dsc375-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-dsc375-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "b271c3dec564e34aadaec0d0aa3d82b4009b8d9295836b2f69f4c23bc41ea9e8",
+      "reference_sha256": "b271c3dec564e34aadaec0d0aa3d82b4009b8d9295836b2f69f4c23bc41ea9e8",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-dualmipi-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-dualmipi-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "46668aed06bdde046f71e519f7227dc20bfdaa528814cbbfeccbd6cc487e39e0",
+      "reference_sha256": "5c7e7aadcdef7cb0480a668656ca954d7abd9a62e9c58a9d780e58b4674a9752",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-dualmipi-dsc375-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-dualmipi-dsc375-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "fadba328581308276acabd504b884535f91c6cb3e01a3493bb8e4bdfe921a1f7",
+      "reference_sha256": "fd0059c8cbee159663c30d00b704dbd5f4789b76cdc3eb5d36462005ca6bdbd9",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-dualmipi-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-dualmipi-video.dtsi",
+      "same_bytes": true,
+      "sha256": "0d1f97b91d0db509b094e27c79e34c6855687fce9c8154d418b3d34995a01b32",
+      "reference_sha256": "0d1f97b91d0db509b094e27c79e34c6855687fce9c8154d418b3d34995a01b32",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-sec-hd-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-sec-hd-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "c1226b5006e4a399cfbdeb06138d30b71afa505d30719f2b18c6e647939cdaa8",
+      "reference_sha256": "c1226b5006e4a399cfbdeb06138d30b71afa505d30719f2b18c6e647939cdaa8",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-vdc-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-vdc-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "0ffc151cab6d78a14d9ee462611c060c530cb9172160324f69fbd724ef6dd644",
+      "reference_sha256": "0ffc151cab6d78a14d9ee462611c060c530cb9172160324f69fbd724ef6dd644",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-vdc-vid.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-vdc-vid.dtsi",
+      "same_bytes": true,
+      "sha256": "7838ac4db5cdb365112dacbeb3853efc2f263d2f0c898a17d1a039898ae40a12",
+      "reference_sha256": "7838ac4db5cdb365112dacbeb3853efc2f263d2f0c898a17d1a039898ae40a12",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sim-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sim-video.dtsi",
+      "same_bytes": false,
+      "sha256": "887d460cb0fa0048284394eeab35efe719ba0bc9ac8f51a876495c4b77b54c63",
+      "reference_sha256": "7404ab25bb9b759e4a8964accf5ac16119009f62c41ff39cb6e3f323f72dfd4c",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-fhd-plus-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-fhd-plus-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "be0d609ceb576fea5d3b40a47b326278e5fc2588c93884821f3bc5a796736f4d",
+      "reference_sha256": "be0d609ceb576fea5d3b40a47b326278e5fc2588c93884821f3bc5a796736f4d",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-cmd.dtsi",
+      "same_bytes": true,
+      "sha256": "638fcf76d62eaac0fd3c8e51f3169980839e93a7c380aabf6ef7ee7b4b95c062",
+      "reference_sha256": "638fcf76d62eaac0fd3c8e51f3169980839e93a7c380aabf6ef7ee7b4b95c062",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sw43404-amoled-dsc-wqhd-video.dtsi",
+      "same_bytes": true,
+      "sha256": "f035932b336ade4b99a6e4dc7b57c8b2d5cb02c6d0d7c9c309c41f5ef6f18897",
+      "reference_sha256": "f035932b336ade4b99a6e4dc7b57c8b2d5cb02c6d0d7c9c309c41f5ef6f18897",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sy103-1280p-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sy103-1280p-video.dtsi",
+      "same_bytes": true,
+      "sha256": "ce94cd76e47b6b731fe16047fa37f1903d36f5057a80be979b6a2018d7d6b866",
+      "reference_sha256": "ce94cd76e47b6b731fe16047fa37f1903d36f5057a80be979b6a2018d7d6b866",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sy103-dsc-2544p-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sy103-dsc-2544p-video.dtsi",
+      "same_bytes": true,
+      "sha256": "b082e5c443d7aff2e5d27a4caebac942c155700fee250d700735b3732fa27bf4",
+      "reference_sha256": "b082e5c443d7aff2e5d27a4caebac942c155700fee250d700735b3732fa27bf4",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sy103-dualmipi-1280p-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sy103-dualmipi-1280p-video.dtsi",
+      "same_bytes": true,
+      "sha256": "ec79559926500d1888b05874479ad89b3fce0bae914b8499addcec1f19c8480d",
+      "reference_sha256": "ec79559926500d1888b05874479ad89b3fce0bae914b8499addcec1f19c8480d",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-sy103-dualmipi-dsc-2544p-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-sy103-dualmipi-dsc-2544p-video.dtsi",
+      "same_bytes": true,
+      "sha256": "11c88a51f74d65e2a6a492967931ec549cd5d2e7acfeae76e628fa79cbdc35be",
+      "reference_sha256": "11c88a51f74d65e2a6a492967931ec549cd5d2e7acfeae76e628fa79cbdc35be",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "d421da0b3fb86f827a97dbe4ebb26a648261c75f50dd9259eac4c0115afcd26d",
+      "reference_sha256": "6364bf4696e50d32a980760f59bcc1981e51b99b34ae4aa7d327010bc9fd308d",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-vtdr6130-dsc-fhd-plus-video.dtsi",
+      "same_bytes": false,
+      "sha256": "e38814e8e6d8f7db2a7561cb94d70a9d7b9a6978d8f3af076c28cde60ae41736",
+      "reference_sha256": "ff31fd02f739a140f7113552a5d1819a029c1c2a843aa532053f3c0b569d2ac4",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-cmd.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-cmd.dtsi",
+      "same_bytes": false,
+      "sha256": "db95e196c08a5fc9c03f3d0c72d88cc2ae97f3079ecc433c3e53190951a33767",
+      "reference_sha256": "c26cce0970745ba872800baaa3495d56d8a8486bcd2527ffd1488dbdd59361f2",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-video.dtsi",
+      "reference_path": "qcom/display/display/dsi-panel-vtdr6130-qsync-dsc-fhd-plus-144hz-video.dtsi",
+      "same_bytes": false,
+      "sha256": "0ae6be35e3aa9501eb85d41f452b32828a3a172ac6e68a2e9437dce6edef0e22",
+      "reference_sha256": "badd0fc6b0d33330f3ac3dab5f807e5b90da586a245e24c2c73c4d678e401f42",
+      "review": "Existing shared 6.6 reference-panel migration; neither Zeus nor Cupid selects this panel. Selected L2/L3 panel files are byte-identical to pinned Xiaomi source."
+    },
+    {
+      "path": "qcom/display/display/waipio-sde-common.dtsi",
+      "reference_path": "qcom/display/display/waipio-sde-common.dtsi",
+      "same_bytes": false,
+      "sha256": "f1e1cd6a4023f315fc1f47cb258856a813118290ad9ffca4ef0c18b7a493cac2",
+      "reference_sha256": "eb345ad56edfd97b0b2ef47b74b98eb5c83b81e22b74a1c85f165c7bf29b4355",
+      "review": "55b4ac6c3 UBWC encoding and 029c8927b QoS array migration match current SDE catalog layout; retain Waipio resources."
+    },
+    {
+      "path": "qcom/display/display/waipio-sde-display-common.dtsi",
+      "reference_path": "qcom/display/display/waipio-sde-display-common.dtsi",
+      "same_bytes": true,
+      "sha256": "970a64fe576a94a06cfaacc5a8220c43b64f5ee6796bc5284d3163155a7d8298",
+      "reference_sha256": "970a64fe576a94a06cfaacc5a8220c43b64f5ee6796bc5284d3163155a7d8298",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/waipio-sde-display-pinctrl.dtsi",
+      "reference_path": "qcom/display/display/waipio-sde-display-pinctrl.dtsi",
+      "same_bytes": true,
+      "sha256": "01a670aa25bb44cad052e6ee5d60f5a0aa11e943c3b9efcf3362c427fecbf184",
+      "reference_sha256": "01a670aa25bb44cad052e6ee5d60f5a0aa11e943c3b9efcf3362c427fecbf184",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/waipio-sde-display.dtsi",
+      "reference_path": "qcom/display/display/waipio-sde-display.dtsi",
+      "same_bytes": true,
+      "sha256": "61a42ac99ba12c74b5be3587c176986301d678fe72bcfbe0222066baf664b889",
+      "reference_sha256": "61a42ac99ba12c74b5be3587c176986301d678fe72bcfbe0222066baf664b889",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/display/display/waipio-sde.dtsi",
+      "reference_path": "qcom/display/display/waipio-sde.dtsi",
+      "same_bytes": false,
+      "sha256": "dcd40663ea9e481ae7f158f7b489d8cfb2536a0a93539de861b66631a8c87cc5",
+      "reference_sha256": "0cd1df2499b0296c713c21913d263bfa0913f4bd9b0eda1084054b83a133ea75",
+      "review": "c4eddd11f IOMMU binding and 7d9bb1a98 corrected RPMh DRV0 parent."
+    },
+    {
+      "path": "qcom/display/display/zeus-sde-display-mtp.dtsi",
+      "reference_path": "qcom/display/display/zeus-sde-display-mtp.dtsi",
+      "same_bytes": false,
+      "sha256": "afcbe297bbf81b8922e2f619d5ac182cba03ed539f28b784641c0868e6d84da3",
+      "reference_sha256": "850384313498bf613bc660112f5e9efe34c06d97f207d9ba1de651844279e385",
+      "review": "Existing 6.6 init-to-default brightness property rename."
+    },
+    {
+      "path": "qcom/dsp/waipio/waipio-dsp.dtsi",
+      "reference_path": "qcom/dsp/waipio/waipio-dsp.dtsi",
+      "same_bytes": false,
+      "sha256": "308581d9d210ee6beffbc136b3658d40d7aeedeef02bc9ae62ea3c9895e3eb99",
+      "reference_sha256": null,
+      "review": "6.6 FastRPC description added by 348a3457c rather than the removed legacy inline compute/RPMSG nodes."
+    },
+    {
+      "path": "qcom/eva/waipio-eva.dtsi",
+      "reference_path": "qcom/eva/waipio-eva.dtsi",
+      "same_bytes": false,
+      "sha256": "d75283030e56ffb0e4fe65f8753f1e90a80831e8cf74557e44696e0d24e69b46",
+      "reference_sha256": "38eecaced8684db6753cd6bb650594420f9ab958b57cd54b464080b40d57a8dd",
+      "review": "Existing shared EVA IPClite/hwmutex mappings and interconnect binding."
+    },
+    {
+      "path": "qcom/ipcc-test.dtsi",
+      "reference_path": "qcom/ipcc-test.dtsi",
+      "same_bytes": false,
+      "sha256": "044afd6ed63e7e53964a437618c0894ad1d33908c8d71a3d3636a7dd18a00e80",
+      "reference_sha256": "b417ee38a98327db76798d649b203bd9acadc83b1b9247ff76a9f8769af5cf34",
+      "review": "License/header only."
+    },
+    {
+      "path": "qcom/mmrm/waipio-mmrm.dtsi",
+      "reference_path": "qcom/mmrm/waipio-mmrm.dtsi",
+      "same_bytes": true,
+      "sha256": "6cbc1f03221346c1c5b4d4821cace78debbb6f635adfd9b49f880e97e0c0e843",
+      "reference_sha256": "6cbc1f03221346c1c5b4d4821cace78debbb6f635adfd9b49f880e97e0c0e843",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/mmrm/waipio-v2-mmrm.dtsi",
+      "reference_path": "qcom/mmrm/waipio-v2-mmrm.dtsi",
+      "same_bytes": true,
+      "sha256": "3add402f1772f6b0484e1ac56a826f6acea986e3ab1eb03ec93486855d8536f2",
+      "reference_sha256": "3add402f1772f6b0484e1ac56a826f6acea986e3ab1eb03ec93486855d8536f2",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/msm-arm-smmu-waipio.dtsi",
+      "reference_path": "qcom/msm-arm-smmu-waipio.dtsi",
+      "same_bytes": false,
+      "sha256": "28205be709af367abeac6cac953b45bbf49e24e0fe6cae9e9f754e13638c3602",
+      "reference_sha256": "d07c11cd9fc9e9320be54489580266616fbcd843bbdd1ce0528a4380b1738cbf",
+      "review": "Existing shared IOVA-width migration."
+    },
+    {
+      "path": "qcom/msm-rdbg.dtsi",
+      "reference_path": "qcom/msm-rdbg.dtsi",
+      "same_bytes": false,
+      "sha256": "33715a9314d5bbb0790e02ace689f092b52bd767f565774bea7dae2f693c006d",
+      "reference_sha256": "eeee8ce9bb912f8a4dea8b146b15d36bce82d6c9f191b20169f5357d8c728574",
+      "review": "License/indentation only."
+    },
+    {
+      "path": "qcom/pm8350.dtsi",
+      "reference_path": "qcom/pm8350.dtsi",
+      "same_bytes": true,
+      "sha256": "ec2fbcc50c73aae894522316f63fd1059d540d9d165441a3e6eda785ad2ade58",
+      "reference_sha256": "ec2fbcc50c73aae894522316f63fd1059d540d9d165441a3e6eda785ad2ade58",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/pm8350b.dtsi",
+      "reference_path": "qcom/pm8350b.dtsi",
+      "same_bytes": false,
+      "sha256": "b1ba91afa6e24fc78809f9d1605a9d1abb305e0a1fac0942b9c0d476cd22bf97",
+      "reference_sha256": "354dbe6085ab765e17082ba2128483d67e2f3923d6f8cb1f7b78cc376cdc985c",
+      "review": "Existing 6.6 AMOLED compatible/header; Xiaomi haptics voltage/resonance and SOCD policy otherwise retained."
+    },
+    {
+      "path": "qcom/pm8350c.dtsi",
+      "reference_path": "qcom/pm8350c.dtsi",
+      "same_bytes": false,
+      "sha256": "0a2070f83161b9b975e07e9453843772d5ae9f02a89fca95b4b277a0cc090b14",
+      "reference_sha256": "f091d996f6922a2646ca443e2f4d217278d8c573cadaa00e60c205506cfc79a6",
+      "review": "Existing 6.6 flash LED compatible; source HW-strobe policy retained."
+    },
+    {
+      "path": "qcom/pm8450.dtsi",
+      "reference_path": "qcom/pm8450.dtsi",
+      "same_bytes": true,
+      "sha256": "f76312055a31d4424475b9f61ff345a3c1c3c750d20e30fa8684ce2b3fb99e91",
+      "reference_sha256": "f76312055a31d4424475b9f61ff345a3c1c3c750d20e30fa8684ce2b3fb99e91",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/pmk8350.dtsi",
+      "reference_path": "qcom/pmk8350.dtsi",
+      "same_bytes": false,
+      "sha256": "f6010c96b9b25fd767bf6c0da37cbdb043fca8331f0531444c38b5c8f869bbc6",
+      "reference_sha256": "498fd685ba87c29f96bfa44f5ba8d2a418ed06b685c3b10f489b7dd586b98bc7",
+      "review": "Existing shared SID channel macros and ADC-TM5-gen2 compatible; source XO-therm removal retained."
+    },
+    {
+      "path": "qcom/pmr735a.dtsi",
+      "reference_path": "qcom/pmr735a.dtsi",
+      "same_bytes": false,
+      "sha256": "e24de73dc29fd3872318a17edd8b7bf70927f760a2dc3898e1f8697d4d94b695",
+      "reference_sha256": "ce2a704ea309ab6462db91fdd6767a4c5f855692184160bfdfad5ca322d57e2a",
+      "review": "License/header only."
+    },
+    {
+      "path": "qcom/pmr735b.dtsi",
+      "reference_path": "qcom/pmr735b.dtsi",
+      "same_bytes": false,
+      "sha256": "b25d1f4a588c1c5d955ddae7e1967553849b5729f50a5bf8f0a83863e14942fa",
+      "reference_sha256": "5fd775e7132f3186312c5f052f226150b1c7315c21edbac8a33fb2d6a4dad838",
+      "review": "Existing shared critical thermal-trip correction and license header."
+    },
+    {
+      "path": "qcom/synx/synx/waipio-synx.dtsi",
+      "reference_path": "qcom/synx/synx/waipio-synx.dtsi",
+      "same_bytes": false,
+      "sha256": "01813f862f12363a4f6e79650e774f1b13f85ea13b5c245ae28fd56eb1d37b58",
+      "reference_sha256": null,
+      "review": "Existing 6.6 synx layout included explicitly by fe027ca7a."
+    },
+    {
+      "path": "qcom/video/waipio-vidc.dtsi",
+      "reference_path": "qcom/video/waipio-vidc.dtsi",
+      "same_bytes": false,
+      "sha256": "4b876b3cca3d8e9a78570933235e44e9569ac265b99dc2c6de7e33c670a9540d",
+      "reference_sha256": "bc25cc304cb32d17b69ba81bb02b82f6296b0203b15f74d95d97da7876bebf69",
+      "review": "Existing shared 6.6 context-bank IOMMU-address reservation migration."
+    },
+    {
+      "path": "qcom/waipio-clock.dtsi",
+      "reference_path": "qcom/waipio-clock.dtsi",
+      "same_bytes": false,
+      "sha256": "c508f8bf6c5e85c747870e0828041a1ee0b44207ecef28a800a0bdbd1e1095cd",
+      "reference_sha256": "b3271a4cad56bd6c5693d104f18a498afce82e2195b91475edb064ac89db4d19",
+      "review": "Existing shared CPUFreq compatible migration."
+    },
+    {
+      "path": "qcom/waipio-coresight.dtsi",
+      "reference_path": "qcom/waipio-coresight.dtsi",
+      "same_bytes": false,
+      "sha256": "83810de67984befb6005c4211f5f92a6d6cbb678045bd81dff0f56fae86361b3",
+      "reference_sha256": "2f11a543064547e4f24e10d9a2dad8fa50bffd5f72b225a3074eba7ed0145a5b",
+      "review": "Obsolete IOMMU pool properties removed by 6.6 migration."
+    },
+    {
+      "path": "qcom/waipio-debug.dtsi",
+      "reference_path": "qcom/waipio-debug.dtsi",
+      "same_bytes": true,
+      "sha256": "53fadda2bd3726f23cc41b20603f33ae22bf6deca361ccdc8e1bcdd9934b66da",
+      "reference_sha256": "53fadda2bd3726f23cc41b20603f33ae22bf6deca361ccdc8e1bcdd9934b66da",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-dma-heaps.dtsi",
+      "reference_path": "qcom/waipio-dma-heaps.dtsi",
+      "same_bytes": true,
+      "sha256": "d3bd7a2c04b439e8c3cdcd2a6fe2c4cba20a49e15997d9586ee56b3da44dd9a0",
+      "reference_sha256": "d3bd7a2c04b439e8c3cdcd2a6fe2c4cba20a49e15997d9586ee56b3da44dd9a0",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-gpu.dtsi",
+      "reference_path": "qcom/waipio-gpu.dtsi",
+      "same_bytes": true,
+      "sha256": "4cb0d0fa38e8f221245f640cc455698f0f9979e8d9bcb8bcbf2e1848897a6b3f",
+      "reference_sha256": "4cb0d0fa38e8f221245f640cc455698f0f9979e8d9bcb8bcbf2e1848897a6b3f",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-pcie.dtsi",
+      "reference_path": "qcom/waipio-pcie.dtsi",
+      "same_bytes": false,
+      "sha256": "df792c0d0d81553c8071c359259fa5dc1dcecdb806ab14a627af0bf1bb90bfcf",
+      "reference_sha256": "6cb36089a75e6d6a243cce73ddb173af7d294268f5f46a753cb3ab3b1ac1a419",
+      "review": "6.6 PCIe node, interrupt, supply, clock/frequency and DRV bindings; Xiaomi PCIe1/MSI disabled policy restored separately."
+    },
+    {
+      "path": "qcom/waipio-pinctrl.dtsi",
+      "reference_path": "qcom/waipio-pinctrl.dtsi",
+      "same_bytes": false,
+      "sha256": "41d86c0c56fa3ba246c1bd994adb12bf82f46bbba605ac7ea4929e3ed84e51d6",
+      "reference_sha256": "9d79ff2f4da6d2144ee4672f67b7a4474cebfc523a86c81d90b6d147b666ccc6",
+      "review": "Zeus/Cupid UART restored, Thor states omitted; retain existing migrated TDM DOUT pull-down and restored Xiaomi TDM CLK 6 mA."
+    },
+    {
+      "path": "qcom/waipio-pm8008.dtsi",
+      "reference_path": "qcom/waipio-pm8008.dtsi",
+      "same_bytes": true,
+      "sha256": "e7b7fb2ce0bf91dd7d53c0c07e55aea44b7ddc4e855ec2d3304ea55e80735544",
+      "reference_sha256": "e7b7fb2ce0bf91dd7d53c0c07e55aea44b7ddc4e855ec2d3304ea55e80735544",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-pmic-overlay.dtsi",
+      "reference_path": "qcom/waipio-pmic-overlay.dtsi",
+      "same_bytes": false,
+      "sha256": "ead4ac4f81ce6e3dce5f5140262146a1666e60aaf56a7f608b56b670c7bd455d",
+      "reference_sha256": "b1e0e9c8416df70af3ee871980186718dff0e63362200df0da0852b1df23c393",
+      "review": "6.6 PON/ADC migration and RF-PMIC thermal channel providers; Xiaomi bark/decommonization/TOF retained."
+    },
+    {
+      "path": "qcom/waipio-qupv3.dtsi",
+      "reference_path": "qcom/waipio-qupv3.dtsi",
+      "same_bytes": false,
+      "sha256": "6b41fdf7a57c9231f3969422067a7b5e4e65e3932194f22feb95d5799e58aaf6",
+      "reference_sha256": "90ae303e8b542eb15932a0a7241be1cb9e2d21c6834b31c0330f5ad9427b0cfb",
+      "review": "Existing shared upstream GENI/GPI wrappers, interrupts/DMA/IOMMU bindings and serial-engine bus numbering; preserve Cape-shared file."
+    },
+    {
+      "path": "qcom/waipio-regulators.dtsi",
+      "reference_path": "qcom/waipio-regulators.dtsi",
+      "same_bytes": false,
+      "sha256": "d964d99f9d26baaad44cdc0d9b8d829526e451584d6d81aacc1bfea2d19e492e",
+      "reference_sha256": "c50f325d6da00e5ba0136d54c1c3288fcf823ff4a859817257c7249cf7e715e4",
+      "review": "Move to apps DRV2 and add providers L1C/L4H needed by current consumers; source L11C retained."
+    },
+    {
+      "path": "qcom/waipio-smp2p.dtsi",
+      "reference_path": "qcom/waipio-smp2p.dtsi",
+      "same_bytes": true,
+      "sha256": "881a5e3cf12d4baa6608c47898ef5c4321933307acff787f4d01a680b2c33a6d",
+      "reference_sha256": "881a5e3cf12d4baa6608c47898ef5c4321933307acff787f4d01a680b2c33a6d",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-thermal-modem.dtsi",
+      "reference_path": "qcom/waipio-thermal-modem.dtsi",
+      "same_bytes": false,
+      "sha256": "3f9220faca7a69620915e13c1de40f312022abedad6bbd32a59e846c4e75736c",
+      "reference_sha256": "11255f7aff951d85b7a6a8f1ee8f264233fc916d193791af700c7807d62774e3",
+      "review": "License/header only."
+    },
+    {
+      "path": "qcom/waipio-thermal-overlay.dtsi",
+      "reference_path": "qcom/waipio-thermal-overlay.dtsi",
+      "same_bytes": true,
+      "sha256": "fead6113b371777be600639e9e1431fc05e3798aa825beebee7e68d57865d40f",
+      "reference_sha256": "fead6113b371777be600639e9e1431fc05e3798aa825beebee7e68d57865d40f",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-thermal.dtsi",
+      "reference_path": "qcom/waipio-thermal.dtsi",
+      "same_bytes": true,
+      "sha256": "cabd51ef05cc1aae49496e1d2588d6e85729bf00ffa149f13de5f5bac3a8ad82",
+      "reference_sha256": "cabd51ef05cc1aae49496e1d2588d6e85729bf00ffa149f13de5f5bac3a8ad82",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-usb.dtsi",
+      "reference_path": "qcom/waipio-usb.dtsi",
+      "same_bytes": false,
+      "sha256": "10759c795c602c95bf1f0b0e382488bb58c5736d4a45a5dcf35668c8767be8a5",
+      "reference_sha256": "cddfc547f90f38c1277bf7dc561b46a063ab5f982d8396da1650579cb18872f0",
+      "review": "6.6 wrapper cells, BAM resource/controller binding, IOMMU, interrupt count and USB2/LPM migrations; source EUD resource removal restored."
+    },
+    {
+      "path": "qcom/waipio-v2-gpu.dtsi",
+      "reference_path": "qcom/waipio-v2-gpu.dtsi",
+      "same_bytes": true,
+      "sha256": "d44bb879e51ffe6ac4457ae4d2572c0851018ff9e0ab1e62296713880f593e68",
+      "reference_sha256": "d44bb879e51ffe6ac4457ae4d2572c0851018ff9e0ab1e62296713880f593e68",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-v2.dts",
+      "reference_path": "qcom/waipio-v2.dts",
+      "same_bytes": true,
+      "sha256": "d3ed661b6fbf4c360abbfbebc22eb6334d30989cb608786d162400d3e086dd56",
+      "reference_sha256": "d3ed661b6fbf4c360abbfbebc22eb6334d30989cb608786d162400d3e086dd56",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio-v2.dtsi",
+      "reference_path": "qcom/waipio-v2.dtsi",
+      "same_bytes": false,
+      "sha256": "f5063c7948208b2fed9b61309fd49416316ca1012c4e35c845c26d568795f650",
+      "reference_sha256": "a441e6d17c29a7a0272cd59d0e146c59eb6f6730827f5d77df57482030f55387",
+      "review": "Explicit v2 MMRM include only; v2 CAMCC/GPUCC and GPU data retained."
+    },
+    {
+      "path": "qcom/waipio-walt.dtsi",
+      "reference_path": "qcom/waipio-walt.dtsi",
+      "same_bytes": false,
+      "sha256": "2bf985f2cc90059fc454de7ce0c56688de8a27788a39a6b893ee71a06c455249",
+      "reference_sha256": null,
+      "review": "Existing 6.6 WALT description included by fe027ca7a."
+    },
+    {
+      "path": "qcom/waipio.dts",
+      "reference_path": "qcom/waipio.dts",
+      "same_bytes": true,
+      "sha256": "ba309a6e0250583344789ef573612abd41ee2a5ab6131632815a96669bce367e",
+      "reference_sha256": "ba309a6e0250583344789ef573612abd41ee2a5ab6131632815a96669bce367e",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/waipio.dtsi",
+      "reference_path": "qcom/waipio.dtsi",
+      "same_bytes": false,
+      "sha256": "7349d9af16d07b153c7cb9d8a36101a3bbbe8ae28c146deebcf346c7b6758138",
+      "reference_sha256": "a1c51be3cc2df9def16b7855ccfd3dd9ecd2f8c0d9a1e03858a6eba9480becb0",
+      "review": "Reviewed Cape binding series plus Xiaomi source policy restored in this audit; explicit multimedia includes replace old separate techpack merge."
+    },
+    {
+      "path": "qcom/xiaomi-sm8450-common.dtsi",
+      "reference_path": "qcom/xiaomi-sm8450-common.dtsi",
+      "same_bytes": true,
+      "sha256": "52d4d3e0b7d2ae836911ab33f250b4edb62d6dccc0416405fd7ebdfd562ec900",
+      "reference_sha256": "52d4d3e0b7d2ae836911ab33f250b4edb62d6dccc0416405fd7ebdfd562ec900",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/zeus-pinctrl.dtsi",
+      "reference_path": "qcom/zeus-pinctrl.dtsi",
+      "same_bytes": true,
+      "sha256": "b5061f0409d0a4e38d6b9cb714e7b667070905fd552559e200af33e4a577cc9e",
+      "reference_sha256": "b5061f0409d0a4e38d6b9cb714e7b667070905fd552559e200af33e4a577cc9e",
+      "review": "Byte-identical to pinned Xiaomi reference."
+    },
+    {
+      "path": "qcom/zeus-sm8450-pm8008-overlay.dts",
+      "reference_path": "qcom/zeus-sm8450-pm8008-overlay.dts",
+      "same_bytes": false,
+      "sha256": "db4007587218f02b9512ddd0ddc7273c7a10295de8a80f908b65ddd808a091c1",
+      "reference_sha256": "bc83ac1291f7e73a4ee63aa4a4fcf25ccf6cde35583facc9404cc7d789e4a6c2",
+      "review": "Explicit multimedia includes and SM8450-only supported ID set; original board IDs preserved."
+    },
+    {
+      "path": "qcom/zeus-sm8450.dtsi",
+      "reference_path": "qcom/zeus-sm8450.dtsi",
+      "same_bytes": false,
+      "sha256": "6bd8b2bbee0db6ed91351407b18fbd28cd2e0fc646d05f51460a2f5e9551d658",
+      "reference_sha256": "277c77a347ed21ac570ed89528573ae2b0f4c47bfd0ac004ff375bde9e70d9e6",
+      "review": "Only PM8350 ADC SID macro adaptation differs."
+    }
+  ]
+}
