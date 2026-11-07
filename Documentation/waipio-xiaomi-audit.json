@@ -1091,9 +1091,10 @@
       "path": "qcom/camera/waipio-camera.dtsi",
       "reference_path": "qcom/camera/waipio-camera.dtsi",
       "same_bytes": false,
-      "sha256": "6322b765034b2f039b63725f4ce4bfd1f8eac96c2ada36bfb3d03ffc86dffa89",
+      "sha256": "8302cc50991b7368b707164dbc784e84647d5a0a10608e5ce22b08325826ee95",
       "reference_sha256": "04f55fa09635fdc4c774dc90f348867fb77931f4007fc2db85777b9e6b4356aa",
-      "review": "Existing shared camera IOMMU migration; board reset pin decommonization already retained."
+      "review": "The existing 13942a96b IOMMU migration removed the required ICP context-bank discard property and omitted the discard/upper reservations. System minidump exposed the mismatch; f1ee6531e36f75225896d8dd04c8e95a22dba670 restores all three contracts while retaining Waipio ranges.",
+      "previous_review_sha256": "6322b765034b2f039b63725f4ce4bfd1f8eac96c2ada36bfb3d03ffc86dffa89"
     },
     {
       "path": "qcom/camera/zeus-sm8450-camera-sensor.dtsi",
@@ -1918,6 +1919,12 @@
       "sha256": "6bd8b2bbee0db6ed91351407b18fbd28cd2e0fc646d05f51460a2f5e9551d658",
       "reference_sha256": "277c77a347ed21ac570ed89528573ae2b0f4c47bfd0ac004ff375bde9e70d9e6",
       "review": "Only PM8350 ADC SID macro adaptation differs."
+    }
+  ],
+  "follow_up_fixes": [
+    {
+      "commit": "f1ee6531e36f75225896d8dd04c8e95a22dba670",
+      "reason": "System-boot camera SMMU discard mismatch and incomplete IOVA reservation migration; not a missing post-snapshot Xiaomi commit."
     }
   ]
 }

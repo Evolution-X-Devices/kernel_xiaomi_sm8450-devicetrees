@@ -383,5 +383,5 @@
     },
     "vendor_boot_first_stage_mounts_both_dlkms": true
   },
-  "deployment_status": "Prepared, not deployed. Specific complete-OTA/slot-b/Android-boot approval pending."
+  "deployment_status": "Explicitly approved and installed with eat; slot-b system boot panics during camera SMMU probe. Rescued to slot-a recovery without flashing/wiping. See zeus-test-report.rst."
 }

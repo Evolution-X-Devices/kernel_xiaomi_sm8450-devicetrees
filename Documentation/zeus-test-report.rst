@@ -382,3 +382,55 @@ retains actual inactive-slot boot/recovery readbacks plus the original
 full 5.10 package. Virtual A/B snapshot merging means slot selection alone
 is not a promise of full OS/application-data rollback. No factory reset or
 format is proposed. Android and subsequent subsystem tests remain unverified.
+
+System attempt 1: camera SMMU probe panic
+----------------------------------------
+
+The user explicitly approved the complete frozen OTA, slot-b installation
+and automatic Android boot. Hash and device/slot checks passed immediately
+before eat. The helper completed with exit status 0 and Total xfer 1.00x.
+Android ADB did not appear. The user observed repeated Mi-logo/off cycles.
+Fastboot subsequently confirmed product zeus, current-slot b, successful no,
+unbootable no and retry-count 2 for b. The approved rescue selected slot a
+and rebooted the known-working recovery, without flashing or wiping.
+Recovery ADB returned after the user's USB reconnect.
+
+Pstore is empty. Read-only minidump/oops copies and recovery logs are in
+out/waipio-zeus/evidence/system-attempt-1. The changed minidump contains
+several 6.6 boot records, including three with the same camera probe fault.
+The camera build ID c61fdd956bb2ab9955e475cf68cc2e1c77b681df matches the
+actual installed candidate module. Old oops records are not used to
+diagnose this failure. Raw evidence, extracted boots and checksums remain
+separate from earlier recovery failures.
+
+The system reaches mounted OS/DLKM partitions and second-stage init/module
+loading. At about 4.82--4.99 seconds, camera SMMU validation reports
+Discard [0,0] versus [0xe0000000,0x800000]. Failure cleanup calls
+gen_pool_destroy(NULL) via cam_smmu_release_cb; the kernel panics at
+4.945/5.375 seconds in the saved boots. This is a kernel/DT probe failure,
+not a CamX userspace-library resolution failure. Data decryption and a
+complete Android boot are not established by these logs.
+
+The existing 13942a96b camera DT migration removed the context-bank
+iova-region-discard property but retained its IO-map counterpart. The
+current driver still compares both values. f1ee6531e restores the Waipio
+8 MiB discard hole and reserves it through iommu-addresses; the 6.6
+cam_smmu_util_iommu_custom helper no longer reserves it dynamically. It
+also restores the original pool's upper boundary: 0x10c00000 plus
+0xee300000 ends at 0xfef00000. Waipio firmware/shared/QDSS ranges remain
+unchanged. Cape's DT files are not altered.
+
+Module commit 99a739b2776 separately guards shared_mem_pool during
+teardown: the DT support flag can be set before a pool is allocated.
+The camera feature and its validation remain enabled. The updated DT
+checks reject the actual failed artifact and accept all ten corrected
+Waipio/Cape combinations, including baseline supply/memory checks. This
+adds camera-specific semantic coverage missing from the earlier audit;
+compilation and existing-file migration history alone did not catch it.
+
+A new complete build is being prepared with the same g.sh/build zeus
+flow. Its new artifact needs separate review and specific approval before
+another deployment. The original failed OTA remains frozen. The CamX
+wrapper proposal was declined by the user; existing extraction behavior
+and commit 55f365eb4 remain unchanged. Android subsystem tests remain
+pending a successful system boot.
