@@ -1,0 +1,442 @@
+{
+  "build": {
+    "flow": "source ./g.sh; build zeus",
+    "ccache": true,
+    "result": "PASS",
+    "android_build_elapsed": "07:10 (mm:ss",
+    "ninja_steps": 17548,
+    "log": "out/waipio-zeus/full-build-3/build.log"
+  },
+  "zip": "lineage-24.0-20261107-UNOFFICIAL-zeus.zip",
+  "zip_bytes": 1844158205,
+  "zip_sha256": "2b85c426e3e234b430fbdd79d1c0a7c35a72793702c0c111f54e5563f3ed60c3",
+  "artifact_directory": "out/waipio-zeus/full-build-3/deploy",
+  "image_packaging": {
+    "source_revisions": {
+      "sm8450-kernel": {
+        "head": "3bfb6974dd861cad1ea3168a51879cf0b9037aed",
+        "status": "M drivers/input/misc/pm8941-pwrkey.c"
+      },
+      "sm8450-devicetrees": {
+        "head": "bdb05b328593dd838b454cbd52cb233bbd97639d",
+        "status": ""
+      },
+      "sm8450-modules": {
+        "head": "99a739b2776a4a86eb3381d723c1e9cb84a29d38",
+        "status": ""
+      },
+      "sm8450-build": {
+        "head": "3cead2d3ffa46e115247203b3c8037bbb4ad04d8",
+        "status": ""
+      }
+    },
+    "images": {
+      "boot.img": {
+        "size": 201326592,
+        "sha256": "4e67a9161e2873fc0ee63bfcd0e83ffa825510014ae709ec851bde7c2d15e141"
+      },
+      "vendor_boot.img": {
+        "size": 100663296,
+        "sha256": "a4942321a8d079cf0f552b8d3711a667865ecbf80bedbd68246adc03f6c06b0e"
+      },
+      "recovery.img": {
+        "size": 104857600,
+        "sha256": "9ac75ee20838e08b03674630ad18b9c29a0917657bcedf48ac45a7ebaf9a32bb"
+      },
+      "dtbo.img": {
+        "size": 25165824,
+        "sha256": "98371349b88a7a99bde9fd6507b01c9cd58490a31cf85995a42313e8cd5a63a2"
+      },
+      "vendor_dlkm.img": {
+        "size": 71454720,
+        "sha256": "6a4a4d6e8babde7a28c7d45d6417f4e6855df04ba490aba4334656a607808e93"
+      },
+      "system_dlkm.img": {
+        "size": 11653120,
+        "sha256": "9ba4a245b8be0d042256b77a0fb759d806fbb0f727a9c0297f88b71edc6f4add"
+      }
+    },
+    "image_source": "out/target/product/zeus/obj/PACKAGING/target_files_intermediates/lineage_zeus-target_files/IMAGES",
+    "dtbs": [
+      {
+        "model": "Qualcomm Technologies, Inc. Cape SoC",
+        "soc_ids": [
+          530,
+          65536
+        ]
+      },
+      {
+        "model": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+        "soc_ids": [
+          457,
+          131072
+        ]
+      },
+      {
+        "model": "Qualcomm Technologies, Inc. Waipio SoC",
+        "soc_ids": [
+          457,
+          65536
+        ]
+      }
+    ],
+    "dtbos": [
+      {
+        "model": "Cupid based on Qualcomm Technologies, Inc SM8450",
+        "soc_ids": [
+          457,
+          65536,
+          457,
+          131072
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "Diting based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "thor based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      },
+      {
+        "model": "Zeus based on Qualcomm Technologies, Inc SM8450",
+        "soc_ids": [
+          457,
+          65536,
+          457,
+          131072
+        ],
+        "board_ids": [
+          65544,
+          0,
+          50397192,
+          3
+        ]
+      },
+      {
+        "model": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+        "soc_ids": [
+          530,
+          65536,
+          531,
+          65536,
+          540,
+          65536
+        ],
+        "board_ids": [
+          65544,
+          0
+        ]
+      }
+    ],
+    "applied_combinations": [
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "Diting based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "thor based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Cape SoC",
+        "board": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+        "board": "Cupid based on Qualcomm Technologies, Inc SM8450",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+        "board": "Zeus based on Qualcomm Technologies, Inc SM8450",
+        "passed": true,
+        "working_baseline": {
+          "regulators": 120,
+          "fixed_reservations": 40
+        }
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Waipio SoC",
+        "board": "Cupid based on Qualcomm Technologies, Inc SM8450",
+        "passed": true
+      },
+      {
+        "base": "Qualcomm Technologies, Inc. Waipio SoC",
+        "board": "Zeus based on Qualcomm Technologies, Inc SM8450",
+        "passed": true,
+        "working_baseline": {
+          "regulators": 120,
+          "fixed_reservations": 40
+        }
+      }
+    ],
+    "recovery": {
+      "modules": 261,
+      "all_dependencies_present": true,
+      "both_ufs_phys_loaded": true
+    },
+    "vendor_dlkm_ramdisk": {
+      "modules": 90,
+      "all_dependencies_present": true,
+      "both_ufs_phys_loaded": true
+    },
+    "system_dlkm": {
+      "modules": 79,
+      "all_dependencies_present": true,
+      "all_modules_match_staging": true
+    },
+    "vendor_dlkm": {
+      "modules": 361,
+      "all_dependencies_present": true,
+      "all_modules_match_staging": true
+    },
+    "adsp_firmware_span": 51380224,
+    "applied_dts_match_validated_sources": [
+      {
+        "base": "cape",
+        "board": "diting",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "cape",
+        "board": "mayfly",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "cape",
+        "board": "mondrian",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "cape",
+        "board": "thor",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "cape",
+        "board": "unicorn",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "cape",
+        "board": "zizhan",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "waipio-v2",
+        "board": "cupid",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "waipio-v2",
+        "board": "zeus",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "waipio",
+        "board": "cupid",
+        "identical_to_validated_sources": true
+      },
+      {
+        "base": "waipio",
+        "board": "zeus",
+        "identical_to_validated_sources": true
+      }
+    ],
+    "all_six_image_hashes_match_ota_manifest": true,
+    "filesystem_module_vermagic_matches_running_kernel": 440,
+    "kernel_comparison": [
+      {
+        "source": "attempt5",
+        "kernel_bytes": 37001728,
+        "kernel_sha256": "7f587c016a19a81b06901a40aed3118e45a0acdb8d6f74cf6da88396d3354886"
+      },
+      {
+        "source": "full_payload_3",
+        "kernel_bytes": 37001728,
+        "kernel_sha256": "7f587c016a19a81b06901a40aed3118e45a0acdb8d6f74cf6da88396d3354886"
+      }
+    ],
+    "camera_module": {
+      "build_id": "a228a8fc5cb5ab96291e50252d3c153ca9cfb727",
+      "unchanged_from_candidate_2": true,
+      "matches_staging": true
+    },
+    "vendor_boot_first_stage_mounts_both_dlkms": true,
+    "full_build_result": {
+      "flow": "source ./g.sh; build zeus",
+      "ccache": true,
+      "result": "PASS",
+      "android_build_elapsed": "07:10 (mm:ss",
+      "ninja_steps": 17548,
+      "log": "out/waipio-zeus/full-build-3/build.log"
+    },
+    "build_inputs": {
+      "utc": "2026-11-07T19:32:01.322139+00:00",
+      "flow": "source ./g.sh; build zeus",
+      "reason": "Waipio GPU revision IDs and zero-cell AOSS clock; Zeus-only debug log capture for unresolved hypervisor watchdog",
+      "repositories": {
+        "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-kernel": {
+          "head": "3bfb6974dd861cad1ea3168a51879cf0b9037aed",
+          "status": " M drivers/input/misc/pm8941-pwrkey.c\n"
+        },
+        "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-devicetrees": {
+          "head": "bdb05b328593dd838b454cbd52cb233bbd97639d",
+          "status": ""
+        },
+        "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-modules": {
+          "head": "99a739b2776a4a86eb3381d723c1e9cb84a29d38",
+          "status": ""
+        },
+        "kernel/platform/kernel-6.6/vendor/xiaomi/sm8450-build": {
+          "head": "3cead2d3ffa46e115247203b3c8037bbb4ad04d8",
+          "status": ""
+        },
+        "device/xiaomi/sm8450-common": {
+          "head": "bc8b7438b97c93cb0bf514f851f2c9fd59ff0948",
+          "status": " M BoardConfigCommon.mk\n M modules.load.vendor_boot\n M rootdir/etc/init.qti.kernel.rc\n"
+        },
+        "device/xiaomi/miuicamera-cupid": {
+          "head": "194aa66c35ff8c509148957765d3a99b46651180",
+          "status": ""
+        }
+      }
+    },
+    "cape_dt_comparison": [
+      {
+        "board": "diting",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "mayfly",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "mondrian",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "thor",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "unicorn",
+        "cape_dt_unchanged": true
+      },
+      {
+        "board": "zizhan",
+        "cape_dt_unchanged": true
+      }
+    ],
+    "unchanged_cape_kernel_modules_built_previously": {
+      "result": "PASS",
+      "log": "out/waipio-zeus/full-build-2/cape-build.log"
+    },
+    "zeus_diagnostics_in_final_vendor_image": {
+      "/etc/init/init.zeus-bringup.rc": "a2c9236c7c195df4b947f99b445d5ee55b03533e5aa224f6498ad21588682055",
+      "/bin/zeus-boot-diagnostics.sh": "63e5e1b8689879f4aba1d2fd220569884f68fe36e4695e38d5d67806be2b3cb7"
+    }
+  },
+  "payload_hashes_verified": 33,
+  "firmware_unchanged": 20,
+  "authorization": {
+    "utc": "2026-11-07T19:33:23.402101+00:00",
+    "user_instruction": "okay, then go ahead and also flash it directly when you're done building.",
+    "scope": "Validate the GPU-fix/Zeus-diagnostics full OTA, install via eat to inactive B from working recovery A, auto boot Android, capture logs and use slot-A recovery fallback if necessary",
+    "serial": "4feb552c",
+    "artifact_hash": "2b85c426e3e234b430fbdd79d1c0a7c35a72793702c0c111f54e5563f3ed60c3",
+    "zip_bytes": 1844158205,
+    "validation": "PASS"
+  },
+  "deployment_status": "Validated and authorized; proceeding with eat and automatic Android boot."
+}

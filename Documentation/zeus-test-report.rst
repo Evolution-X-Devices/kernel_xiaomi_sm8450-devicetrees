@@ -537,3 +537,31 @@ while the installed firmware has amss20.bin and m3.bin at the image root.
 The current candidate does not change this path. Camera CPAS, WLAN and
 the watchdog need further diagnosis; Android/Cupid/Cape runtime remain
 unverified.
+
+System candidate 3: GPU fix and scoped diagnostics
+-------------------------------------------------
+
+The complete g.sh/build zeus build passed with ccache in 00:07:13
+(Android build 07:10, 17548 Ninja steps). The frozen full OTA is in
+out/waipio-zeus/full-build-3/deploy, 1844158205 bytes, SHA256
+2b85c426e3e234b430fbdd79d1c0a7c35a72793702c0c111f54e5563f3ed60c3.
+It contains the GPU binding fix and Zeus-only debug service, with no
+additional driver imports. The previous camera fixes remain included.
+
+All 33 payload hashes, ZIP/payload metadata/certificate checks and 20
+unchanged installed-firmware comparisons pass. All ten applied DTs match
+the independently validated corrected sources; six Cape combinations are
+unchanged. Baseline Zeus supplies/reservations pass. Recovery/early vendor
+module counts remain 261/90, with 79/361 system/vendor DLKM modules, both
+UFS PHYs, complete dependency/load lists and 440 matching module bytes and
+vermagic checks. Kernel bytes match the working recovery. The actual final
+vendor image contains the exact new diagnostic script and init file.
+Candidate metadata and detailed image checks are recorded separately in
+waipio-system-candidate-3.json and the frozen deployment directory.
+
+The user explicitly requested installing this described candidate directly
+after the build. Its checksum and Zeus recovery/slot-a identity were checked
+again; eat was started with OUT pinned to the frozen candidate directory.
+The installation transcript and boot monitor are under
+out/waipio-zeus/evidence/system-attempt-3. Installation/boot results and
+GPU/watchdog runtime behavior are pending at this preparation checkpoint.
