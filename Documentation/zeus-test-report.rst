@@ -434,3 +434,39 @@ another deployment. The original failed OTA remains frozen. The CamX
 wrapper proposal was declined by the user; existing extraction behavior
 and commit 55f365eb4 remain unchanged. Android subsystem tests remain
 pending a successful system boot.
+
+System candidate 2: camera fix built and packaged
+------------------------------------------------
+
+The corrected full build passed with g.sh/build zeus and ccache in 07:17
+(17715 Ninja steps). The separate Cape kernel/module build passed in
+178.740 seconds with 97 actions. Sources are recorded in
+out/waipio-zeus/full-build-2/build-inputs.json and source-manifest.xml.
+The camera module includes 99a739b2776; its packaged build ID is
+a228a8fc5cb5ab96291e50252d3c153ca9cfb727, different from the failed OTA.
+
+The independent frozen OTA is under out/waipio-zeus/full-build-2/deploy:
+lineage-24.0-20261107-UNOFFICIAL-zeus.zip, 1844161094 bytes, SHA256
+bc1ee1aad1bb59c32161d2753e80353e6152b678ce64989de05f0ed6484b1615.
+waipio-system-candidate-2.json records the exact build and validation.
+The previous failed candidate and crash evidence are retained separately.
+
+All 33 payload image hashes and ZIP/payload metadata checks pass. All 20
+firmware images still match installed slot a. All ten packaged, applied
+DT combinations equal the independently compiled corrected source outputs;
+camera discard/bounds checks pass. All six Cape combinations are unchanged
+from the previous candidate. Both Zeus bases pass the same 120 regulator
+and 40 fixed reservation comparisons. The kernel bytes equal the working
+attempt 5 kernel. Recovery/vendor ramdisks contain 261/90 modules, and
+system/vendor DLKM contain 79/361 modules. Module dependency/load lists,
+all 440 filesystem module bytes/vermagic and both first-stage DLKM mounts
+pass. These are build/package checks, not camera runtime verification.
+
+Zeus remains in working slot-a recovery. Read-only USB checks confirm
+root ADB, charging/Good at 76 percent and 29.5 C, ADSP running and empty
+pstore. Metadata is unmounted; snapshot merge status is not established.
+The prepared TEST-PLAN.txt proposes eat of this exact new OTA into slot b
+with automatic Android boot and a Fastboot return to slot-a recovery if
+needed. This new deployment awaits specific approval; no further writes,
+slot changes or reboots have been performed. Android boot and subsystem
+tests, plus Cupid/Cape runtime, remain unverified.
