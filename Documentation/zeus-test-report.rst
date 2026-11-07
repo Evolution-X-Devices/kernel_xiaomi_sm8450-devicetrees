@@ -746,3 +746,30 @@ sustained stability remain to be tested. Camera service enumeration alone
 (eight devices) is not image-capture verification. Cupid/Cape runtime remain
 unverified. A separate Cape kernel/module regression build is running with
 the existing mondrian audio target_product flag.
+
+System candidate 5: permanent fixes and Cape regression build
+------------------------------------------------------------
+
+The full g.sh/build zeus build passed in 511.805 seconds (Android 08:14).
+The frozen OTA under out/waipio-zeus/full-build-5/deploy is 1844160869 bytes,
+SHA256 668ebfab88a7b2e8aa59b1e5464558cda1d03be591f6e540ae584fb485ab84d3.
+Kernel release is 6.6.144-android15-8-g254ca128bb95-dirty-4k. It contains the
+permanent Waipio PD-mapper match and display-HAL SnapAlloc selection.
+
+All 33 payload hashes, OTA metadata/certificate/ZIP checks and 20 unchanged
+installed-firmware comparisons pass. All ten applied DTs match the validated
+sources, with baseline supplies/reservations intact. Both PHY load lists,
+all module dependencies and 440 final module bytes/vermagic checks pass.
+The packaged kernel matches its built Image; all 11593 exported symbol CRCs
+match candidate 4. Final vendor-image inspection verifies the exact display
+initialization, diagnostics and firmware-prefix symlink. Detailed build
+inputs/artifact checks are in waipio-system-candidate-5.json.
+
+The separate Cape regression build passed in 255.042 seconds with the
+existing audio target_product=mondrian flag. It built 440 modules, includes
+both UFS PHYs and mapper matches, and all six newly applied Cape trees match
+the prior validated trees. Cape runtime remains unverified. Under standing
+trial authorization the next operation returns through protected recovery A
+and installs the frozen full build on B, requiring snapshot state none and
+preserving the known physical A recovery images. Permanent-image boot and
+remaining subsystem tests are pending.
