@@ -19,6 +19,7 @@ parser.add_argument('--clang', default=str(platform/'prebuilts/clang/host/linux-
 parser.add_argument('--dtc', default=str(root/'out/host/linux-x86/bin/dtc'))
 parser.add_argument('--fdtoverlay', default=str(root/'out/host/linux-x86/bin/fdtoverlay'))
 parser.add_argument('--adsp-metadata', type=Path, help='Optional installed adsp.mdt for carveout size checks')
+parser.add_argument('--zeus-baseline-dtb', type=Path, help='Optional working Zeus runtime DT for voltage, supply and memory checks')
 args = parser.parse_args()
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=True)
@@ -72,7 +73,7 @@ def firmware_span(path):
     return max(end for start, end in ranges) - min(start for start, end in ranges)
 
 
-def check_bindings(path, adsp_span=None):
+def read_nodes(path):
     data = path.read_bytes()
     offset, strings = struct.unpack_from('>II', data, 8)
     stack = []
@@ -101,6 +102,11 @@ def check_bindings(path, adsp_span=None):
         else:
             raise ValueError(f'{path}: invalid FDT token {token}')
 
+    return nodes
+
+
+def check_bindings(path, adsp_span=None):
+    nodes = read_nodes(path)
     phandles = {int.from_bytes(properties['phandle'], 'big'): properties
                 for properties in nodes.values() if 'phandle' in properties}
     for name, properties in nodes.items():
@@ -123,6 +129,43 @@ def check_bindings(path, adsp_span=None):
             _, _, high, low = struct.unpack('>4I', region['reg'])
             if (high << 32 | low) < adsp_span:
                 raise ValueError(f'{path}: {name} carveout is smaller than the ADSP image')
+
+
+def check_zeus_baseline(path, baseline):
+    current = read_nodes(path)
+    reference = read_nodes(baseline)
+
+    def regulators(nodes):
+        handles = {p['phandle']: p for p in nodes.values() if 'phandle' in p}
+        result = {}
+        for name, properties in nodes.items():
+            if 'regulator-name' not in properties:
+                continue
+            constraints = {key: properties.get(key) for key in
+                           ['regulator-min-microvolt', 'regulator-max-microvolt']}
+            # Compare supply identities, since phandle numbers change on rebuild.
+            for owner in [nodes.get(name.rpartition('/')[0], {}), properties]:
+                for key, value in owner.items():
+                    if key.endswith('-supply'):
+                        target = handles.get(value, {})
+                        constraints[key] = target.get('regulator-name')
+            result[properties['regulator-name']] = constraints
+        return result
+
+    old, new = regulators(reference), regulators(current)
+    for name, constraints in old.items():
+        if name not in new or new[name] != constraints:
+            raise ValueError(f'{path}: baseline regulator mismatch: {name!r}')
+
+    def reservations(nodes):
+        return {name.rsplit('/', 1)[-1]: p['reg'] for name, p in nodes.items()
+                if name.startswith('/reserved-memory/') and 'reg' in p}
+
+    old_memory, new_memory = reservations(reference), reservations(current)
+    for name, registers in old_memory.items():
+        if new_memory.get(name) != registers:
+            raise ValueError(f'{path}: baseline fixed reservation mismatch: {name}')
+    return {'regulators': len(old), 'fixed_reservations': len(old_memory)}
 
 
 waipio_boards = ['zeus', 'cupid']
@@ -153,6 +196,8 @@ for base in ['waipio', 'waipio-v2', 'cape']:
         if not proc.returncode:
             try:
                 check_bindings(combined, adsp_span)
+                if board == 'zeus' and args.zeus_baseline_dtb:
+                    print('Zeus baseline:', check_zeus_baseline(combined, args.zeus_baseline_dtb))
             except ValueError as error:
                 binding_error = str(error)
                 print(binding_error)
