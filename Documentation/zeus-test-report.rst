@@ -272,3 +272,33 @@ It includes a checksum-verified four-image 5.10 recovery rollback. No
 approval for this new image set has been given. The next runtime result
 must distinguish corrected supply voltage, touch contacts/IRQ operation,
 and preserved ADSP/charging behavior from build-only expectations.
+
+Attempt 5: approved deployment, recovery availability unresolved
+-----------------------------------------------------------------
+
+The user explicitly approved the frozen attempt-5 four-partition recovery
+test. All six frozen image hashes and the four saved rollback image hashes
+passed before deployment. Root recovery ADB confirmed Zeus serial 4feb552c,
+slot _a, SoC 457 revision 2.2 and the running attempt-3 6.6 kernel. Pre-test
+state, input/IRQ enumeration, dmesg and power-supply data were saved.
+
+The first bootloader entry reported product zeus, but slot queries failed,
+then other variables became unavailable. No partitions were written in
+that state. A bootloader restart restored product zeus, current-slot a and
+is-userspace no; all three were verified before proceeding. Each approved
+boot_a, vendor_boot_a, dtbo_a and recovery_a write returned OKAY, as did
+reboot recovery. Slot b, DLKM and userdata were not written.
+
+Recovery ADB did not return within the initial 35-second wait. Later USB
+discovery found neither ADB, Fastboot nor a Qualcomm endpoint. Screen state
+is awaiting the user's observation. There is no post-test kernel log yet,
+so a kernel panic, a startup hang and a USB-only failure are not distinguished.
+Touch, corrected live supply voltage, ADSP and charging are not verified
+for this candidate. No rollback or additional write has occurred.
+
+Evidence and full flash transcript are under
+out/waipio-zeus/evidence/attempt-5 with SHA256.json. The initial failure to
+return ADB is recorded in result.json. Previous attempts and the working
+5.10 baseline remain separate; this result supersedes the candidate's
+earlier undeployed status. Further diagnosis requires device observation
+and recovery of logs; no subsystem is disabled to bypass the failure.

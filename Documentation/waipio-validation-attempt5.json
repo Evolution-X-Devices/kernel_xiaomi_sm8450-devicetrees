@@ -408,5 +408,5 @@
       "mayfly-sm8475-pm8008-overlay.dtbo"
     ]
   },
-  "deployment_status": "Not deployed. Specific four-partition recovery approval pending."
+  "deployment_status": "Deployed after explicit approval; all four approved writes succeeded. Recovery ADB absent; screen/log evidence pending. See zeus-test-report.rst."
 }
