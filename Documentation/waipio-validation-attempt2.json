@@ -1,0 +1,196 @@
+{
+  "recovery": {
+    "modules": 261,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "vendor_dlkm_ramdisk": {
+    "modules": 348,
+    "all_dependencies_present": true,
+    "both_ufs_phys_loaded": true
+  },
+  "dtbs": [
+    {
+      "model": "Qualcomm Technologies, Inc. Cape SoC",
+      "soc_ids": [
+        530,
+        65536
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio v2 SoC",
+      "soc_ids": [
+        457,
+        131072
+      ]
+    },
+    {
+      "model": "Qualcomm Technologies, Inc. Waipio SoC",
+      "soc_ids": [
+        457,
+        65536
+      ]
+    }
+  ],
+  "dtbos": [
+    {
+      "model": "Cupid based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Diting based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mayfly based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Mondrian based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "thor based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Unicorn based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    },
+    {
+      "model": "Zeus based on Qualcomm Technologies, Inc SM8450",
+      "soc_ids": [
+        457,
+        65536,
+        457,
+        131072
+      ],
+      "board_ids": [
+        65544,
+        0,
+        50397192,
+        3
+      ]
+    },
+    {
+      "model": "Zizhan based on Qualcomm Technologies, Inc SM8475",
+      "soc_ids": [
+        530,
+        65536,
+        531,
+        65536,
+        540,
+        65536
+      ],
+      "board_ids": [
+        65544,
+        0
+      ]
+    }
+  ],
+  "images": {
+    "boot.img": {
+      "size": 201326592,
+      "sha256": "e869d70340a2636f5c6b1fd9cd9aab9625e1e3f789dd1e20bb1af4ba117b3cae"
+    },
+    "vendor_boot.img": {
+      "size": 100663296,
+      "sha256": "8d2799b5f71989c8f564b0cf32446d1cf31d2c51b6b24277825a13ae95ef7a71"
+    },
+    "recovery.img": {
+      "size": 104857600,
+      "sha256": "d5ce4cc1f91f3ac3cdd9ab1ecd40b06914b585608741b052407c02a8a96eee74"
+    },
+    "dtbo.img": {
+      "size": 25165824,
+      "sha256": "4a43728501b39ef54cca35b8160bd2ecb28365581e86645c86130fd041facabb"
+    },
+    "vendor_dlkm.img": {
+      "size": 71454720,
+      "sha256": "aa837e661a088f7e7e6d8ab8cecf3e84abd3a51b9cb942ba914019187b362278"
+    },
+    "system_dlkm.img": {
+      "size": 11653120,
+      "sha256": "cdedc4f5f4d7d2fa7607757a3eeb225ced30ff8b9286d514335c3a3fb2a50805"
+    }
+  },
+  "binding_checks": {
+    "display_rpmh_parent": true,
+    "usb_bam_register_cells": true,
+    "matching_overlay_applications": 10
+  },
+  "system_dlkm": {
+    "module_count": 79,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  },
+  "vendor_dlkm": {
+    "module_count": 361,
+    "all_modules_match_staging": true,
+    "all_dependencies_present": true
+  }
+}

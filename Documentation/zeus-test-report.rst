@@ -78,3 +78,21 @@ Unverified: UI/touch operation, charging/thermal, complete DSP startup,
 audio, sensors, WLAN, Bluetooth, modem, GPU, camera, video and suspend/stability.
 Cupid and Cape runtime remain unverified. The phone is left in the working
 baseline recovery. No second deployment has been authorized or performed.
+
+Prepared retry
+---------------
+
+The display RSC parent fix is 7d9bb1a98, and the USB BAM register encoding
+fix is 17e54d169. Semantic checks reject the saved pre-fix DTs and pass all
+ten corrected Waipio/Cape combinations. The final Zeus kernel/external
+module build and all six image targets pass. Checks on DTBs extracted from
+the actual vendor_boot image confirm both corrected bindings. Ramdisk
+module dependencies and both DLKM images pass packaging checks.
+
+The immutable retry images are in out/waipio-zeus/attempt2-images, with
+SHA256SUMS, packaging-report.json and TEST-PLAN.txt. Their hashes and checks
+are also recorded in waipio-validation-attempt2.json. Attempt-1 artifacts
+and crash evidence remain preserved separately. The retry proposes the
+same four slot-a partitions and recovery boot, using these new images;
+it requires explicit approval. Until then the phone remains in restored
+5.10 recovery, and the fixes have no new hardware validation claim.
