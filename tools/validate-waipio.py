@@ -18,6 +18,7 @@ parser.add_argument('--out', type=Path, required=True)
 parser.add_argument('--clang', default=str(platform/'prebuilts/clang/host/linux-x86/clang-r510928/bin/clang'))
 parser.add_argument('--dtc', default=str(root/'out/host/linux-x86/bin/dtc'))
 parser.add_argument('--fdtoverlay', default=str(root/'out/host/linux-x86/bin/fdtoverlay'))
+parser.add_argument('--adsp-metadata', type=Path, help='Optional installed adsp.mdt for carveout size checks')
 args = parser.parse_args()
 out = args.out.resolve()
 out.mkdir(parents=True, exist_ok=True)
@@ -53,7 +54,25 @@ def build(name):
     return name, process.returncode, diagnostics[-2500:] if process.returncode else ''
 
 
-def check_bindings(path):
+def firmware_span(path):
+    data = path.read_bytes()
+    if data[:6] != b'\x7fELF\x01\x01':
+        raise ValueError(f'{path}: expected little-endian ELF32 metadata')
+    offset = struct.unpack_from('<I', data, 28)[0]
+    entry_size, count = struct.unpack_from('<HH', data, 42)
+    ranges = []
+    for index in range(count):
+        kind, _, _, address, _, size, flags, _ = struct.unpack_from(
+            '<8I', data, offset + index * entry_size)
+        # Qualcomm MDT hash segments are not part of the remote image.
+        if kind == 1 and size and (flags >> 24) & 7 != 2:
+            ranges.append((address & ~4095, (address + size + 4095) & ~4095))
+    if not ranges:
+        raise ValueError(f'{path}: no loadable image segments')
+    return max(end for start, end in ranges) - min(start for start, end in ranges)
+
+
+def check_bindings(path, adsp_span=None):
     data = path.read_bytes()
     offset, strings = struct.unpack_from('>II', data, 8)
     stack = []
@@ -82,6 +101,8 @@ def check_bindings(path):
         else:
             raise ValueError(f'{path}: invalid FDT token {token}')
 
+    phandles = {int.from_bytes(properties['phandle'], 'big'): properties
+                for properties in nodes.values() if 'phandle' in properties}
     for name, properties in nodes.items():
         compatible = properties.get('compatible', b'').split(b'\0')
         parent = nodes.get(name.rpartition('/')[0], {})
@@ -96,6 +117,12 @@ def check_bindings(path):
             registers = properties.get('reg', b'')
             if not stride or not registers or len(registers) % stride:
                 raise ValueError(f'{path}: {name} has an invalid MMIO register encoding')
+        if adsp_span is not None and b'qcom,waipio-adsp-pas' in compatible:
+            handle = int.from_bytes(properties['memory-region'][:4], 'big')
+            region = phandles[handle]
+            _, _, high, low = struct.unpack('>4I', region['reg'])
+            if (high << 32 | low) < adsp_span:
+                raise ValueError(f'{path}: {name} carveout is smaller than the ADSP image')
 
 
 waipio_boards = ['zeus', 'cupid']
@@ -112,6 +139,7 @@ for name, status, error in concurrent.futures.ThreadPoolExecutor().map(build, na
 if failed:
     sys.exit(1)
 results = []
+adsp_span = firmware_span(args.adsp_metadata) if args.adsp_metadata else None
 for base in ['waipio', 'waipio-v2', 'cape']:
     boards = waipio_boards if base != 'cape' else cape_boards
     for board in boards:
@@ -124,7 +152,7 @@ for base in ['waipio', 'waipio-v2', 'cape']:
         binding_error = ''
         if not proc.returncode:
             try:
-                check_bindings(combined)
+                check_bindings(combined, adsp_span)
             except ValueError as error:
                 binding_error = str(error)
                 print(binding_error)
