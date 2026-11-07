@@ -528,7 +528,8 @@
     "qca6490_firmware_prefix_in_vendor_image": "/vendor/firmware_mnt/image",
     "waipio_snapalloc_selection_in_final_vendor_image": "4fa5eefd1699ce5342900d55b1af2984611620b9263264b0dff461b6e58dd90f"
   },
-  "deployment": "Validated; cold-boot installation under standing authorization is next.",
+  "deployment": "Installed successfully; independent cold boot completed at 2026-11-07T21:31:10 UTC, uptime 35.71 seconds.",
   "previous_success": "zeus-system-attempt-4.json",
-  "limitations": "Current full boot used live fixes. Permanent-image cold boot and remaining subsystem tests are pending."
+  "limitations": "User-confirmed core multimedia works. NFC module integration is being corrected; suspend/stability and Cupid/Cape runtime remain pending.",
+  "runtime_report": "zeus-system-attempt-5.json"
 }

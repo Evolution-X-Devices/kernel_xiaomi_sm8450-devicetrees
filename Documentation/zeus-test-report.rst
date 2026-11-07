@@ -773,3 +773,58 @@ trial authorization the next operation returns through protected recovery A
 and installs the frozen full build on B, requiring snapshot state none and
 preserving the known physical A recovery images. Permanent-image boot and
 remaining subsystem tests are pending.
+
+System attempt 5: independent boot and multimedia validation
+-----------------------------------------------------------
+
+The frozen OTA installed successfully at 2026-11-07 21:30:28 UTC (eat exit 0).
+Independent startup reached boot_completed=1 at 21:31:10 UTC, uptime 35.71 s,
+with the new g254ca128bb95 kernel on B. No live module swap or graphics
+property edits were used. All four installed B physical image hashes match
+the frozen candidate-5 images. The mapper module matches its known hash,
+all four auxiliary devices bind, and the sound card registers at 14.77 s.
+SurfaceFlinger reports Adreno730/OpenGL ES3.2; 81 hardware sensors enumerate.
+All four remoteprocs run. The watchdog is enabled and initial battery
+telemetry is charging at about 35 C. Raw identity, kernel/Android logs,
+pstore listing and service snapshots are under the attempt-5 evidence path.
+
+The user confirmed audio playback, camera preview, automatic rotation,
+Bluetooth audio, video recording and playback. System display/touch were
+confirmed on the preceding successful boot. Wi-Fi associates and exchanges
+packets; network identifiers remain in local evidence only. Both SIM slots
+are absent, so cellular registration, calls and data are not verified.
+Camera enumeration alone is distinct from the user-confirmed media tests.
+
+The user separately reported NFC broken. The existing NXP driver matches
+the DT's qcom,sn-nci compatible and named GPIO/supply properties, but had no
+Waipio DDK target, no entry in the platform external-module group and no
+vendor load entry. The actual /dev/nq-nci and I2C driver are absent. Commits
+9bc286b47dc, 22a58c4 and 61b31369 enable/package/load that existing driver;
+no extra driver source import is needed. The module compiles successfully;
+live initialization/tag testing and a complete image build are pending.
+Suspend/resume, reboot and sustained stability also remain pending. An
+SPMI version-read warning at SID 5/address 0x104 remains recorded; its effect
+and presence on the original 5.10 baseline need further comparison. Optional
+ADSP sensor/ois PDR lookups fail because the installed service descriptors
+do not advertise those domains; SLPI supplies the observed sensor set.
+Cupid and Cape runtime remain explicitly unverified.
+
+NFC live validation
+--------------------
+
+The existing NXP module compiled successfully, first unstamped and then
+with the installed kernel's stamping settings. The stamped build passed in
+158.220 seconds; its exact release/vermagic matches g254ca128bb95. Frozen
+module SHA256 is 31aad2a10f01895c23a949c106413540ba1362711fe5e92719bf47fcc504fcb2.
+Normal insmod from /dev tmpfs bound I2C 9-0028, resolved the named GPIOs,
+registered IRQ 367 and reported a successful NFC probe. /dev/nq-nci was
+created with mode 0660, nfc ownership and nfc_device label. Restarting the
+NXP HAL allowed NFC to initialize to mState=on. The user confirmed NFC
+interaction powers on the headphones. No forced loading, new driver code,
+firmware replacement or partition write was used for this live test.
+The build/load changes are being integrated into complete candidate 6.
+
+The user also confirmed Bluetooth audio, camera video recording and video
+playback. A physical USB-disconnect/screen-off suspend test is in progress,
+with boot ID and suspend counters saved first. Permanent NFC-image testing,
+suspend results and sustained stability remain pending at this checkpoint.
