@@ -234,7 +234,8 @@
 
 
 &L9C {
-	regulator-min-microvolt = <3224000>;
+	/* The 6.6 goodix_berlin driver requests 3.2 V for avdd on power on */
+	regulator-min-microvolt = <3200000>;
 	regulator-max-microvolt = <3224000>;
 	qcom,init-voltage = <3224000>;
 };
