@@ -544,3 +544,14 @@
 &ufshc_mem {
 	qcom,iommu-dma = "bypass";
 };
+
+/* Ukee has no PMR735B: SID 5 does not answer (transaction failed) */
+&spmi_bus {
+	qcom,pmr735b@5 {
+		status = "disabled";
+	};
+};
+
+&pmr735b_temp_alarm {
+	status = "disabled";
+};
