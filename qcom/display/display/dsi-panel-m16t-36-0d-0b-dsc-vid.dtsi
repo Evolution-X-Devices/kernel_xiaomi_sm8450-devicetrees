@@ -123,6 +123,8 @@ qcom,mdss-dsi-display-timings {
 };
 &dsi_m16t_36_0d_0b_dsc_vid {
 	mi,dsc-rc-profile = "nt37801";
+	/* bootloader programs widebus DSC 10 bpc with bytes/3 pclk per line */
+	mi,dsc-legacy-widebus-pclk;
 	mi,panel-on-dimming-delay = <120>;
 	/* AOD CONFIG*/
 	mi,doze-hbm-dbv-level = <245>;
