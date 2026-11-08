@@ -277,8 +277,9 @@
 	status = "disabled";
 };
 
-&ssc_sensors {
-	qcom,firmware-name = "slpi2.mdt";
+&slpi_pas {
+	/* sensors_ssc boots this rproc, which loads its own firmware-name */
+	firmware-name = "slpi2.mdt";
 };
 
 &soc {
