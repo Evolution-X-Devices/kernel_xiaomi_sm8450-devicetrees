@@ -56,6 +56,8 @@
 		bcl_soc:bcl-soc {
 			compatible = "qcom,msm-bcl-soc";
 			#thermal-sensor-cells = <0>;
+			/* Its only thermal zone (socd) is disabled */
+			status = "disabled";
 		};
 
 		pm8350b_haptics: qcom,hv-haptics@f000 {
@@ -363,6 +365,12 @@
 	};
 
 	socd {
+		/*
+		 * Since 6.6, a thermal zone without thermal-sensors makes
+		 * of_thermal_zone_find() fail with -EINVAL for all the sensors
+		 * whose zone comes after it (pmr735a, pm8450 temp-alarm, bcl).
+		 */
+		status = "disabled";
 		polling-delay-passive = <100>;
 		polling-delay = <0>;
 		//thermal-sensors = <&bcl_soc>;
