@@ -18,7 +18,7 @@
 	#size-cells = <0>;
 	status = "ok";
 
-	pm8008i@8 {
+	pm8008i_8: pm8008i@8 {
 		compatible = "qcom,i2c-pmic";
 		reg = <0x8>;
 		#address-cells = <1>;
@@ -42,7 +42,7 @@
 		};
 	};
 
-	pm8008i@9 {
+	pm8008i_9: pm8008i@9 {
 		compatible = "qcom,i2c-pmic";
 		reg = <0x9>;
 		#address-cells = <1>;

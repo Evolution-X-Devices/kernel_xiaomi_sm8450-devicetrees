@@ -50,3 +50,16 @@
 	regulator-min-microvolt = <2800000>;
 	regulator-max-microvolt = <2800000>;
 };
+
+/*
+ * Marble has no PM8008I: nothing answers at 0x8 (-ENOTCONN) and the stock DT
+ * has no consumer for its regulators. Leaving it on keeps pm8008i-regulator
+ * deferred, which blocks sync_state of the RPMh regulators it is supplied by.
+ */
+&pm8008i_8 {
+	status = "disabled";
+};
+
+&pm8008i_9 {
+	status = "disabled";
+};
